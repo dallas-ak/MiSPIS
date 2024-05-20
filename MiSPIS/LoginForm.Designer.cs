@@ -1,6 +1,6 @@
 ﻿namespace MiSPIS
 {
-    partial class Form1
+    partial class LoginForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -30,8 +30,8 @@
         {
             this.labelUser = new System.Windows.Forms.Label();
             this.labelPassword = new System.Windows.Forms.Label();
-            this.textBoxUser = new System.Windows.Forms.TextBox();
-            this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.loginField = new System.Windows.Forms.TextBox();
+            this.passwordField = new System.Windows.Forms.TextBox();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -43,7 +43,6 @@
             this.labelUser.Size = new System.Drawing.Size(80, 13);
             this.labelUser.TabIndex = 0;
             this.labelUser.Text = "Пользователь";
-            this.labelUser.Click += new System.EventHandler(this.label1_Click);
             // 
             // labelPassword
             // 
@@ -54,19 +53,23 @@
             this.labelPassword.TabIndex = 1;
             this.labelPassword.Text = "Пароль";
             // 
-            // textBoxUser
+            // loginField
             // 
-            this.textBoxUser.Location = new System.Drawing.Point(142, 33);
-            this.textBoxUser.Name = "textBoxUser";
-            this.textBoxUser.Size = new System.Drawing.Size(174, 20);
-            this.textBoxUser.TabIndex = 2;
+            this.loginField.Location = new System.Drawing.Point(142, 33);
+            this.loginField.MaxLength = 20;
+            this.loginField.Name = "loginField";
+            this.loginField.Size = new System.Drawing.Size(174, 20);
+            this.loginField.TabIndex = 2;
             // 
-            // textBoxPassword
+            // passwordField
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(142, 68);
-            this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(174, 20);
-            this.textBoxPassword.TabIndex = 3;
+            this.passwordField.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.passwordField.Location = new System.Drawing.Point(142, 68);
+            this.passwordField.MaxLength = 12;
+            this.passwordField.Name = "passwordField";
+            this.passwordField.PasswordChar = '*';
+            this.passwordField.Size = new System.Drawing.Size(174, 20);
+            this.passwordField.TabIndex = 3;
             // 
             // buttonLogin
             // 
@@ -76,18 +79,19 @@
             this.buttonLogin.TabIndex = 4;
             this.buttonLogin.Text = "Войти";
             this.buttonLogin.UseVisualStyleBackColor = true;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
-            // Form1
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 161);
             this.Controls.Add(this.buttonLogin);
-            this.Controls.Add(this.textBoxPassword);
-            this.Controls.Add(this.textBoxUser);
+            this.Controls.Add(this.passwordField);
+            this.Controls.Add(this.loginField);
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.labelUser);
-            this.Name = "Form1";
+            this.Name = "LoginForm";
             this.Text = "RingCell Login";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -98,9 +102,10 @@
 
         private System.Windows.Forms.Label labelUser;
         private System.Windows.Forms.Label labelPassword;
-        private System.Windows.Forms.TextBox textBoxUser;
-        private System.Windows.Forms.TextBox textBoxPassword;
+        private System.Windows.Forms.TextBox loginField;
+        private System.Windows.Forms.TextBox passwordField;
         private System.Windows.Forms.Button buttonLogin;
+
     }
 }
 

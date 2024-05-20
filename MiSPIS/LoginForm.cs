@@ -10,14 +10,18 @@ using System.Windows.Forms;
 
 namespace MiSPIS
 {
-    public partial class Form1 : Form
+    public partial class LoginForm : Form
     {
-        public Form1()
+        public LoginForm()
         {
             InitializeComponent();
         }
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
 
-        private void label1_Click(object sender, EventArgs e)
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
