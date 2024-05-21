@@ -41,7 +41,7 @@
             this.labelUser.Location = new System.Drawing.Point(33, 36);
             this.labelUser.Name = "labelUser";
             this.labelUser.Size = new System.Drawing.Size(80, 13);
-            this.labelUser.TabIndex = 1;
+            this.labelUser.TabIndex = 0;
             this.labelUser.Text = "Пользователь";
             this.labelUser.Click += new System.EventHandler(this.labelUser_Click);
             // 
@@ -51,7 +51,7 @@
             this.labelPassword.Location = new System.Drawing.Point(33, 71);
             this.labelPassword.Name = "labelPassword";
             this.labelPassword.Size = new System.Drawing.Size(45, 13);
-            this.labelPassword.TabIndex = 3;
+            this.labelPassword.TabIndex = 1;
             this.labelPassword.Text = "Пароль";
             this.labelPassword.Click += new System.EventHandler(this.labelPassword_Click);
             // 
@@ -72,7 +72,7 @@
             this.passwordField.Name = "passwordField";
             this.passwordField.PasswordChar = '*';
             this.passwordField.Size = new System.Drawing.Size(174, 20);
-            this.passwordField.TabIndex = 4;
+            this.passwordField.TabIndex = 3;
             this.passwordField.TextChanged += new System.EventHandler(this.passwordField_TextChanged);
             // 
             // buttonLogin
@@ -80,7 +80,7 @@
             this.buttonLogin.Location = new System.Drawing.Point(142, 111);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(92, 23);
-            this.buttonLogin.TabIndex = 0;
+            this.buttonLogin.TabIndex = 4;
             this.buttonLogin.Text = "Войти";
             this.buttonLogin.UseVisualStyleBackColor = true;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
