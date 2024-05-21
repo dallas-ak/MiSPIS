@@ -37,35 +37,42 @@ namespace MiSPIS
             adapter.Fill(table); // заносим полученные данные в table
 
             if (table.Rows.Count > 0) // проверка сколько записей соответсвует введому логину и паролю
-                MessageBox.Show("Yes");
+            {
+                this.Hide();
+                MainForm mainForm = new MainForm();
+                mainForm.Show();
+            }
             else
                 MessageBox.Show("No");
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-
+        private void RegisterLabel_Click(object sender, EventArgs e)
+        {       
+            this.Hide();
+            RegisterForm registerForm = new RegisterForm();
+            registerForm.Show();
         }
 
-        private void loginField_TextChanged(object sender, EventArgs e)
+        Point lastPoint;
+        private void LoginForm_MouseMove(object sender, MouseEventArgs e)
         {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastPoint.X;
+                this.Top += e.Y - lastPoint.Y;
 
+            }
         }
 
-        private void passwordField_TextChanged(object sender, EventArgs e)
+        private void LoginForm_MouseDown(object sender, MouseEventArgs e)
         {
-
+            lastPoint = new Point(e.X, e.Y);
         }
 
-        private void labelPassword_Click(object sender, EventArgs e)
+        private void buttonClose_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void labelUser_Click(object sender, EventArgs e)
-        {
-
+            Application.Exit();
         }
     }
-    }
+}
 

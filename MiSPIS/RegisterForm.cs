@@ -104,6 +104,28 @@ namespace MiSPIS
             }
         }
 
+        Point lastPoint;
+        private void RegisterForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastPoint.X;
+                this.Top += e.Y - lastPoint.Y;
+
+            }
+        }
+
+        private void RegisterForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastPoint = new Point(e.X, e.Y);
+        }
+
+        private void buttonClose_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
@@ -155,14 +177,14 @@ namespace MiSPIS
         public Boolean isUserExists()
         {
             DB db = new DB();
-            
+
             DataTable table = new DataTable();
 
             MySqlDataAdapter adapter = new MySqlDataAdapter();
 
             MySqlCommand command = new MySqlCommand("SELECT * FROM `users` WHERE `login` = @uL", db.getConnection());
             command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = loginField.Text; // проверкавведеного логина на наличие в БД
-                
+
             adapter.SelectCommand = command;
             adapter.Fill(table);
 
@@ -176,6 +198,12 @@ namespace MiSPIS
                 return false;
         }
 
-
+        private void AuthorizationLabel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+        }
     }
+
 }
