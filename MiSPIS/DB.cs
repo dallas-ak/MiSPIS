@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace MiSPIS
 {
-    internal class DB
+    class DB
     {
-        MySqlConnection connection new MySqlConnection("server=localhost;port=3306;username=root;password=root;datedase=MiSPIS")
+        MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=MiSPIS");
 
-        public void openConnection()
+        public void OpenConnection()
         {
             if (connection.State == System.Data.ConnectionState.Closed)
                 connection.Open();

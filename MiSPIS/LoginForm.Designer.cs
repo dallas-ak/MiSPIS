@@ -40,7 +40,7 @@
             this.labelUser.AutoSize = true;
             this.labelUser.Location = new System.Drawing.Point(33, 36);
             this.labelUser.Name = "labelUser";
-            this.labelUser.Size = new System.Drawing.Size(80, 13);
+            this.labelUser.Size = new System.Drawing.Size(92, 15);
             this.labelUser.TabIndex = 0;
             this.labelUser.Text = "Пользователь";
             // 
@@ -49,7 +49,7 @@
             this.labelPassword.AutoSize = true;
             this.labelPassword.Location = new System.Drawing.Point(33, 71);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(45, 13);
+            this.labelPassword.Size = new System.Drawing.Size(51, 15);
             this.labelPassword.TabIndex = 1;
             this.labelPassword.Text = "Пароль";
             // 
