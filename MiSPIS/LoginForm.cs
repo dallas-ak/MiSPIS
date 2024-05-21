@@ -41,6 +41,31 @@ namespace MiSPIS
             else
                 MessageBox.Show("No");
         }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void loginField_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void passwordField_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelUser_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     }
 
