@@ -32,11 +32,10 @@ namespace MiSPIS
             lastPoint = new Point(e.X, e.Y);
         }
 
-        private void buttonClose_Click(object sender, EventArgs e)
+        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
     }
 }
 
