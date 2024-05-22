@@ -28,6 +28,7 @@ namespace MiSPIS
             loginField.ForeColor = Color.Gray;
             passwordField.Text = "Введите пароль";
             passwordField.ForeColor = Color.Gray;
+            passwordField.UseSystemPasswordChar = true;
         }
 
         private void userNameField_Enter(object sender, EventArgs e)
@@ -203,6 +204,18 @@ namespace MiSPIS
             this.Hide();
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+        }
+
+        private void ShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ShowPassword.Checked)
+            {
+                passwordField.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                passwordField.UseSystemPasswordChar = true;
+            }
         }
     }
 

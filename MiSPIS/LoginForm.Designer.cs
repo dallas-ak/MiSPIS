@@ -36,6 +36,7 @@
             this.RegisterLabel = new System.Windows.Forms.Label();
             this.labelAuthorization = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.ShowPassword = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // labelUser
@@ -76,7 +77,6 @@
             this.passwordField.Margin = new System.Windows.Forms.Padding(6);
             this.passwordField.MaxLength = 12;
             this.passwordField.Name = "passwordField";
-            this.passwordField.PasswordChar = '*';
             this.passwordField.Size = new System.Drawing.Size(344, 34);
             this.passwordField.TabIndex = 3;
             // 
@@ -104,12 +104,12 @@
             this.RegisterLabel.AutoSize = true;
             this.RegisterLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RegisterLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RegisterLabel.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RegisterLabel.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RegisterLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.RegisterLabel.Location = new System.Drawing.Point(244, 273);
+            this.RegisterLabel.Location = new System.Drawing.Point(250, 274);
             this.RegisterLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.RegisterLabel.Name = "RegisterLabel";
-            this.RegisterLabel.Size = new System.Drawing.Size(107, 18);
+            this.RegisterLabel.Size = new System.Drawing.Size(99, 17);
             this.RegisterLabel.TabIndex = 5;
             this.RegisterLabel.Text = "Создать аккаунт";
             this.RegisterLabel.Click += new System.EventHandler(this.RegisterLabel_Click);
@@ -142,12 +142,25 @@
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
+            // ShowPassword
+            // 
+            this.ShowPassword.AutoSize = true;
+            this.ShowPassword.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ShowPassword.Location = new System.Drawing.Point(385, 183);
+            this.ShowPassword.Name = "ShowPassword";
+            this.ShowPassword.Size = new System.Drawing.Size(125, 21);
+            this.ShowPassword.TabIndex = 8;
+            this.ShowPassword.Text = "Показать пароль";
+            this.ShowPassword.UseVisualStyleBackColor = true;
+            this.ShowPassword.CheckedChanged += new System.EventHandler(this.ShowPassword_CheckedChanged);
+            // 
             // LoginForm
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 300);
+            this.Controls.Add(this.ShowPassword);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.labelAuthorization);
             this.Controls.Add(this.RegisterLabel);
@@ -179,6 +192,7 @@
         private System.Windows.Forms.Label RegisterLabel;
         private System.Windows.Forms.Label labelAuthorization;
         private System.Windows.Forms.Button buttonClose;
+        private System.Windows.Forms.CheckBox ShowPassword;
     }
 }
 

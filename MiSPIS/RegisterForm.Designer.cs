@@ -36,6 +36,7 @@
             this.buttonClose = new System.Windows.Forms.Button();
             this.labelAuthorization = new System.Windows.Forms.Label();
             this.AuthorizationLabel = new System.Windows.Forms.Label();
+            this.ShowPassword = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // buttonLogin
@@ -150,12 +151,25 @@
             this.AuthorizationLabel.Text = "Авторизоваться";
             this.AuthorizationLabel.Click += new System.EventHandler(this.AuthorizationLabel_Click);
             // 
+            // ShowPassword
+            // 
+            this.ShowPassword.AutoSize = true;
+            this.ShowPassword.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ShowPassword.Location = new System.Drawing.Point(445, 179);
+            this.ShowPassword.Name = "ShowPassword";
+            this.ShowPassword.Size = new System.Drawing.Size(125, 21);
+            this.ShowPassword.TabIndex = 15;
+            this.ShowPassword.Text = "Показать пароль";
+            this.ShowPassword.UseVisualStyleBackColor = true;
+            this.ShowPassword.CheckedChanged += new System.EventHandler(this.ShowPassword_CheckedChanged);
+            // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.ClientSize = new System.Drawing.Size(600, 300);
+            this.Controls.Add(this.ShowPassword);
             this.Controls.Add(this.AuthorizationLabel);
             this.Controls.Add(this.labelAuthorization);
             this.Controls.Add(this.buttonClose);
@@ -185,5 +199,6 @@
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Label labelAuthorization;
         private System.Windows.Forms.Label AuthorizationLabel;
+        private System.Windows.Forms.CheckBox ShowPassword;
     }
 }

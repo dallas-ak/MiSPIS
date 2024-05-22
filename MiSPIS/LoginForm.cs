@@ -16,6 +16,7 @@ namespace MiSPIS
         public LoginForm()
         {
             InitializeComponent();
+            passwordField.UseSystemPasswordChar = true;
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -72,6 +73,18 @@ namespace MiSPIS
         private void buttonClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void ShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ShowPassword.Checked)
+            {
+                passwordField.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                passwordField.UseSystemPasswordChar = true;
+            }
         }
     }
 }
