@@ -1,6 +1,6 @@
 ﻿namespace MiSPIS.Forms
 {
-    partial class Ostatki
+    partial class OstatkiForm
     {
         /// <summary>
         /// Required designer variable.

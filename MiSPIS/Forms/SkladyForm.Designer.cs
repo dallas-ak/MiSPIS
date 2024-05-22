@@ -1,6 +1,6 @@
 ﻿namespace MiSPIS.Forms
 {
-    partial class Sklady
+    partial class SkladyForm
     {
         /// <summary>
         /// Required designer variable.

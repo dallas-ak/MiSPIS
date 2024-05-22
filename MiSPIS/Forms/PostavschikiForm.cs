@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MiSPIS.Forms
 {
-    public partial class Postavschiki : Form
+    public partial class PostavschikiForm : Form
     {
-        public Postavschiki()
+        public PostavschikiForm()
         {
             InitializeComponent();
         }

@@ -63,7 +63,6 @@ namespace MiSPIS
             {
                 this.Left += e.X - lastPoint.X;
                 this.Top += e.Y - lastPoint.Y;
-
             }
         }
 

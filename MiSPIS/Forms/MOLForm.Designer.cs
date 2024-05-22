@@ -1,6 +1,6 @@
 ﻿namespace MiSPIS.Forms
 {
-    partial class Prihod
+    partial class MOLForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // Prihod
+            // MOL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "Prihod";
-            this.Text = "Приход";
+            this.Name = "MOL";
+            this.Text = "Материально-ответственные лица";
             this.ResumeLayout(false);
 
         }

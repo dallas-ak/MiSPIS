@@ -67,35 +67,41 @@
   <ItemGroup>
     <Compile Include="Connection\DB.cs" />
     <Compile Include="Connection\md5.cs" />
-    <Compile Include="Forms\Materialy.cs">
+    <Compile Include="Forms\MaterialyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Materialy.Designer.cs">
-      <DependentUpon>Materialy.cs</DependentUpon>
+    <Compile Include="Forms\MaterialyForm.Designer.cs">
+      <DependentUpon>MaterialyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MOL.cs">
+    <Compile Include="Forms\MOLForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MOL.Designer.cs">
-      <DependentUpon>MOL.cs</DependentUpon>
+    <Compile Include="Forms\MOLForm.Designer.cs">
+      <DependentUpon>MOLForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Ostatki.cs">
+    <Compile Include="Forms\OstatkiForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Ostatki.Designer.cs">
-      <DependentUpon>Ostatki.cs</DependentUpon>
+    <Compile Include="Forms\OstatkiForm.Designer.cs">
+      <DependentUpon>OstatkiForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Postavschiki.cs">
+    <Compile Include="Forms\OtchetyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Postavschiki.Designer.cs">
-      <DependentUpon>Postavschiki.cs</DependentUpon>
+    <Compile Include="Forms\OtchetyForm.Designer.cs">
+      <DependentUpon>OtchetyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Rashod.cs">
+    <Compile Include="Forms\PostavschikiForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Rashod.Designer.cs">
-      <DependentUpon>Rashod.cs</DependentUpon>
+    <Compile Include="Forms\PostavschikiForm.Designer.cs">
+      <DependentUpon>PostavschikiForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RashodForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RashodForm.Designer.cs">
+      <DependentUpon>RashodForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
@@ -109,17 +115,17 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Prihod.cs">
+    <Compile Include="Forms\PrihodForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Prihod.Designer.cs">
-      <DependentUpon>Prihod.cs</DependentUpon>
+    <Compile Include="Forms\PrihodForm.Designer.cs">
+      <DependentUpon>PrihodForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Sklady.cs">
+    <Compile Include="Forms\SkladyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Sklady.Designer.cs">
-      <DependentUpon>Sklady.cs</DependentUpon>
+    <Compile Include="Forms\SkladyForm.Designer.cs">
+      <DependentUpon>SkladyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -129,20 +135,23 @@
     <Compile Include="Forms\RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\Materialy.resx">
-      <DependentUpon>Materialy.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MaterialyForm.resx">
+      <DependentUpon>MaterialyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MOL.resx">
-      <DependentUpon>MOL.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MOLForm.resx">
+      <DependentUpon>MOLForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Ostatki.resx">
-      <DependentUpon>Ostatki.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\OstatkiForm.resx">
+      <DependentUpon>OstatkiForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Postavschiki.resx">
-      <DependentUpon>Postavschiki.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\OtchetyForm.resx">
+      <DependentUpon>OtchetyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Rashod.resx">
-      <DependentUpon>Rashod.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\PostavschikiForm.resx">
+      <DependentUpon>PostavschikiForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RashodForm.resx">
+      <DependentUpon>RashodForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -150,11 +159,11 @@
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Prihod.resx">
-      <DependentUpon>Prihod.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\PrihodForm.resx">
+      <DependentUpon>PrihodForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Sklady.resx">
-      <DependentUpon>Sklady.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SkladyForm.resx">
+      <DependentUpon>SkladyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

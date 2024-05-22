@@ -1,6 +1,6 @@
 ﻿namespace MiSPIS.Forms
 {
-    partial class MOL
+    partial class OtchetyForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // MOL
+            // OtchetyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "MOL";
-            this.Text = "Материально-ответственные лица";
+            this.Name = "OtchetyForm";
+            this.Text = "Отчёты";
             this.ResumeLayout(false);
 
         }

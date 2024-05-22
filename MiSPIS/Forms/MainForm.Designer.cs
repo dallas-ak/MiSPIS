@@ -37,9 +37,9 @@
             this.MOLStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.OtchetyStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitStripMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonPrihod = new System.Windows.Forms.Button();
+            this.buttonRashod = new System.Windows.Forms.Button();
+            this.buttonOstatki = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -73,30 +73,35 @@
             this.SkladyStripMenu.Name = "SkladyStripMenu";
             this.SkladyStripMenu.Size = new System.Drawing.Size(144, 22);
             this.SkladyStripMenu.Text = "Склады";
+            this.SkladyStripMenu.Click += new System.EventHandler(this.SkladyStripMenu_Click);
             // 
             // MaterialyStripMenu
             // 
             this.MaterialyStripMenu.Name = "MaterialyStripMenu";
             this.MaterialyStripMenu.Size = new System.Drawing.Size(144, 22);
             this.MaterialyStripMenu.Text = "Материалы";
+            this.MaterialyStripMenu.Click += new System.EventHandler(this.MaterialyStripMenu_Click);
             // 
             // PostavschikiStripMenu
             // 
             this.PostavschikiStripMenu.Name = "PostavschikiStripMenu";
             this.PostavschikiStripMenu.Size = new System.Drawing.Size(144, 22);
             this.PostavschikiStripMenu.Text = "Поставщики";
+            this.PostavschikiStripMenu.Click += new System.EventHandler(this.PostavschikiStripMenu_Click);
             // 
             // MOLStripMenu
             // 
             this.MOLStripMenu.Name = "MOLStripMenu";
             this.MOLStripMenu.Size = new System.Drawing.Size(144, 22);
             this.MOLStripMenu.Text = "МОЛ";
+            this.MOLStripMenu.Click += new System.EventHandler(this.MOLStripMenu_Click);
             // 
             // OtchetyStripMenu
             // 
             this.OtchetyStripMenu.Name = "OtchetyStripMenu";
             this.OtchetyStripMenu.Size = new System.Drawing.Size(60, 20);
-            this.OtchetyStripMenu.Text = "Отчеты";
+            this.OtchetyStripMenu.Text = "Отчёты";
+            this.OtchetyStripMenu.Click += new System.EventHandler(this.OtchetyStripMenu_Click);
             // 
             // ExitStripMenu
             // 
@@ -105,32 +110,35 @@
             this.ExitStripMenu.Text = "Выход";
             this.ExitStripMenu.Click += new System.EventHandler(this.ExitStripMenu_Click);
             // 
-            // button1
+            // buttonPrihod
             // 
-            this.button1.Location = new System.Drawing.Point(20, 50);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(240, 60);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Приход";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonPrihod.Location = new System.Drawing.Point(20, 50);
+            this.buttonPrihod.Name = "buttonPrihod";
+            this.buttonPrihod.Size = new System.Drawing.Size(240, 60);
+            this.buttonPrihod.TabIndex = 1;
+            this.buttonPrihod.Text = "Приход";
+            this.buttonPrihod.UseVisualStyleBackColor = true;
+            this.buttonPrihod.Click += new System.EventHandler(this.buttonPrihod_Click);
             // 
-            // button2
+            // buttonRashod
             // 
-            this.button2.Location = new System.Drawing.Point(20, 135);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(240, 60);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Расход";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonRashod.Location = new System.Drawing.Point(20, 135);
+            this.buttonRashod.Name = "buttonRashod";
+            this.buttonRashod.Size = new System.Drawing.Size(240, 60);
+            this.buttonRashod.TabIndex = 3;
+            this.buttonRashod.Text = "Расход";
+            this.buttonRashod.UseVisualStyleBackColor = true;
+            this.buttonRashod.Click += new System.EventHandler(this.buttonRashod_Click);
             // 
-            // button3
+            // buttonOstatki
             // 
-            this.button3.Location = new System.Drawing.Point(20, 220);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(240, 60);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Текущие остатки";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonOstatki.Location = new System.Drawing.Point(20, 220);
+            this.buttonOstatki.Name = "buttonOstatki";
+            this.buttonOstatki.Size = new System.Drawing.Size(240, 60);
+            this.buttonOstatki.TabIndex = 4;
+            this.buttonOstatki.Text = "Текущие остатки";
+            this.buttonOstatki.UseVisualStyleBackColor = true;
+            this.buttonOstatki.Click += new System.EventHandler(this.buttonOstatki_Click);
             // 
             // pictureBox1
             // 
@@ -150,9 +158,9 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(572, 309);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonOstatki);
+            this.Controls.Add(this.buttonRashod);
+            this.Controls.Add(this.buttonPrihod);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MainMenuStrip = this.menuStrip1;
@@ -179,9 +187,9 @@
         private System.Windows.Forms.ToolStripMenuItem MOLStripMenu;
         private System.Windows.Forms.ToolStripMenuItem OtchetyStripMenu;
         private System.Windows.Forms.ToolStripMenuItem ExitStripMenu;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonPrihod;
+        private System.Windows.Forms.Button buttonRashod;
+        private System.Windows.Forms.Button buttonOstatki;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

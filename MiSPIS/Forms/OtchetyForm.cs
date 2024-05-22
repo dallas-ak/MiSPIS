@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MiSPIS.Forms
 {
-    public partial class Sklady : Form
+    public partial class OtchetyForm : Form
     {
-        public Sklady()
+        public OtchetyForm()
         {
             InitializeComponent();
         }

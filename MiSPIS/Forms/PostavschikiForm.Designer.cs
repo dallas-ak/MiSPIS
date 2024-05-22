@@ -1,6 +1,6 @@
 ﻿namespace MiSPIS.Forms
 {
-    partial class Materialy
+    partial class PostavschikiForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // Materialy
+            // Postavschiki
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "Materialy";
-            this.Text = "Материалы";
+            this.Name = "Postavschiki";
+            this.Text = "Поставщики";
             this.ResumeLayout(false);
 
         }

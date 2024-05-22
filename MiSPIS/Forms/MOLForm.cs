@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MiSPIS.Forms
 {
-    public partial class Rashod : Form
+    public partial class MOLForm : Form
     {
-        public Rashod()
+        public MOLForm()
         {
             InitializeComponent();
         }
