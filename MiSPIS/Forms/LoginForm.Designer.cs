@@ -156,6 +156,7 @@
             // 
             // LoginForm
             // 
+            this.AcceptButton = this.buttonLogin;
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

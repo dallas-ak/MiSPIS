@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using MiSPIS.Connection;
 
 namespace MiSPIS
 {
@@ -128,7 +129,7 @@ namespace MiSPIS
 
 
 
-        private void buttonLogin_Click(object sender, EventArgs e)
+        private void buttonRegister_Click(object sender, EventArgs e)
         {
             if (userNameField.Text == "Введите имя" || userNameField.Text == "" || userNameField.Text == " ")
             {
@@ -161,7 +162,7 @@ namespace MiSPIS
             MySqlCommand command = new MySqlCommand("INSERT INTO `users` (`login`, `pass`, `name`, `surname`) VALUES (@login, @pass, @name, @surname)", db.getConnection());
 
             command.Parameters.Add("@login", MySqlDbType.VarChar).Value = loginField.Text;
-            command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = passwordField.Text;
+            command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = md5.hashPassword(passwordField.Text);
             command.Parameters.Add("@name", MySqlDbType.VarChar).Value = userNameField.Text;
             command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = userSurnameField.Text;
 

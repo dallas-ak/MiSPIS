@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonLogin = new System.Windows.Forms.Button();
+            this.buttonRegister = new System.Windows.Forms.Button();
             this.passwordField = new System.Windows.Forms.TextBox();
             this.loginField = new System.Windows.Forms.TextBox();
             this.userNameField = new System.Windows.Forms.TextBox();
@@ -39,23 +39,23 @@
             this.ShowPassword = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
-            // buttonLogin
+            // buttonRegister
             // 
-            this.buttonLogin.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.buttonLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonLogin.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.buttonLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray;
-            this.buttonLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleGreen;
-            this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLogin.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonLogin.Location = new System.Drawing.Point(194, 205);
-            this.buttonLogin.Margin = new System.Windows.Forms.Padding(6);
-            this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(220, 40);
-            this.buttonLogin.TabIndex = 7;
-            this.buttonLogin.Text = "Зарегистрироваться";
-            this.buttonLogin.UseVisualStyleBackColor = false;
-            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
+            this.buttonRegister.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.buttonRegister.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonRegister.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.buttonRegister.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray;
+            this.buttonRegister.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleGreen;
+            this.buttonRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRegister.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonRegister.Location = new System.Drawing.Point(194, 205);
+            this.buttonRegister.Margin = new System.Windows.Forms.Padding(6);
+            this.buttonRegister.Name = "buttonRegister";
+            this.buttonRegister.Size = new System.Drawing.Size(220, 40);
+            this.buttonRegister.TabIndex = 7;
+            this.buttonRegister.Text = "Зарегистрироваться";
+            this.buttonRegister.UseVisualStyleBackColor = false;
+            this.buttonRegister.Click += new System.EventHandler(this.buttonRegister_Click);
             // 
             // passwordField
             // 
@@ -165,6 +165,7 @@
             // 
             // RegisterForm
             // 
+            this.AcceptButton = this.buttonRegister;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
@@ -175,7 +176,7 @@
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.userSurnameField);
             this.Controls.Add(this.userNameField);
-            this.Controls.Add(this.buttonLogin);
+            this.Controls.Add(this.buttonRegister);
             this.Controls.Add(this.passwordField);
             this.Controls.Add(this.loginField);
             this.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -191,7 +192,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonLogin;
+        private System.Windows.Forms.Button buttonRegister;
         private System.Windows.Forms.TextBox passwordField;
         private System.Windows.Forms.TextBox userNameField;
         private System.Windows.Forms.TextBox userSurnameField;

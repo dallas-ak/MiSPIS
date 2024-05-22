@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MiSPIS.Connection;
 
 namespace MiSPIS
 {
@@ -22,7 +23,7 @@ namespace MiSPIS
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             String loginUser = loginField.Text; // Получили введенный логин
-            String passUser = passwordField.Text; // Получили введенный пароль
+            String passUser = md5.hashPassword(passwordField.Text); // Получили введенный пароль
 
             DB db = new DB();
 
@@ -44,7 +45,8 @@ namespace MiSPIS
                 mainForm.Show();
             }
             else
-                MessageBox.Show("No");
+                MessageBox.Show("Печалька");
+            ;
         }
 
         private void RegisterLabel_Click(object sender, EventArgs e)
