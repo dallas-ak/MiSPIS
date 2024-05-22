@@ -46,7 +46,6 @@ namespace MiSPIS
             }
             else
                 MessageBox.Show("Печалька");
-            ;
         }
 
         private void RegisterLabel_Click(object sender, EventArgs e)
