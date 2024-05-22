@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.справочникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.складыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.материалыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.поставщикиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.мОЛToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SpravochnikiStripMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.SkladyStripMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.MaterialyStripMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.PostavschikiStripMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.MOLStripMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.OtchetyStripMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExitStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -48,66 +48,66 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.справочникиToolStripMenuItem,
-            this.отчетыToolStripMenuItem,
-            this.выходToolStripMenuItem});
+            this.SpravochnikiStripMenu,
+            this.OtchetyStripMenu,
+            this.ExitStripMenu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(572, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // справочникиToolStripMenuItem
+            // SpravochnikiStripMenu
             // 
-            this.справочникиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.складыToolStripMenuItem,
-            this.материалыToolStripMenuItem,
-            this.поставщикиToolStripMenuItem,
-            this.мОЛToolStripMenuItem});
-            this.справочникиToolStripMenuItem.Name = "справочникиToolStripMenuItem";
-            this.справочникиToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
-            this.справочникиToolStripMenuItem.Text = "Справочники";
+            this.SpravochnikiStripMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SkladyStripMenu,
+            this.MaterialyStripMenu,
+            this.PostavschikiStripMenu,
+            this.MOLStripMenu});
+            this.SpravochnikiStripMenu.Name = "SpravochnikiStripMenu";
+            this.SpravochnikiStripMenu.Size = new System.Drawing.Size(94, 20);
+            this.SpravochnikiStripMenu.Text = "Справочники";
             // 
-            // складыToolStripMenuItem
+            // SkladyStripMenu
             // 
-            this.складыToolStripMenuItem.Name = "складыToolStripMenuItem";
-            this.складыToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.складыToolStripMenuItem.Text = "Склады";
+            this.SkladyStripMenu.Name = "SkladyStripMenu";
+            this.SkladyStripMenu.Size = new System.Drawing.Size(144, 22);
+            this.SkladyStripMenu.Text = "Склады";
             // 
-            // материалыToolStripMenuItem
+            // MaterialyStripMenu
             // 
-            this.материалыToolStripMenuItem.Name = "материалыToolStripMenuItem";
-            this.материалыToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.материалыToolStripMenuItem.Text = "Материалы";
+            this.MaterialyStripMenu.Name = "MaterialyStripMenu";
+            this.MaterialyStripMenu.Size = new System.Drawing.Size(144, 22);
+            this.MaterialyStripMenu.Text = "Материалы";
             // 
-            // поставщикиToolStripMenuItem
+            // PostavschikiStripMenu
             // 
-            this.поставщикиToolStripMenuItem.Name = "поставщикиToolStripMenuItem";
-            this.поставщикиToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.поставщикиToolStripMenuItem.Text = "Поставщики";
+            this.PostavschikiStripMenu.Name = "PostavschikiStripMenu";
+            this.PostavschikiStripMenu.Size = new System.Drawing.Size(144, 22);
+            this.PostavschikiStripMenu.Text = "Поставщики";
             // 
-            // мОЛToolStripMenuItem
+            // MOLStripMenu
             // 
-            this.мОЛToolStripMenuItem.Name = "мОЛToolStripMenuItem";
-            this.мОЛToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.мОЛToolStripMenuItem.Text = "МОЛ";
+            this.MOLStripMenu.Name = "MOLStripMenu";
+            this.MOLStripMenu.Size = new System.Drawing.Size(144, 22);
+            this.MOLStripMenu.Text = "МОЛ";
             // 
-            // отчетыToolStripMenuItem
+            // OtchetyStripMenu
             // 
-            this.отчетыToolStripMenuItem.Name = "отчетыToolStripMenuItem";
-            this.отчетыToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.отчетыToolStripMenuItem.Text = "Отчеты";
+            this.OtchetyStripMenu.Name = "OtchetyStripMenu";
+            this.OtchetyStripMenu.Size = new System.Drawing.Size(60, 20);
+            this.OtchetyStripMenu.Text = "Отчеты";
             // 
-            // выходToolStripMenuItem
+            // ExitStripMenu
             // 
-            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.выходToolStripMenuItem.Text = "Выход";
-            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
+            this.ExitStripMenu.Name = "ExitStripMenu";
+            this.ExitStripMenu.Size = new System.Drawing.Size(54, 20);
+            this.ExitStripMenu.Text = "Выход";
+            this.ExitStripMenu.Click += new System.EventHandler(this.ExitStripMenu_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(15, 50);
+            this.button1.Location = new System.Drawing.Point(20, 50);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(240, 60);
             this.button1.TabIndex = 1;
@@ -116,7 +116,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(15, 135);
+            this.button2.Location = new System.Drawing.Point(20, 135);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(240, 60);
             this.button2.TabIndex = 3;
@@ -125,7 +125,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(15, 220);
+            this.button3.Location = new System.Drawing.Point(20, 220);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(240, 60);
             this.button3.TabIndex = 4;
@@ -172,13 +172,13 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem справочникиToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem складыToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem материалыToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem поставщикиToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem мОЛToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem отчетыToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SpravochnikiStripMenu;
+        private System.Windows.Forms.ToolStripMenuItem SkladyStripMenu;
+        private System.Windows.Forms.ToolStripMenuItem MaterialyStripMenu;
+        private System.Windows.Forms.ToolStripMenuItem PostavschikiStripMenu;
+        private System.Windows.Forms.ToolStripMenuItem MOLStripMenu;
+        private System.Windows.Forms.ToolStripMenuItem OtchetyStripMenu;
+        private System.Windows.Forms.ToolStripMenuItem ExitStripMenu;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
