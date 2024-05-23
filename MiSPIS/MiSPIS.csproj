@@ -65,8 +65,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddTypeSkladForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTypeSkladForm.Designer.cs">
+      <DependentUpon>AddTypeSkladForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Connection\DB.cs" />
     <Compile Include="Connection\md5.cs" />
+    <Compile Include="Forms\AddSkladForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddSkladForm.Designer.cs">
+      <DependentUpon>AddSkladForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MaterialyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +147,12 @@
     <Compile Include="Forms\RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddTypeSkladForm.resx">
+      <DependentUpon>AddTypeSkladForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddSkladForm.resx">
+      <DependentUpon>AddSkladForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MaterialyForm.resx">
       <DependentUpon>MaterialyForm.cs</DependentUpon>
     </EmbeddedResource>

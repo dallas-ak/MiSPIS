@@ -19,21 +19,6 @@ namespace MiSPIS
             InitializeComponent();
         }
 
-        Point lastPoint;
-        private void MainForm_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                this.Left += e.X - lastPoint.X;
-                this.Top += e.Y - lastPoint.Y;
-
-            }
-        }
-        private void MainForm_MouseDown(object sender, MouseEventArgs e)
-        {
-            lastPoint = new Point(e.X, e.Y);
-        }
-
         private void ExitStripMenu_Click(object sender, EventArgs e)
         {
             Application.Exit();

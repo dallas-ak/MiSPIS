@@ -17,7 +17,7 @@ namespace MiSPIS.Forms
         Existed,
         New,
         Modified,
-        Modifiednew,
+        ModifiedNew,
         Deleted,
     }
 
@@ -32,22 +32,24 @@ namespace MiSPIS.Forms
         {
             InitializeComponent();
         }
+
         private void CreateColumns()
         {
-            dataGridView1.Columns.Add("id", "id");
-            dataGridView1.Columns.Add("name", "Наименование");
+            dataGridView1.Columns.Add("storehouse_id", "Код");
+            dataGridView1.Columns.Add("storehouse_name", "Наименование");
+            dataGridView1.Columns.Add("storehouse_type", "Тип склада");
             dataGridView1.Columns.Add("IsNew", String.Empty);
         }
 
         private void ReadSingleRow(DataGridView dwg, IDataRecord record)
         {
-            dwg.Rows.Add(record.GetInt32(0), record.GetString(1), RowState.Modifiednew);
+            dwg.Rows.Add(record.GetInt32(0), record.GetString(1), record.GetString(2), RowState.ModifiedNew);
         }
 
         private void RefreshDataGrid(DataGridView dgw)
         {
             dgw.Rows.Clear();
-            string queryString = $"select * from sklady";
+            string queryString = $"select * from storehouse";
             MySqlCommand command = new MySqlCommand(queryString, db.getConnection());
             db.OpenConnection();
             MySqlDataReader reader = command.ExecuteReader();
@@ -64,5 +66,25 @@ namespace MiSPIS.Forms
             RefreshDataGrid(dataGridView1);
         }
 
+        private void toolStripAdd_Click(object sender, EventArgs e)
+        {
+            AddSkladForm addSkladForm = new AddSkladForm();
+            addSkladForm.Show();
+        }
+
+        private void toolStripChange_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripRefresh_Click(object sender, EventArgs e)
+        {
+            RefreshDataGrid(dataGridView1);
+        }
+
+        private void toolStripDelete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
