@@ -32,7 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxTypeSklad = new System.Windows.Forms.ComboBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripAddType = new System.Windows.Forms.ToolStripButton();
@@ -64,13 +64,13 @@
             this.textBox1.Size = new System.Drawing.Size(200, 20);
             this.textBox1.TabIndex = 4;
             // 
-            // comboBox1
+            // comboBoxTypeSklad
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(153, 78);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 21);
-            this.comboBox1.TabIndex = 6;
+            this.comboBoxTypeSklad.FormattingEnabled = true;
+            this.comboBoxTypeSklad.Location = new System.Drawing.Point(153, 78);
+            this.comboBoxTypeSklad.Name = "comboBoxTypeSklad";
+            this.comboBoxTypeSklad.Size = new System.Drawing.Size(200, 21);
+            this.comboBoxTypeSklad.TabIndex = 6;
             // 
             // buttonSave
             // 
@@ -108,7 +108,7 @@
             this.ClientSize = new System.Drawing.Size(384, 167);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxTypeSklad);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -116,6 +116,7 @@
             this.Name = "AddSkladForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавить склад";
+            this.Load += new System.EventHandler(this.AddSkladForm_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -128,7 +129,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxTypeSklad;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripAddType;
