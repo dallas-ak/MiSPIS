@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddSkladForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.nameSklad = new System.Windows.Forms.TextBox();
             this.comboBoxTypeSklad = new System.Windows.Forms.ComboBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -57,12 +57,12 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Тип склада";
             // 
-            // textBox1
+            // nameSklad
             // 
-            this.textBox1.Location = new System.Drawing.Point(153, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 20);
-            this.textBox1.TabIndex = 4;
+            this.nameSklad.Location = new System.Drawing.Point(153, 41);
+            this.nameSklad.Name = "nameSklad";
+            this.nameSklad.Size = new System.Drawing.Size(200, 20);
+            this.nameSklad.TabIndex = 4;
             // 
             // comboBoxTypeSklad
             // 
@@ -80,6 +80,7 @@
             this.buttonSave.TabIndex = 7;
             this.buttonSave.Text = "Сохранить";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // toolStrip1
             // 
@@ -109,7 +110,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.comboBoxTypeSklad);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.nameSklad);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -128,7 +129,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox nameSklad;
         private System.Windows.Forms.ComboBox comboBoxTypeSklad;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.ToolStrip toolStrip1;

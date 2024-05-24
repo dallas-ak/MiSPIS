@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace MiSPIS.Forms
 {
@@ -68,13 +69,14 @@ namespace MiSPIS.Forms
 
         private void toolStripAdd_Click(object sender, EventArgs e)
         {
+            this.Hide();
             AddSkladForm addSkladForm = new AddSkladForm();
             addSkladForm.Show();
         }
 
-        private void toolStripChange_Click(object sender, EventArgs e)
+        private void toolStripSave_Click(object sender, EventArgs e)
         {
-
+            Update();
         }
 
         private void toolStripRefresh_Click(object sender, EventArgs e)
@@ -82,9 +84,43 @@ namespace MiSPIS.Forms
             RefreshDataGrid(dataGridView1);
         }
 
+
+        private void DeleteRow()
+        {
+            int index = dataGridView1.CurrentCell.RowIndex;
+            dataGridView1.Rows[index].Visible = false;
+            if (dataGridView1.Rows[index].Cells[0].Value.ToString() == string.Empty)
+              {
+                 dataGridView1.Rows[index].Cells[3].Value = RowState.Deleted;
+                 return;
+              }
+            dataGridView1.Rows[index].Cells[3].Value = RowState.Deleted;
+        }
+
         private void toolStripDelete_Click(object sender, EventArgs e)
         {
-
+            DeleteRow();
         }
+
+        private void Update()
+        {
+            db.OpenConnection();
+
+            for (int index = 0; index < dataGridView1.Rows.Count; index++)
+            {
+                var rowState = (RowState)dataGridView1.Rows[index].Cells[3].Value;
+                if (rowState == RowState.Existed)
+                    continue;
+                if (rowState == RowState.Deleted)
+                {
+                    var id = Convert.ToInt32(dataGridView1.Rows[index].Cells[0].Value);
+                    var deleteQuery = $"delete from storehouse where storehouse_id = {id}";
+                    var command = new MySqlCommand(deleteQuery, db.getConnection());
+                    command.ExecuteNonQuery();
+                }
+            }
+            db.closeConnection();
+        }
+
     }
 }

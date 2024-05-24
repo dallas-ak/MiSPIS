@@ -32,9 +32,9 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripAdd = new System.Windows.Forms.ToolStripButton();
-            this.toolStripChange = new System.Windows.Forms.ToolStripButton();
             this.toolStripRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripDelete = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSave = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -42,7 +42,6 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -60,9 +59,9 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripAdd,
-            this.toolStripChange,
             this.toolStripRefresh,
-            this.toolStripDelete});
+            this.toolStripDelete,
+            this.toolStripSave});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(687, 25);
@@ -78,16 +77,6 @@
             this.toolStripAdd.Size = new System.Drawing.Size(23, 22);
             this.toolStripAdd.Text = "Добавить";
             this.toolStripAdd.Click += new System.EventHandler(this.toolStripAdd_Click);
-            // 
-            // toolStripChange
-            // 
-            this.toolStripChange.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripChange.Image = ((System.Drawing.Image)(resources.GetObject("toolStripChange.Image")));
-            this.toolStripChange.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripChange.Name = "toolStripChange";
-            this.toolStripChange.Size = new System.Drawing.Size(23, 22);
-            this.toolStripChange.Text = "Изменить";
-            this.toolStripChange.Click += new System.EventHandler(this.toolStripChange_Click);
             // 
             // toolStripRefresh
             // 
@@ -108,6 +97,16 @@
             this.toolStripDelete.Size = new System.Drawing.Size(23, 22);
             this.toolStripDelete.Text = "Удалить";
             this.toolStripDelete.Click += new System.EventHandler(this.toolStripDelete_Click);
+            // 
+            // toolStripSave
+            // 
+            this.toolStripSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSave.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSave.Image")));
+            this.toolStripSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSave.Name = "toolStripSave";
+            this.toolStripSave.Size = new System.Drawing.Size(23, 22);
+            this.toolStripSave.Text = "Сохранить";
+            this.toolStripSave.Click += new System.EventHandler(this.toolStripSave_Click);
             // 
             // SkladyForm
             // 
@@ -134,7 +133,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripAdd;
-        private System.Windows.Forms.ToolStripButton toolStripChange;
+        private System.Windows.Forms.ToolStripButton toolStripSave;
         private System.Windows.Forms.ToolStripButton toolStripDelete;
         private System.Windows.Forms.ToolStripButton toolStripRefresh;
     }
