@@ -36,47 +36,53 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripAddType = new System.Windows.Forms.ToolStripButton();
+            this.toolStripDeleteType = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 44);
+            this.label1.Location = new System.Drawing.Point(29, 54);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 13);
+            this.label1.Size = new System.Drawing.Size(147, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Наименоване склада";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 81);
+            this.label2.Location = new System.Drawing.Point(29, 100);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.Size = new System.Drawing.Size(81, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Тип склада";
             // 
             // nameSklad
             // 
-            this.nameSklad.Location = new System.Drawing.Point(153, 41);
+            this.nameSklad.Location = new System.Drawing.Point(204, 50);
+            this.nameSklad.Margin = new System.Windows.Forms.Padding(4);
             this.nameSklad.Name = "nameSklad";
-            this.nameSklad.Size = new System.Drawing.Size(200, 20);
+            this.nameSklad.Size = new System.Drawing.Size(265, 22);
             this.nameSklad.TabIndex = 4;
             // 
             // comboBoxTypeSklad
             // 
             this.comboBoxTypeSklad.FormattingEnabled = true;
-            this.comboBoxTypeSklad.Location = new System.Drawing.Point(153, 78);
+            this.comboBoxTypeSklad.Location = new System.Drawing.Point(204, 96);
+            this.comboBoxTypeSklad.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxTypeSklad.Name = "comboBoxTypeSklad";
-            this.comboBoxTypeSklad.Size = new System.Drawing.Size(200, 21);
+            this.comboBoxTypeSklad.Size = new System.Drawing.Size(265, 24);
             this.comboBoxTypeSklad.TabIndex = 6;
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(115, 117);
+            this.buttonSave.Location = new System.Drawing.Point(153, 144);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(151, 35);
+            this.buttonSave.Size = new System.Drawing.Size(201, 43);
             this.buttonSave.TabIndex = 7;
             this.buttonSave.Text = "Сохранить";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -84,29 +90,39 @@
             // 
             // toolStrip1
             // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripAddType});
+            this.toolStripAddType,
+            this.toolStripDeleteType});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(384, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(512, 27);
             this.toolStrip1.TabIndex = 8;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // toolStripAddType
             // 
-            this.toolStripAddType.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripAddType.Image = ((System.Drawing.Image)(resources.GetObject("toolStripAddType.Image")));
             this.toolStripAddType.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripAddType.Name = "toolStripAddType";
-            this.toolStripAddType.Size = new System.Drawing.Size(23, 22);
+            this.toolStripAddType.Size = new System.Drawing.Size(178, 24);
             this.toolStripAddType.Text = "Добавить тип склада";
             this.toolStripAddType.Click += new System.EventHandler(this.toolStripAddType_Click);
             // 
+            // toolStripDeleteType
+            // 
+            this.toolStripDeleteType.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDeleteType.Image")));
+            this.toolStripDeleteType.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDeleteType.Name = "toolStripDeleteType";
+            this.toolStripDeleteType.Size = new System.Drawing.Size(167, 24);
+            this.toolStripDeleteType.Text = "Удалить тип склада";
+            this.toolStripDeleteType.Click += new System.EventHandler(this.toolStripDeleteType_Click);
+            // 
             // AddSkladForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 167);
+            this.ClientSize = new System.Drawing.Size(512, 206);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.comboBoxTypeSklad);
@@ -114,6 +130,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddSkladForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавить склад";
@@ -134,5 +151,6 @@
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripAddType;
+        private System.Windows.Forms.ToolStripButton toolStripDeleteType;
     }
 }

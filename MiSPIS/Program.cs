@@ -17,7 +17,7 @@ namespace MiSPIS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SkladyForm());
+            Application.Run(new AddSkladForm());
         }
     }
 }

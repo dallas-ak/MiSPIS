@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -92,5 +93,40 @@ namespace MiSPIS.Forms
                 return false;
         }
 
-    }
+
+        private void toolStripDeleteType_Click(object sender, EventArgs e)
+        {
+            if (comboBoxTypeSklad.SelectedItem == null)
+            {
+                MessageBox.Show("Для удаления выберите тип склада");
+                return;
+            }
+            comboBoxTypeSklad.Items.Remove(comboBoxTypeSklad.SelectedItem);
+            comboBoxTypeSklad.Text = string.Empty;
+            DialogResult result = MessageBox.Show("Удалить?", "Подтвердите действие", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                DB db = new DB();
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
+                db.OpenConnection();
+                MySqlCommand command = new MySqlCommand("DELETE FROM `storehouse_type` WHERE `type_id`", db.getConnection());
+                command.Parameters.Add("@type_id", MySqlDbType.VarChar).Value = comboBoxTypeSklad.SelectedItem;
+                adapter.SelectCommand = command;
+                if (command.ExecuteNonQuery() == 1)
+                    MessageBox.Show("Успешно удалено");
+                else
+                    MessageBox.Show("Для удаления выберите тип склада");
+                db.closeConnection();
+            }
+            else if (result == DialogResult.No)
+            {
+                MessageBox.Show("Ну ладно!", "Попробуем позже");
+                AddSkladForm_Load(null, null);
+                return;
+            }
+
+        }
+
+    }  
+
 }

@@ -18,7 +18,7 @@ namespace MiSPIS
             InitializeComponent();
         }
 
-        private void buttonSaveType_Click(object sender, EventArgs e)
+        private void buttonAddType_Click(object sender, EventArgs e)
         {
             if (typeField.Text ==  "" || typeField.Text == " ")
             {
@@ -31,16 +31,13 @@ namespace MiSPIS
             MySqlCommand command = new MySqlCommand("INSERT INTO `storehouse_type` (`type_name`) VALUES (@type)", db.getConnection());
 
             command.Parameters.Add("@type", MySqlDbType.VarChar).Value = typeField.Text;
-           // command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = md5.hashPassword(passwordField.Text);
-          //  command.Parameters.Add("@name", MySqlDbType.VarChar).Value = userNameField.Text;
-          //  command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = userSurnameField.Text;
 
             db.OpenConnection();
 
             if (command.ExecuteNonQuery() == 1)
-                MessageBox.Show("Успешно создано");
+                MessageBox.Show("Тип склада успешно создан");
             else
-                MessageBox.Show("Ошибка");
+                MessageBox.Show("Ошибка создания");
 
             db.closeConnection();
 
