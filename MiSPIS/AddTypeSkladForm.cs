@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using MiSPIS.Forms;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,8 +41,9 @@ namespace MiSPIS
                 MessageBox.Show("Ошибка создания");
 
             db.closeConnection();
-
             this.Close();
+            AddSkladForm addSkladForm = new AddSkladForm();
+            addSkladForm.Show();
         }
 
     }
