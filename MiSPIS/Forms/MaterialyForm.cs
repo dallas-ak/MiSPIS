@@ -42,7 +42,7 @@ namespace MiSPIS.Forms
 
         private void ReadSingleRow(DataGridView dwg, IDataRecord record)
         {
-            dwg.Rows.Add(record.GetInt32(0), record.GetInt32(1), record.GetString(2), record.GetString(3), RowState.ModifiedNew);
+            dwg.Rows.Add(record.GetInt32(0), record.GetString(1), record.GetString(2), record.GetString(3), RowState.ModifiedNew);
 
         }
 
