@@ -156,6 +156,9 @@
     <EmbeddedResource Include="AddTypeSkladForm.resx">
       <DependentUpon>AddTypeSkladForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddMaterialyForm.resx">
+      <DependentUpon>AddMaterialyForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddSkladForm.resx">
       <DependentUpon>AddSkladForm.cs</DependentUpon>
     </EmbeddedResource>

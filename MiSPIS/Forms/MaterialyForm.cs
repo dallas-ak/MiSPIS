@@ -36,12 +36,13 @@ namespace MiSPIS.Forms
             dataGridView1.Columns.Add("material_id", "Код");
             dataGridView1.Columns.Add("material_vendor_code", "Артикул");
             dataGridView1.Columns.Add("material_name", "Наименование товара");
+            dataGridView1.Columns.Add("material_storehouse", "Склад"); 
             dataGridView1.Columns.Add("IsNew", String.Empty);
         }
 
         private void ReadSingleRow(DataGridView dwg, IDataRecord record)
         {
-            dwg.Rows.Add(record.GetInt32(0), record.GetString(1), record.GetString(2), RowState.ModifiedNew);
+            dwg.Rows.Add(record.GetInt32(0), record.GetInt32(1), record.GetString(2), record.GetString(3), RowState.ModifiedNew);
 
         }
 
@@ -94,10 +95,10 @@ namespace MiSPIS.Forms
             dataGridView1.Rows[index].Visible = false;
             if (dataGridView1.Rows[index].Cells[0].Value.ToString() == string.Empty)
             {
-                dataGridView1.Rows[index].Cells[3].Value = RowState.Deleted;
+                dataGridView1.Rows[index].Cells[4].Value = RowState.Deleted;
                 return;
             }
-            dataGridView1.Rows[index].Cells[3].Value = RowState.Deleted;
+            dataGridView1.Rows[index].Cells[4].Value = RowState.Deleted;
         }
 
         private void toolStripDelete_Click(object sender, EventArgs e)
@@ -111,7 +112,7 @@ namespace MiSPIS.Forms
 
             for (int index = 0; index < dataGridView1.Rows.Count; index++)
             {
-                var rowState = (RowState)dataGridView1.Rows[index].Cells[3].Value;
+                var rowState = (RowState)dataGridView1.Rows[index].Cells[4].Value;
                 if (rowState == RowState.Existed)
                     continue;
                 if (rowState == RowState.Deleted)

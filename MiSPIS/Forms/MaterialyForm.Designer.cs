@@ -50,6 +50,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(3, 32);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(562, 343);
             this.dataGridView1.TabIndex = 0;
             // 
@@ -73,7 +74,7 @@
             this.toolStripAdd.Image = ((System.Drawing.Image)(resources.GetObject("toolStripAdd.Image")));
             this.toolStripAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripAdd.Name = "toolStripAdd";
-            this.toolStripAdd.Size = new System.Drawing.Size(24, 24);
+            this.toolStripAdd.Size = new System.Drawing.Size(29, 24);
             this.toolStripAdd.Text = "Добавить";
             this.toolStripAdd.Click += new System.EventHandler(this.toolStripAdd_Click);
             // 
@@ -83,7 +84,7 @@
             this.toolStripRefresh.Image = ((System.Drawing.Image)(resources.GetObject("toolStripRefresh.Image")));
             this.toolStripRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripRefresh.Name = "toolStripRefresh";
-            this.toolStripRefresh.Size = new System.Drawing.Size(24, 24);
+            this.toolStripRefresh.Size = new System.Drawing.Size(29, 24);
             this.toolStripRefresh.Text = "Обновить";
             this.toolStripRefresh.Click += new System.EventHandler(this.toolStripRefresh_Click);
             // 
@@ -93,7 +94,7 @@
             this.toolStripDelete.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDelete.Image")));
             this.toolStripDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDelete.Name = "toolStripDelete";
-            this.toolStripDelete.Size = new System.Drawing.Size(24, 24);
+            this.toolStripDelete.Size = new System.Drawing.Size(29, 24);
             this.toolStripDelete.Text = "Удалить";
             this.toolStripDelete.Click += new System.EventHandler(this.toolStripDelete_Click);
             // 
@@ -103,7 +104,7 @@
             this.toolStripSave.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSave.Image")));
             this.toolStripSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSave.Name = "toolStripSave";
-            this.toolStripSave.Size = new System.Drawing.Size(24, 24);
+            this.toolStripSave.Size = new System.Drawing.Size(29, 24);
             this.toolStripSave.Text = "Сохранить";
             this.toolStripSave.Click += new System.EventHandler(this.toolStripSave_Click);
             // 
@@ -115,6 +116,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "MaterialyForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Материалы";
             this.Load += new System.EventHandler(this.MaterialyForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
