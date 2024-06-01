@@ -32,24 +32,24 @@ namespace MiSPIS.Forms
 
         private void CreateColumns()
         {
-            dataGridView1.Columns.Add("seller_id", "Код");
-            dataGridView1.Columns.Add("seller_type", "Вид поставщика");
-            dataGridView1.Columns.Add("seller_INN", "ИНН");
-            dataGridView1.Columns.Add("seller_KPP", "КПП");
-            dataGridView1.Columns.Add("seller_full_name", "Полное наименование");
-            dataGridView1.Columns.Add("seller_short_name", "Краткое наименование");
+            dataGridView1.Columns.Add("counterparty_id", "Код");
+            dataGridView1.Columns.Add("counterparty_type", "Вид поставщика");
+            dataGridView1.Columns.Add("counterparty_INN", "ИНН");
+            dataGridView1.Columns.Add("counterparty_KPP", "КПП");         
+            dataGridView1.Columns.Add("counterparty_short_name", "Краткое наименование");
+            dataGridView1.Columns.Add("counterparty_full_name", "Полное наименование");
             dataGridView1.Columns.Add("IsNew", String.Empty);
         }
 
         private void ReadSingleRow(DataGridView dwg, IDataRecord record)
         {
-            dwg.Rows.Add(record.GetInt32(0), record.GetString(1), record.GetInt32(2), record.GetInt32(3), record.GetString(4), record.GetString(5),  RowState.ModifiedNew);
+            dwg.Rows.Add(record.GetInt32(0), record.GetString(1), record.GetString(2), record.GetString(3), record.GetString(4), record.GetString(5),  RowState.ModifiedNew);
         }
 
         private void RefreshDataGrid(DataGridView dgw)
         {
             dgw.Rows.Clear();
-            string queryString = $"select * from sellers";
+            string queryString = $"select * from counterparty";
             MySqlCommand command = new MySqlCommand(queryString, db.getConnection());
             db.OpenConnection();
             MySqlDataReader reader = command.ExecuteReader();
