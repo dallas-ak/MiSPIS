@@ -74,6 +74,7 @@
             // 
             // comboBoxSubdivision
             // 
+            this.comboBoxSubdivision.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSubdivision.FormattingEnabled = true;
             this.comboBoxSubdivision.Location = new System.Drawing.Point(150, 112);
             this.comboBoxSubdivision.Name = "comboBoxSubdivision";
@@ -82,6 +83,7 @@
             // 
             // comboBoxJobTitle
             // 
+            this.comboBoxJobTitle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxJobTitle.FormattingEnabled = true;
             this.comboBoxJobTitle.Location = new System.Drawing.Point(150, 140);
             this.comboBoxJobTitle.Name = "comboBoxJobTitle";

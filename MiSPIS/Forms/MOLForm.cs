@@ -92,10 +92,10 @@ namespace MiSPIS.Forms
             dataGridView1.Rows[index].Visible = false;
             if (dataGridView1.Rows[index].Cells[0].Value.ToString() == string.Empty)
             {
-                dataGridView1.Rows[index].Cells[5].Value = RowState_MOL.Deleted;
+                dataGridView1.Rows[index].Cells[6].Value = RowState_MOL.Deleted;
                 return;
             }
-            dataGridView1.Rows[index].Cells[5].Value = RowState_MOL.Deleted;
+            dataGridView1.Rows[index].Cells[6].Value = RowState_MOL.Deleted;
         }
 
         private void toolStripDelete_Click(object sender, EventArgs e)
@@ -109,7 +109,7 @@ namespace MiSPIS.Forms
 
             for (int index = 0; index < dataGridView1.Rows.Count; index++)
             {
-                var RowState = (RowState_MOL)dataGridView1.Rows[index].Cells[5].Value;
+                var RowState = (RowState_MOL)dataGridView1.Rows[index].Cells[6].Value;
                 if (RowState == RowState_MOL.Existed)
                     continue;
                 if (RowState == RowState_MOL.Deleted)

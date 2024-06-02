@@ -39,6 +39,7 @@
             // 
             // comboBoxNameSklad
             // 
+            this.comboBoxNameSklad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxNameSklad.FormattingEnabled = true;
             this.comboBoxNameSklad.Location = new System.Drawing.Point(164, 97);
             this.comboBoxNameSklad.Name = "comboBoxNameSklad";

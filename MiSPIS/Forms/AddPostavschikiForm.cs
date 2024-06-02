@@ -18,7 +18,6 @@ namespace MiSPIS.Forms
         {
             InitializeComponent();
         }
-
         private void AddPostavschikiForm_Load(object sender, EventArgs e)
         {
             DB db = new DB();
@@ -39,7 +38,6 @@ namespace MiSPIS.Forms
                 MessageBox.Show("Ошибка: " + ex.Message);
             }
         }
-
         private void INN_KeyPress(object sender, KeyPressEventArgs e)
         {
             string s = INN.Text;
@@ -55,7 +53,6 @@ namespace MiSPIS.Forms
                 e.Handled = true;
             }
         }
-
         private void KPP_KeyPress(object sender, KeyPressEventArgs e)
         {
             string s = KPP.Text;
@@ -71,31 +68,30 @@ namespace MiSPIS.Forms
                 e.Handled = true;
             }
         }
-
         private void buttonSave_Click(object sender, EventArgs e)
         {
-
             if (comboBoxTypePostavschiki.Text == "" || comboBoxTypePostavschiki.Text == " ")
             {
                 MessageBox.Show("Выберите вид контрагента");
                 return;
             }
-
+            if (INN.Text == "" || INN.Text == " ")
+            {
+                MessageBox.Show("Введите ИНН");
+                return;
+            }
             if (ShortName.Text == "" || ShortName.Text == " ")
             {
-                MessageBox.Show("Введите Краткое наименование");
+                MessageBox.Show("Введите краткое наименование");
                 return;
             }
-
             if (FullName.Text == "" || FullName.Text == " ")
             {
-                MessageBox.Show("Введите Полное наименование");
+                MessageBox.Show("Введите полное наименование");
                 return;
             }
-
             if (isPostavschikExists())
                 return;
-
             DB db = new DB();
             MySqlCommand command = new MySqlCommand("INSERT INTO `counterparty` (`counterparty_type`, `counterparty_INN`, `counterparty_KPP`, `counterparty_full_name`, `counterparty_short_name`) VALUES (@counterpartyType, @counterpartyINN, @counterpartyKPP, @counterpartyFullName, @counterpartyShortName)", db.getConnection());
             command.Parameters.Add("@counterpartyType", MySqlDbType.VarChar).Value = comboBoxTypePostavschiki.Text;
@@ -103,7 +99,6 @@ namespace MiSPIS.Forms
             command.Parameters.Add("@counterpartyKPP", MySqlDbType.VarChar).Value = KPP.Text;
             command.Parameters.Add("@counterpartyShortName", MySqlDbType.VarChar).Value = ShortName.Text;
             command.Parameters.Add("@counterpartyFullName", MySqlDbType.VarChar).Value = FullName.Text;
-;
             db.OpenConnection();
             if (command.ExecuteNonQuery() == 1)
                 MessageBox.Show("Контрагент добавлен");
@@ -114,7 +109,6 @@ namespace MiSPIS.Forms
             PostavschikiForm postavschikiForm = new PostavschikiForm();
             postavschikiForm.Show();
         }
-
         public Boolean isPostavschikExists()
         {
             DB db = new DB();

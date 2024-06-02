@@ -83,6 +83,7 @@
             // 
             // comboBoxTypePostavschiki
             // 
+            this.comboBoxTypePostavschiki.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTypePostavschiki.FormattingEnabled = true;
             this.comboBoxTypePostavschiki.Location = new System.Drawing.Point(189, 33);
             this.comboBoxTypePostavschiki.Name = "comboBoxTypePostavschiki";

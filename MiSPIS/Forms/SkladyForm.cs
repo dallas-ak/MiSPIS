@@ -24,12 +24,10 @@ namespace MiSPIS.Forms
     public partial class SkladyForm : Form
     {
         DB db = new DB();
-
         public SkladyForm()
         {
             InitializeComponent();
         }
-
         private void CreateColumns()
         {
             dataGridView1.Columns.Add("storehouse_id", "Код");
@@ -37,7 +35,6 @@ namespace MiSPIS.Forms
             dataGridView1.Columns.Add("storehouse_type", "Тип склада");
             dataGridView1.Columns.Add("IsNew", String.Empty);
         }
-
         private void ReadSingleRow(DataGridView dwg, IDataRecord record)
         {
             dwg.Rows.Add(record.GetInt32(0), record.GetString(1), record.GetString(2), RowStateSklady.ModifiedNew);
