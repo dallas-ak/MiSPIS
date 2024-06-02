@@ -28,34 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.typeField = new System.Windows.Forms.TextBox();
             this.labelNameType = new System.Windows.Forms.Label();
             this.buttonAddType = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // toolStrip1
-            // 
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(379, 31);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
             // typeField
             // 
-            this.typeField.Location = new System.Drawing.Point(129, 42);
-            this.typeField.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.typeField.Location = new System.Drawing.Point(165, 21);
             this.typeField.Name = "typeField";
-            this.typeField.Size = new System.Drawing.Size(219, 20);
+            this.typeField.Size = new System.Drawing.Size(300, 20);
             this.typeField.TabIndex = 1;
             // 
             // labelNameType
             // 
             this.labelNameType.AutoSize = true;
-            this.labelNameType.Location = new System.Drawing.Point(13, 45);
-            this.labelNameType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelNameType.Location = new System.Drawing.Point(10, 24);
             this.labelNameType.Name = "labelNameType";
             this.labelNameType.Size = new System.Drawing.Size(95, 15);
             this.labelNameType.TabIndex = 2;
@@ -63,10 +51,9 @@
             // 
             // buttonAddType
             // 
-            this.buttonAddType.Location = new System.Drawing.Point(146, 96);
-            this.buttonAddType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonAddType.Location = new System.Drawing.Point(165, 56);
             this.buttonAddType.Name = "buttonAddType";
-            this.buttonAddType.Size = new System.Drawing.Size(100, 28);
+            this.buttonAddType.Size = new System.Drawing.Size(120, 35);
             this.buttonAddType.TabIndex = 3;
             this.buttonAddType.Text = "Добавить";
             this.buttonAddType.UseVisualStyleBackColor = true;
@@ -74,15 +61,13 @@
             // 
             // AddTypeSkladForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 137);
+            this.ClientSize = new System.Drawing.Size(482, 103);
             this.Controls.Add(this.buttonAddType);
             this.Controls.Add(this.labelNameType);
             this.Controls.Add(this.typeField);
-            this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AddTypeSkladForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавить тип склада";
@@ -92,8 +77,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.TextBox typeField;
         private System.Windows.Forms.Label labelNameType;
         private System.Windows.Forms.Button buttonAddType;

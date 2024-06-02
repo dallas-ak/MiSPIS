@@ -41,9 +41,9 @@
             // 
             this.comboBoxNameSklad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxNameSklad.FormattingEnabled = true;
-            this.comboBoxNameSklad.Location = new System.Drawing.Point(164, 97);
+            this.comboBoxNameSklad.Location = new System.Drawing.Point(160, 97);
             this.comboBoxNameSklad.Name = "comboBoxNameSklad";
-            this.comboBoxNameSklad.Size = new System.Drawing.Size(224, 21);
+            this.comboBoxNameSklad.Size = new System.Drawing.Size(260, 21);
             this.comboBoxNameSklad.TabIndex = 3;
             // 
             // label1
@@ -75,25 +75,25 @@
             // 
             // articleMaterial
             // 
-            this.articleMaterial.Location = new System.Drawing.Point(164, 29);
+            this.articleMaterial.Location = new System.Drawing.Point(160, 29);
             this.articleMaterial.MaxLength = 6;
             this.articleMaterial.Name = "articleMaterial";
-            this.articleMaterial.Size = new System.Drawing.Size(224, 20);
+            this.articleMaterial.Size = new System.Drawing.Size(260, 20);
             this.articleMaterial.TabIndex = 0;
             this.articleMaterial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.articleMaterial_KeyPress);
             // 
             // nameMaterial
             // 
-            this.nameMaterial.Location = new System.Drawing.Point(164, 64);
+            this.nameMaterial.Location = new System.Drawing.Point(160, 64);
             this.nameMaterial.Name = "nameMaterial";
-            this.nameMaterial.Size = new System.Drawing.Size(224, 20);
+            this.nameMaterial.Size = new System.Drawing.Size(260, 20);
             this.nameMaterial.TabIndex = 1;
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(123, 139);
+            this.buttonSave.Location = new System.Drawing.Point(160, 140);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(151, 35);
+            this.buttonSave.Size = new System.Drawing.Size(120, 35);
             this.buttonSave.TabIndex = 4;
             this.buttonSave.Text = "Добавить";
             this.buttonSave.UseVisualStyleBackColor = true;

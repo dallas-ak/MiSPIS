@@ -127,9 +127,5 @@ namespace MiSPIS.Forms
             else
                 return false;
         }
-
-
-
-
     }
 }

@@ -43,7 +43,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 23);
+            this.label1.Location = new System.Drawing.Point(10, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(131, 15);
             this.label1.TabIndex = 0;
@@ -52,7 +52,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 62);
+            this.label2.Location = new System.Drawing.Point(10, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 15);
             this.label2.TabIndex = 1;
@@ -60,27 +60,27 @@
             // 
             // nameSklad
             // 
-            this.nameSklad.Location = new System.Drawing.Point(153, 20);
+            this.nameSklad.Location = new System.Drawing.Point(165, 20);
             this.nameSklad.Name = "nameSklad";
-            this.nameSklad.Size = new System.Drawing.Size(200, 20);
+            this.nameSklad.Size = new System.Drawing.Size(300, 20);
             this.nameSklad.TabIndex = 4;
             // 
             // comboBoxTypeSklad
             // 
             this.comboBoxTypeSklad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTypeSklad.FormattingEnabled = true;
-            this.comboBoxTypeSklad.Location = new System.Drawing.Point(153, 59);
+            this.comboBoxTypeSklad.Location = new System.Drawing.Point(165, 56);
             this.comboBoxTypeSklad.Name = "comboBoxTypeSklad";
-            this.comboBoxTypeSklad.Size = new System.Drawing.Size(200, 21);
+            this.comboBoxTypeSklad.Size = new System.Drawing.Size(300, 21);
             this.comboBoxTypeSklad.TabIndex = 6;
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(109, 106);
+            this.buttonSave.Location = new System.Drawing.Point(165, 95);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(151, 35);
+            this.buttonSave.Size = new System.Drawing.Size(120, 35);
             this.buttonSave.TabIndex = 7;
-            this.buttonSave.Text = "Добавить";
+            this.buttonSave.Text = "Записать";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
@@ -95,7 +95,7 @@
             this.toolStripAddType,
             this.toolStripDeleteType});
             this.toolStripTypeSklad.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
-            this.toolStripTypeSklad.Location = new System.Drawing.Point(356, 44);
+            this.toolStripTypeSklad.Location = new System.Drawing.Point(134, 38);
             this.toolStripTypeSklad.Name = "toolStripTypeSklad";
             this.toolStripTypeSklad.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStripTypeSklad.Size = new System.Drawing.Size(28, 72);
@@ -126,7 +126,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 167);
+            this.ClientSize = new System.Drawing.Size(482, 153);
             this.Controls.Add(this.toolStripTypeSklad);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.comboBoxTypeSklad);
