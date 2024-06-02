@@ -62,9 +62,9 @@ namespace MiSPIS.Forms
                 return;
 
             DB db = new DB();
-            MySqlCommand command = new MySqlCommand("INSERT INTO `storehouse` (`storehouse_name`, `storehouse_type`) VALUES (@nameSklad, @typeSklad)", db.getConnection());
-            command.Parameters.Add("@nameSklad", MySqlDbType.VarChar).Value = nameSklad.Text;                
-            command.Parameters.Add("@typeSklad", MySqlDbType.VarChar).Value = comboBoxTypeSklad.Text;
+            MySqlCommand command = new MySqlCommand("INSERT INTO `storehouse` (`storehouse_name`, `storehouse_type`) VALUES (@storehouseName, @storehouseType)", db.getConnection());
+            command.Parameters.Add("@storehouseName", MySqlDbType.VarChar).Value = nameSklad.Text;                
+            command.Parameters.Add("@storehouseType", MySqlDbType.VarChar).Value = comboBoxTypeSklad.Text;
             db.OpenConnection();
             if (command.ExecuteNonQuery() == 1)
                 MessageBox.Show("Склад добавлен");            
@@ -81,7 +81,9 @@ namespace MiSPIS.Forms
             DB db = new DB();
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `storehouse` WHERE `storehouse_name`", db.getConnection());
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `storehouse` WHERE `storehouse_name`= @storehouseName AND `storehouse_type` = @storehouseType", db.getConnection());
+            command.Parameters.Add("@storehouseName", MySqlDbType.VarChar).Value = nameSklad.Text;
+            command.Parameters.Add("@storehouseType", MySqlDbType.VarChar).Value = comboBoxTypeSklad.Text;
             adapter.SelectCommand = command;
             adapter.Fill(table);
             if (table.Rows.Count > 0)

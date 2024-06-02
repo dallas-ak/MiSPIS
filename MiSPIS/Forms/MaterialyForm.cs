@@ -11,20 +11,17 @@ using System.Windows.Forms;
 
 namespace MiSPIS.Forms
 {
-    enum RowState
+    enum RowState_Materialy
     {
         Existed,
         New,
         Modified,
         ModifiedNew,
-        Deleted,
+        Deleted
     }
-
     public partial class MaterialyForm : Form
     {
         DB db = new DB();
-
-        int selectedRow;
 
         public MaterialyForm()
         {
@@ -42,8 +39,7 @@ namespace MiSPIS.Forms
 
         private void ReadSingleRow(DataGridView dwg, IDataRecord record)
         {
-            dwg.Rows.Add(record.GetInt32(0), record.GetString(1), record.GetString(2), record.GetString(3), RowState.ModifiedNew);
-
+            dwg.Rows.Add(record.GetInt32(0), record.GetInt32(1), record.GetString(2), record.GetString(3), RowState_Materialy.ModifiedNew);
         }
 
         private void RefreshDataGrid(DataGridView dgw)
@@ -95,10 +91,10 @@ namespace MiSPIS.Forms
             dataGridView1.Rows[index].Visible = false;
             if (dataGridView1.Rows[index].Cells[0].Value.ToString() == string.Empty)
             {
-                dataGridView1.Rows[index].Cells[4].Value = RowState.Deleted;
+                dataGridView1.Rows[index].Cells[4].Value = RowState_Materialy.Deleted;
                 return;
             }
-            dataGridView1.Rows[index].Cells[4].Value = RowState.Deleted;
+            dataGridView1.Rows[index].Cells[4].Value = RowState_Materialy.Deleted;
         }
 
         private void toolStripDelete_Click(object sender, EventArgs e)
@@ -112,10 +108,10 @@ namespace MiSPIS.Forms
 
             for (int index = 0; index < dataGridView1.Rows.Count; index++)
             {
-                var rowState = (RowState)dataGridView1.Rows[index].Cells[4].Value;
-                if (rowState == RowState.Existed)
+                var rowState = (RowState_Materialy)dataGridView1.Rows[index].Cells[4].Value;
+                if (rowState == RowState_Materialy.Existed)
                     continue;
-                if (rowState == RowState.Deleted)
+                if (rowState == RowState_Materialy.Deleted)
                 {
                     var id = Convert.ToInt32(dataGridView1.Rows[index].Cells[0].Value);
                     var deleteQuery = $"delete from materials where material_id = {id}";

@@ -11,19 +11,17 @@ using System.Windows.Forms;
 
 namespace MiSPIS.Forms
 {
-    enum RowState_Postavschiki
+    enum RowState
     {
         Existed,
         New,
         Modified,
         ModifiedNew,
-        Deleted,
+        Deleted
     }
-
     public partial class PostavschikiForm : Form
     {
         DB db = new DB();
-        int selectedRow;
 
         public PostavschikiForm()
         {
@@ -43,7 +41,7 @@ namespace MiSPIS.Forms
 
         private void ReadSingleRow(DataGridView dwg, IDataRecord record)
         {
-            dwg.Rows.Add(record.GetInt32(0), record.GetString(1), record.GetString(2), record.GetString(3), record.GetString(4), record.GetString(5),  RowState.ModifiedNew);
+            dwg.Rows.Add(record.GetInt32(0), record.GetString(1), record.GetString(2), record.GetString(3), record.GetString(4), record.GetString(5), RowState.ModifiedNew);
         }
 
         private void RefreshDataGrid(DataGridView dgw)
@@ -109,7 +107,6 @@ namespace MiSPIS.Forms
         private void Update()
         {
             db.OpenConnection();
-
             for (int index = 0; index < dataGridView1.Rows.Count; index++)
             {
                 var rowState = (RowState)dataGridView1.Rows[index].Cells[5].Value;
@@ -118,7 +115,7 @@ namespace MiSPIS.Forms
                 if (rowState == RowState.Deleted)
                 {
                     var id = Convert.ToInt32(dataGridView1.Rows[index].Cells[0].Value);
-                    var deleteQuery = $"delete from sellers where seller_id = {id}";
+                    var deleteQuery = $"delete from counterparty where counterparty_id = {id}";
                     var command = new MySqlCommand(deleteQuery, db.getConnection());
                     command.ExecuteNonQuery();
                 }

@@ -92,7 +92,8 @@ namespace MiSPIS.Forms
             DB db = new DB();
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `materials` WHERE `material_vendor_code`", db.getConnection());
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `materials` WHERE `material_vendor_code` = @materialVendorCode", db.getConnection());
+            command.Parameters.Add("@materialVendorCode", MySqlDbType.VarChar).Value = articleMaterial.Text;
             adapter.SelectCommand = command;
             adapter.Fill(table);
             if (table.Rows.Count > 0)

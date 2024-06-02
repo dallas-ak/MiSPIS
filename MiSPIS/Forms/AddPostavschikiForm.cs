@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace MiSPIS.Forms
 {
@@ -71,7 +72,7 @@ namespace MiSPIS.Forms
             }
         }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private void buttonSave_Click(object sender, EventArgs e)
         {
 
             if (comboBoxTypePostavschiki.Text == "" || comboBoxTypePostavschiki.Text == " ")
@@ -92,16 +93,17 @@ namespace MiSPIS.Forms
                 return;
             }
 
-            if (isSkladExists())
+            if (isPostavschikExists())
                 return;
 
             DB db = new DB();
-            MySqlCommand command = new MySqlCommand("INSERT INTO `counterparty` (`seller_type`, `seller_INN`, `seller_KPP`, `seller_full_name`, `seller_short_name`) VALUES (@sellerType, @sellerINN, @sellerKPP, @sellerFullName, @sellerShortName)", db.getConnection());
-            command.Parameters.Add("@sellerType", MySqlDbType.VarChar).Value = comboBoxTypePostavschiki.Text;
-            command.Parameters.Add("@sellerINN", MySqlDbType.VarChar).Value = INN.Text;
-            command.Parameters.Add("@sellerKPP", MySqlDbType.VarChar).Value = KPP.Text;
-            command.Parameters.Add("@sellerFullName", MySqlDbType.VarChar).Value = FullName.Text;
-            command.Parameters.Add("@sellerShortName", MySqlDbType.VarChar).Value = ShortName.Text;
+            MySqlCommand command = new MySqlCommand("INSERT INTO `counterparty` (`counterparty_type`, `counterparty_INN`, `counterparty_KPP`, `counterparty_full_name`, `counterparty_short_name`) VALUES (@counterpartyType, @counterpartyINN, @counterpartyKPP, @counterpartyFullName, @counterpartyShortName)", db.getConnection());
+            command.Parameters.Add("@counterpartyType", MySqlDbType.VarChar).Value = comboBoxTypePostavschiki.Text;
+            command.Parameters.Add("@counterpartyINN", MySqlDbType.VarChar).Value = INN.Text;
+            command.Parameters.Add("@counterpartyKPP", MySqlDbType.VarChar).Value = KPP.Text;
+            command.Parameters.Add("@counterpartyShortName", MySqlDbType.VarChar).Value = ShortName.Text;
+            command.Parameters.Add("@counterpartyFullName", MySqlDbType.VarChar).Value = FullName.Text;
+;
             db.OpenConnection();
             if (command.ExecuteNonQuery() == 1)
                 MessageBox.Show("Контрагент добавлен");
@@ -113,12 +115,14 @@ namespace MiSPIS.Forms
             postavschikiForm.Show();
         }
 
-        public Boolean isSkladExists()
+        public Boolean isPostavschikExists()
         {
             DB db = new DB();
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `counterparty` WHERE `seller_INN`", db.getConnection());
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `counterparty` WHERE `counterparty_INN` = @counterpartyINN AND `counterparty_KPP` = @counterpartyKPP", db.getConnection());
+            command.Parameters.Add("@counterpartyINN", MySqlDbType.VarChar).Value = INN.Text;
+            command.Parameters.Add("@counterpartyKPP", MySqlDbType.VarChar).Value = KPP.Text;
             adapter.SelectCommand = command;
             adapter.Fill(table);
             if (table.Rows.Count > 0)

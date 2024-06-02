@@ -13,21 +13,17 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace MiSPIS.Forms
 {
-    enum RowState_Sklady
+    enum RowStateSklady
     {
         Existed,
         New,
         Modified,
         ModifiedNew,
-        Deleted,
+        Deleted
     }
-
     public partial class SkladyForm : Form
     {
-
         DB db = new DB();
-
-        int selectedRow;
 
         public SkladyForm()
         {
@@ -44,8 +40,7 @@ namespace MiSPIS.Forms
 
         private void ReadSingleRow(DataGridView dwg, IDataRecord record)
         {
-            dwg.Rows.Add(record.GetInt32(0), record.GetString(1), record.GetString(2), RowState_Sklady.ModifiedNew);
-         
+            dwg.Rows.Add(record.GetInt32(0), record.GetString(1), record.GetString(2), RowStateSklady.ModifiedNew);
         }
 
         private void RefreshDataGrid(DataGridView dgw)
@@ -97,10 +92,10 @@ namespace MiSPIS.Forms
                 dataGridView1.Rows[index].Visible = false;
             if (dataGridView1.Rows[index].Cells[0].Value.ToString() == string.Empty)
                   {
-                     dataGridView1.Rows[index].Cells[3].Value = RowState_Sklady.Deleted;
+                     dataGridView1.Rows[index].Cells[3].Value = RowStateSklady.Deleted;
                      return;
                   }
-                dataGridView1.Rows[index].Cells[3].Value = RowState_Sklady.Deleted;
+                dataGridView1.Rows[index].Cells[3].Value = RowStateSklady.Deleted;
         }
 
         private void toolStripDelete_Click(object sender, EventArgs e)
@@ -114,10 +109,10 @@ namespace MiSPIS.Forms
 
             for (int index = 0; index < dataGridView1.Rows.Count; index++)
             {
-                var rowState = (RowState_Sklady)dataGridView1.Rows[index].Cells[3].Value;
-                if (rowState == RowState_Sklady.Existed)
+                var rowState = (RowStateSklady)dataGridView1.Rows[index].Cells[3].Value;
+                if (rowState == RowStateSklady.Existed)
                     continue;
-                if (rowState == RowState_Sklady.Deleted)
+                if (rowState == RowStateSklady.Deleted)
                 {
                     var id = Convert.ToInt32(dataGridView1.Rows[index].Cells[0].Value);
                     var deleteQuery = $"delete from storehouse where storehouse_id = {id}";

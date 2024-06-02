@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.INN = new System.Windows.Forms.TextBox();
             this.KPP = new System.Windows.Forms.TextBox();
             this.ShortName = new System.Windows.Forms.TextBox();
@@ -41,15 +41,15 @@
             this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // buttonAdd
+            // buttonSave
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(189, 221);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(149, 42);
-            this.buttonAdd.TabIndex = 0;
-            this.buttonAdd.Text = "Добавить";
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            this.buttonSave.Location = new System.Drawing.Point(189, 221);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(149, 42);
+            this.buttonSave.TabIndex = 0;
+            this.buttonSave.Text = "Записать";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // INN
             // 
@@ -136,7 +136,7 @@
             // 
             // AddPostavschikiForm
             // 
-            this.AcceptButton = this.buttonAdd;
+            this.AcceptButton = this.buttonSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(532, 303);
@@ -150,7 +150,7 @@
             this.Controls.Add(this.ShortName);
             this.Controls.Add(this.KPP);
             this.Controls.Add(this.INN);
-            this.Controls.Add(this.buttonAdd);
+            this.Controls.Add(this.buttonSave);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddPostavschikiForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -163,7 +163,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.TextBox INN;
         private System.Windows.Forms.TextBox KPP;
         private System.Windows.Forms.TextBox ShortName;
