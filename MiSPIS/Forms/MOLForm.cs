@@ -43,7 +43,6 @@ namespace MiSPIS.Forms
         {
             dwg.Rows.Add(record.GetInt32(0), record.GetString(1), record.GetString(2), record.GetString(3), record.GetString(4), record.GetString(5), RowState_MOL.ModifiedNew);
         }
-
         private void RefreshDataGrid(DataGridView dgw)
         {
             dgw.Rows.Clear();
@@ -57,30 +56,25 @@ namespace MiSPIS.Forms
             }
             reader.Close();
         }
-
         private void MOLForm_Load(object sender, EventArgs e)
         {
             CreateColumns();
             RefreshDataGrid(dataGridView1);
         }
-
         private void toolStripAdd_Click(object sender, EventArgs e)
         {
             this.Hide();
             AddMOLForm addMOLForm = new AddMOLForm();
             addMOLForm.Show();
         }
-
         private void toolStripSave_Click(object sender, EventArgs e)
         {
             Update();
         }
-
         private void toolStripRefresh_Click(object sender, EventArgs e)
         {
 
         }
-
         private void DeleteRow()
         {
             if (dataGridView1.CurrentCell == null)
@@ -97,12 +91,10 @@ namespace MiSPIS.Forms
             }
             dataGridView1.Rows[index].Cells[6].Value = RowState_MOL.Deleted;
         }
-
         private void toolStripDelete_Click(object sender, EventArgs e)
         {
             DeleteRow();
         }
-
         private void Update()
         {
             db.OpenConnection();

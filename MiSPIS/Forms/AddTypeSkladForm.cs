@@ -18,7 +18,6 @@ namespace MiSPIS
         {
             InitializeComponent();
         }
-
         private void buttonAddType_Click(object sender, EventArgs e)
         {
             if (typeField.Text ==  "" || typeField.Text == " ")
@@ -26,20 +25,14 @@ namespace MiSPIS
                 MessageBox.Show("Введите наименование");
                 return;
             }
-
             DB db = new DB();
-
-            MySqlCommand command = new MySqlCommand("INSERT INTO `storehouse_type` (`type_name`) VALUES (@type)", db.getConnection());
-
-            command.Parameters.Add("@type", MySqlDbType.VarChar).Value = typeField.Text;
-
+            MySqlCommand command = new MySqlCommand("INSERT INTO type (type_name) VALUES (@typeName)", db.getConnection());
+            command.Parameters.Add("@typeName", MySqlDbType.VarChar).Value = typeField.Text;
             db.OpenConnection();
-
             if (command.ExecuteNonQuery() == 1)
                 MessageBox.Show("Тип склада успешно создан");
             else
                 MessageBox.Show("Ошибка создания");
-
             db.closeConnection();
             this.Close();
             AddSkladForm addSkladForm = new AddSkladForm();

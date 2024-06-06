@@ -23,7 +23,7 @@ namespace MiSPIS.Forms
             try
             {
                 db.OpenConnection();
-                MySqlCommand command = new MySqlCommand("SELECT * FROM `storehouse`", db.getConnection());
+                MySqlCommand command = new MySqlCommand("SELECT * FROM storehouse", db.getConnection());
                 MySqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
@@ -37,7 +37,6 @@ namespace MiSPIS.Forms
                 MessageBox.Show("Ошибка: " + ex.Message);
             }
         }
-
         private void articleMaterial_KeyPress(object sender, KeyPressEventArgs e)
         {
             string s = articleMaterial.Text;
@@ -53,7 +52,6 @@ namespace MiSPIS.Forms
                 e.Handled = true;
             }
         }
-
         private void buttonSave_Click(object sender, EventArgs e)
         {
             if (articleMaterial.Text == "" || articleMaterial.Text == " ")
@@ -64,7 +62,7 @@ namespace MiSPIS.Forms
 
             if (nameMaterial.Text == "" || nameMaterial.Text == " ")
             {
-                MessageBox.Show("Введите наименование товара ");
+                MessageBox.Show("Введите наименование товара");
                 return;
             }
 
@@ -72,11 +70,11 @@ namespace MiSPIS.Forms
                 return;
 
             DB db = new DB();
-            MySqlCommand command = new MySqlCommand("INSERT INTO `materials` (`material_vendor_code`, `material_name`, `material_storehouse`) VALUES (@materialVendorCode, @materialName, @materialStorehouse)", db.getConnection());
+            db.OpenConnection();
+            MySqlCommand command = new MySqlCommand("INSERT INTO `materials` (material_vendor_code, material_name, storehouse_name, storehouse_type_name) VALUES (@materialVendorCode, @materialName, `storehouse_name`, `storehouse_type_name`)", db.getConnection());
             command.Parameters.Add("@materialVendorCode", MySqlDbType.VarChar).Value = articleMaterial.Text;
             command.Parameters.Add("@materialName", MySqlDbType.VarChar).Value = nameMaterial.Text;
-            command.Parameters.Add("@materialStorehouse", MySqlDbType.VarChar).Value = comboBoxNameSklad.Text;
-            db.OpenConnection();
+
             if (command.ExecuteNonQuery() == 1)
                 MessageBox.Show("Товар добавлен");
             else

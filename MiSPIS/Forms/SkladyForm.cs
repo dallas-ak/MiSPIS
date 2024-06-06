@@ -13,7 +13,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace MiSPIS.Forms
 {
-    enum RowStateSklady
+    enum RowState_Sklady
     {
         Existed,
         New,
@@ -30,20 +30,19 @@ namespace MiSPIS.Forms
         }
         private void CreateColumns()
         {
-            dataGridView1.Columns.Add("storehouse_id", "Код");
-            dataGridView1.Columns.Add("storehouse_name", "Наименование");
-            dataGridView1.Columns.Add("storehouse_type", "Тип склада");
+            dataGridView1.Columns.Add("storehouse_type_id", "Код");
+            dataGridView1.Columns.Add("storehouse.storehouse_name", "Наименование");
+            dataGridView1.Columns.Add("type.type_name", "Тип склада");
             dataGridView1.Columns.Add("IsNew", String.Empty);
         }
         private void ReadSingleRow(DataGridView dwg, IDataRecord record)
         {
-            dwg.Rows.Add(record.GetInt32(0), record.GetString(1), record.GetString(2), RowStateSklady.ModifiedNew);
+            dwg.Rows.Add(record.GetInt32(0), record.GetString(1), record.GetString(2), RowState_Sklady.ModifiedNew);
         }
-
         private void RefreshDataGrid(DataGridView dgw)
         {
             dgw.Rows.Clear();
-            string queryString = $"select * from storehouse";
+            string queryString = $"SELECT storehouse_type_id, storehouse.storehouse_name, type.type_name FROM storehouse_type LEFT JOIN storehouse ON  (storehouse.storehouse_id = storehouse_type.storehouse_id) LEFT JOIN type ON (type.type_id = storehouse_type.type_id)";
             MySqlCommand command = new MySqlCommand(queryString, db.getConnection());
             db.OpenConnection();
             MySqlDataReader reader = command.ExecuteReader();
@@ -53,31 +52,25 @@ namespace MiSPIS.Forms
             }
             reader.Close();           
         }
-
         private void SkladyForm_Load(object sender, EventArgs e)
         {
             CreateColumns();
             RefreshDataGrid(dataGridView1);
         }
-
         private void toolStripAdd_Click(object sender, EventArgs e)
         {
             this.Hide();
             AddSkladForm addSkladForm = new AddSkladForm();
             addSkladForm.Show();
         }
-
         private void toolStripSave_Click(object sender, EventArgs e)
         {
             Update();
         }
-
         private void toolStripRefresh_Click(object sender, EventArgs e)
         {
             RefreshDataGrid(dataGridView1);
         }
-
-
         private void DeleteRow()
         {
             if (dataGridView1.CurrentCell == null)
@@ -89,30 +82,28 @@ namespace MiSPIS.Forms
                 dataGridView1.Rows[index].Visible = false;
             if (dataGridView1.Rows[index].Cells[0].Value.ToString() == string.Empty)
                   {
-                     dataGridView1.Rows[index].Cells[3].Value = RowStateSklady.Deleted;
+                     dataGridView1.Rows[index].Cells[3].Value = RowState_Sklady.Deleted;
                      return;
                   }
-                dataGridView1.Rows[index].Cells[3].Value = RowStateSklady.Deleted;
+                dataGridView1.Rows[index].Cells[3].Value = RowState_Sklady.Deleted;
         }
-
         private void toolStripDelete_Click(object sender, EventArgs e)
         {
             DeleteRow();
         }
-
         private void Update()
         {
             db.OpenConnection();
 
             for (int index = 0; index < dataGridView1.Rows.Count; index++)
             {
-                var rowState = (RowStateSklady)dataGridView1.Rows[index].Cells[3].Value;
-                if (rowState == RowStateSklady.Existed)
+                var rowState = (RowState_Sklady)dataGridView1.Rows[index].Cells[3].Value;
+                if (rowState == RowState_Sklady.Existed)
                     continue;
-                if (rowState == RowStateSklady.Deleted)
+                if (rowState == RowState_Sklady.Deleted)
                 {
                     var id = Convert.ToInt32(dataGridView1.Rows[index].Cells[0].Value);
-                    var deleteQuery = $"delete from storehouse where storehouse_id = {id}";
+                    var deleteQuery = $"DELETE FROM storehouse_type where storehouse_type_id = {id}";
                     var command = new MySqlCommand(deleteQuery, db.getConnection());
                     command.ExecuteNonQuery();
                 }

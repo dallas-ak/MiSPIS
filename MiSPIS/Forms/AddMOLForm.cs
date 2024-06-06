@@ -18,7 +18,6 @@ namespace MiSPIS.Forms
         {
             InitializeComponent();
         }
-
         private void addMOLForm_Load(object sender, EventArgs e)
         {
             DB db = new DB();
@@ -38,8 +37,7 @@ namespace MiSPIS.Forms
                 MessageBox.Show("Ошибка: " + ex.Message);
             }
             try
-            {
-               
+            {          
                 MySqlCommand command = new MySqlCommand("SELECT * FROM `subdivision`", db.getConnection());
                 MySqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
@@ -121,7 +119,5 @@ namespace MiSPIS.Forms
             else
                 return false;
         }
-
-
     }
 }

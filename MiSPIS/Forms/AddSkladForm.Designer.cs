@@ -45,7 +45,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(10, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 15);
+            this.label1.Size = new System.Drawing.Size(116, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Наименоване склада";
             // 
@@ -54,7 +54,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(10, 59);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 15);
+            this.label2.Size = new System.Drawing.Size(65, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Тип склада";
             // 
@@ -73,6 +73,7 @@
             this.comboBoxTypeSklad.Name = "comboBoxTypeSklad";
             this.comboBoxTypeSklad.Size = new System.Drawing.Size(300, 21);
             this.comboBoxTypeSklad.TabIndex = 6;
+         //  this.comboBoxTypeSklad.SelectedIndexChanged += new System.EventHandler(this.comboBoxTypeSklad_SelectedIndexChanged);
             // 
             // buttonSave
             // 
