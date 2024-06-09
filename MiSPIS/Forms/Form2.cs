@@ -13,7 +13,7 @@ namespace MiSPIS
         private MySqlConnection connection;
         private string connectionString = "server=localhost;port=3306;username=root;password=root;database=MiSPIS;";
         MySqlDataAdapter adapter;
-        DataTable productsTable, clientsTable, salesTable, saleItemsTable, warehousesTable;
+        DataTable clientsTable, warehousesTable, productsTable, salesTable, salesItemsTable;
 
         public Form2(IDataAccess dataAccess)
         {
@@ -22,6 +22,7 @@ namespace MiSPIS
             InitializeDatabaseConnection();
             InitializeDataGridViewColumns();
             LoadClients();
+            LoadWarehouses();
             LoadProducts();
             LoadSales();
         }
@@ -39,7 +40,7 @@ namespace MiSPIS
 
             DataGridViewTextBoxColumn saleIdColumn = new DataGridViewTextBoxColumn
             {
-                HeaderText = "Номер продажи",
+                HeaderText = "Номер",
                 Name = "SaleID",
                 DataPropertyName = "SaleID",
                 ReadOnly = true
@@ -80,14 +81,14 @@ namespace MiSPIS
 
             DataGridViewTextBoxColumn productIdColumn = new DataGridViewTextBoxColumn
             {
-                HeaderText = "Номер товара",
+                HeaderText = "Номер",
                 Name = "ProductID",
                 DataPropertyName = "ProductID",
                 ReadOnly = true
             };
             DataGridViewTextBoxColumn productNameColumn = new DataGridViewTextBoxColumn
             {
-                HeaderText = "Название товара",
+                HeaderText = "Товар",
                 Name = "ProductName",
                 DataPropertyName = "ProductName",
                 ReadOnly = true
@@ -135,30 +136,28 @@ namespace MiSPIS
             comboBoxClients.ValueMember = "ClientID";
             comboBoxClients.SelectedIndex = -1;
         }
-
-        private void LoadProducts()
-        {
-            string query = "SELECT ProductID, ProductName FROM Products";
-            adapter = new MySqlDataAdapter(query, connection);
-            productsTable = new DataTable();
-            adapter.Fill(productsTable);
-            comboBoxWarehouses.DataSource = productsTable;
-            comboBoxWarehouses.DisplayMember = "ProductName";
-            comboBoxWarehouses.ValueMember = "ProductID";
-            comboBoxWarehouses.SelectedIndex = -1;
-        }
         private void LoadWarehouses()
         {
             string query = "SELECT WarehouseID, WarehouseName FROM Warehouses";
             adapter = new MySqlDataAdapter(query, connection);
             warehousesTable = new DataTable();
             adapter.Fill(warehousesTable);
-            comboBoxcomboBoxProducts.DataSource = warehousesTable;
-            comboBoxcomboBoxProducts.DisplayMember = "WarehouseName";
-            comboBoxcomboBoxProducts.ValueMember = "WarehouseID";
-            comboBoxcomboBoxProducts.SelectedIndex = -1;
+            comboBoxWarehouses.DataSource = warehousesTable;
+            comboBoxWarehouses.DisplayMember = "WarehouseName";
+            comboBoxWarehouses.ValueMember = "WarehouseID";
+            comboBoxWarehouses.SelectedIndex = -1;
         }
-
+        private void LoadProducts()
+        {
+            string query = "SELECT ProductID, ProductName FROM Products";
+            adapter = new MySqlDataAdapter(query, connection);
+            productsTable = new DataTable();
+            adapter.Fill(productsTable);
+            comboBoxProducts.DataSource = productsTable;
+            comboBoxProducts.DisplayMember = "ProductName";
+            comboBoxProducts.ValueMember = "ProductID";
+            comboBoxProducts.SelectedIndex = -1;
+        }
         private void LoadSales()
         {
             string query = "SELECT SaleID, TransactionID, SaleDate, " +
@@ -168,42 +167,15 @@ namespace MiSPIS
             salesTable = new DataTable();
             adapter.Fill(salesTable);
 
-            dataGridViewSales.DataSource = salesTable;
+            dataGridViewSales.DataSource = salesTable; 
         }
 
-        private void dataGridViewSales_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dataGridViewSales.SelectedRows.Count > 0)
-            {
-                int saleId = (int)dataGridViewSales.SelectedRows[0].Cells["SaleID"].Value;
-                LoadSaleItems(saleId);
-            }
-        }
 
-        private void LoadSaleItems(int saleId)
-        {
-            string query = "SELECT ProductID, " +
-                           "(SELECT ProductName FROM Products WHERE ProductID = SaleItems.ProductID) AS ProductName, " +
-                           "Quantity, Price, Total " +
-                           "FROM SaleItems WHERE SaleID = @saleId";
-            adapter = new MySqlDataAdapter(query, connection);
-            adapter.SelectCommand.Parameters.AddWithValue("@saleId", saleId);
-            saleItemsTable = new DataTable();
-            adapter.Fill(saleItemsTable);
-
-            // Очищаем строки dataGridViewSaleItems перед добавлением новых данных
-            dataGridViewSaleItems.Rows.Clear();
-
-            foreach (DataRow row in saleItemsTable.Rows)
-            {
-                dataGridViewSaleItems.Rows.Add(row["ProductID"], row["ProductName"], row["Quantity"], row["Price"], row["Total"]);
-            }
-        }
 
         private void buttonAddToSale_Click(object sender, EventArgs e)
         {
             // Проверяем, что все поля заполнены
-            if (string.IsNullOrWhiteSpace(comboBoxWarehouses.Text)
+            if (string.IsNullOrWhiteSpace(comboBoxProducts.Text)
                 || string.IsNullOrWhiteSpace(textBoxQuantity.Text)
                 || string.IsNullOrWhiteSpace(textBoxPrice.Text))
             {
@@ -212,10 +184,10 @@ namespace MiSPIS
             }
 
             // Получаем ProductID из выбранного продукта
-            int productId = (int)comboBoxWarehouses.SelectedValue;
+            int productId = (int)comboBoxProducts.SelectedValue;
 
             // Получаем название продукта
-            string productName = comboBoxWarehouses.Text;
+            string productName = comboBoxProducts.Text;
 
             // Парсим количество
             if (!int.TryParse(textBoxQuantity.Text, out int quantity))
@@ -260,7 +232,111 @@ namespace MiSPIS
 
         private void buttonCreateSale_Click(object sender, EventArgs e)
         {
-            // Ваш код для создания новой продажи
+            // Проверяем, что есть хотя бы одна строка в dataGridViewSaleItems
+            if (dataGridViewSaleItems.Rows.Count == 0)
+            {
+                MessageBox.Show("Добавьте хотя бы одну позицию в продажу перед ее созданием");
+                return;
+            }
+
+            // Проверяем, что все позиции продажи заполнены
+            if (!AreSaleItemsValid())
+            {
+                MessageBox.Show("Заполните все позиции продажи перед созданием");
+                return;
+            }
+
+            connection.Open();
+
+            // Генерация уникального идентификатора транзакции
+            string transactionId = GenerateTransactionId();
+
+            // Вставка продажи
+            string query = "INSERT INTO Sales (SaleDate, ClientID, TransactionID) VALUES (@date, @client, @transactionId)";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@date", dateTimePickerSaleDate.Value);
+            cmd.Parameters.AddWithValue("@client", comboBoxClients.SelectedValue);
+            cmd.Parameters.AddWithValue("@transactionId", transactionId);
+            cmd.ExecuteNonQuery();
+            long saleId = cmd.LastInsertedId;
+
+            // Вставка позиций продажи
+            foreach (DataGridViewRow row in dataGridViewSaleItems.Rows)
+            {
+                if (row.IsNewRow) continue;
+                query = "INSERT INTO SalesItems (SaleID, ProductID, Quantity, Price, Total) VALUES (@saleId, @productId, @quantity, @price, @total)";
+                cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@saleId", saleId);
+                cmd.Parameters.AddWithValue("@productId", row.Cells["ProductID"].Value);
+                cmd.Parameters.AddWithValue("@quantity", row.Cells["Quantity"].Value);
+                cmd.Parameters.AddWithValue("@price", row.Cells["Price"].Value);
+                cmd.Parameters.AddWithValue("@total", row.Cells["Total"].Value);
+
+                cmd.ExecuteNonQuery();
+            }
+            connection.Close();
+            LoadSales();
         }
+
+        private bool AreSaleItemsValid()
+        {
+            foreach (DataGridViewRow row in dataGridViewSaleItems.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    // Проверяем, что ячейка не пустая
+                    if (cell.Value == null || string.IsNullOrWhiteSpace(cell.Value.ToString()))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        private string GenerateTransactionId()
+        {
+            Random random = new Random();
+            return random.Next(100000000, 999999999).ToString();
+        }
+
+
+        private void dataGridViewSales_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridViewSales.SelectedRows.Count > 0)
+            {
+                int saleId = (int)dataGridViewSales.SelectedRows[0].Cells["SaleID"].Value;
+                LoadSaleItems(saleId);
+            }
+        }
+
+        private void LoadSaleItems(int saleId)
+        {
+            string query = "SELECT ProductID, " +
+                           "(SELECT ProductName FROM Products WHERE ProductID = SalesItems.ProductID) AS ProductName, " +
+                           "Quantity, Price, Total " +
+                           "FROM SalesItems WHERE SaleID = @saleId";
+            adapter = new MySqlDataAdapter(query, connection);
+            adapter.SelectCommand.Parameters.AddWithValue("@saleId", saleId);
+            salesItemsTable = new DataTable();
+            adapter.Fill(salesItemsTable);
+
+            // Очищаем строки dataGridViewSaleItems перед добавлением новых данных
+            dataGridViewSaleItems.Rows.Clear();
+
+            foreach (DataRow row in salesItemsTable.Rows)
+            {
+                dataGridViewSaleItems.Rows.Add(row["ProductID"], row["ProductName"], row["Quantity"], row["Price"], row["Total"]);
+            }
+        }
+
+        private void buttonDeleteSaleItem_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridViewSaleItems.SelectedRows)
+            {
+                dataGridViewSaleItems.Rows.Remove(row);
+            }
+        }
+
     }
 }

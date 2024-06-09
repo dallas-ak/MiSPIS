@@ -100,7 +100,7 @@ namespace MiSPIS
 
             DataGridViewTextBoxColumn productNameColumn = new DataGridViewTextBoxColumn
             {
-                HeaderText = "Наименование товара",
+                HeaderText = "Товар",
                 Name = "ProductName",
                 DataPropertyName = "ProductName",
                 ReadOnly = true
@@ -283,7 +283,7 @@ namespace MiSPIS
             }
 
             connection.Open();
-            string query = "INSERT INTO Invoices (InvoiceDate, SupplierID, WarehouseID, ResponsiblePerson) VALUES (@date, @supplier, @warehouse, @person)";
+            string query = "INSERT INTO Invoices (InvoiceDate, SupplierID, WarehouseID, PersonID) VALUES (@date, @supplier, @warehouse, @person)";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@date", dateTimePickerInvoiceDate.Value);
             cmd.Parameters.AddWithValue("@supplier", comboBoxSuppliers.SelectedValue);  
@@ -302,18 +302,64 @@ namespace MiSPIS
                 cmd.Parameters.AddWithValue("@quantity", row.Cells["Quantity"].Value);
                 cmd.Parameters.AddWithValue("@price", row.Cells["Price"].Value);
                 cmd.Parameters.AddWithValue("@total", row.Cells["Total"].Value);
-
                 cmd.ExecuteNonQuery();
             }
             connection.Close();
             LoadInvoices();
+            AddToStock();
         }
+
+        private void AddToStock()
+        {
+            int warehouseID = Convert.ToInt32(comboBoxWarehouses.SelectedValue);
+            int productID = Convert.ToInt32(comboBoxProducts.SelectedValue);
+            int quantity = Convert.ToInt32(textBoxQuantity.Text);
+        //  decimal price = Convert.ToDecimal(textBoxPrice.Text);
+
+            connection.Open();
+
+             // Проверяем, существует ли уже такая позиция товара на складе
+            string query = "SELECT * FROM stock WHERE ProductID = @productID AND WarehouseID = @warehouseID";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            command.Parameters.AddWithValue("@productID", productID);
+            command.Parameters.AddWithValue("@warehouseID", productID);
+            MySqlDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                reader.Close();
+                // Обновляем количество товара
+                query = "UPDATE stock SET Quantity = Quantity + @quantity WHERE ProductID = @productID AND WarehouseID = @warehouseID";
+                command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@warehouseID", warehouseID);
+                command.Parameters.AddWithValue("@productID", productID);
+                command.Parameters.AddWithValue("@quantity", quantity);
+             // command.Parameters.AddWithValue("@price", price);
+                
+                command.ExecuteNonQuery();
+                MessageBox.Show("Количество товара на складе успешно обновлено!");
+            }
+            else
+            {
+                reader.Close();
+                // Добавляем новую позицию на склад
+                query = "INSERT INTO stock (WarehouseID, ProductID, Quantity) VALUES (@warehouseID, @productID, @quantity)";
+                command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@warehouseID", warehouseID);
+                command.Parameters.AddWithValue("@productID", productID);
+                command.Parameters.AddWithValue("@quantity", quantity);
+           //     command.Parameters.AddWithValue("@price", price);
+                command.ExecuteNonQuery();
+                MessageBox.Show("Товар успешно добавлен на склад!");
+            }
+            connection.Close();
+        }
+
         private void LoadInvoices()
         {
             string query = "SELECT InvoiceID, InvoiceDate, " +
                            "(SELECT SupplierName FROM Suppliers WHERE SupplierID = Invoices.SupplierID) AS Supplier, " +
                            "(SELECT WarehouseName FROM Warehouses WHERE WarehouseID = Invoices.WarehouseID) AS Warehouse, " +
-                           "(SELECT PersonName FROM ResponsiblePersons WHERE PersonID = Invoices.ResponsiblePerson) AS ResponsiblePerson " +
+                           "(SELECT PersonName FROM ResponsiblePersons WHERE PersonID = Invoices.PersonID) AS ResponsiblePerson " +
                            "FROM Invoices";
             adapter = new MySqlDataAdapter(query, connection);
             invoicesTable = new DataTable();
