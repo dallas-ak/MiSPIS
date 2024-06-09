@@ -14,6 +14,8 @@ namespace MiSPIS
 {
     public partial class MainForm : Form
     {
+        private IDataAccess dataAccess;
+
         public MainForm()
         {
             InitializeComponent();
@@ -56,14 +58,14 @@ namespace MiSPIS
 
         private void buttonPrihod_Click(object sender, EventArgs e)
         {
-            PrihodForm prihodForm = new PrihodForm();
-            prihodForm.Show();
+            Form1 form1 = new Form1(dataAccess);
+            form1.Show();
         }
 
         private void buttonRashod_Click(object sender, EventArgs e)
         {
-            RashodForm rashodForm = new RashodForm();
-            rashodForm.Show();
+            Form2 form2 = new Form2(dataAccess);
+            form2.Show();
         }
 
         private void buttonOstatki_Click(object sender, EventArgs e)

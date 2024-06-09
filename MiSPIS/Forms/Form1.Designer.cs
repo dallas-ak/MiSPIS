@@ -57,39 +57,39 @@ namespace MiSPIS
             this.dataGridViewInvoiceItems.AllowUserToAddRows = false;
             this.dataGridViewInvoiceItems.AllowUserToDeleteRows = false;
             this.dataGridViewInvoiceItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewInvoiceItems.Location = new System.Drawing.Point(311, 174);
+            this.dataGridViewInvoiceItems.Location = new System.Drawing.Point(320, 170);
             this.dataGridViewInvoiceItems.Name = "dataGridViewInvoiceItems";
             this.dataGridViewInvoiceItems.ReadOnly = true;
             this.dataGridViewInvoiceItems.RowHeadersWidth = 51;
-            this.dataGridViewInvoiceItems.Size = new System.Drawing.Size(555, 150);
+            this.dataGridViewInvoiceItems.Size = new System.Drawing.Size(650, 150);
             this.dataGridViewInvoiceItems.TabIndex = 0;
             // 
             // comboBoxProducts
             // 
             this.comboBoxProducts.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBoxProducts.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBoxProducts.Location = new System.Drawing.Point(139, 98);
+            this.comboBoxProducts.Location = new System.Drawing.Point(140, 90);
             this.comboBoxProducts.Name = "comboBoxProducts";
-            this.comboBoxProducts.Size = new System.Drawing.Size(166, 21);
+            this.comboBoxProducts.Size = new System.Drawing.Size(170, 21);
             this.comboBoxProducts.TabIndex = 3;
             // 
             // textBoxQuantity
             // 
-            this.textBoxQuantity.Location = new System.Drawing.Point(139, 125);
+            this.textBoxQuantity.Location = new System.Drawing.Point(140, 117);
             this.textBoxQuantity.Name = "textBoxQuantity";
-            this.textBoxQuantity.Size = new System.Drawing.Size(166, 20);
+            this.textBoxQuantity.Size = new System.Drawing.Size(170, 20);
             this.textBoxQuantity.TabIndex = 5;
             // 
             // textBoxPrice
             // 
-            this.textBoxPrice.Location = new System.Drawing.Point(139, 151);
+            this.textBoxPrice.Location = new System.Drawing.Point(139, 143);
             this.textBoxPrice.Name = "textBoxPrice";
-            this.textBoxPrice.Size = new System.Drawing.Size(166, 20);
+            this.textBoxPrice.Size = new System.Drawing.Size(170, 20);
             this.textBoxPrice.TabIndex = 6;
             // 
             // buttonAddToInvoice
             // 
-            this.buttonAddToInvoice.Location = new System.Drawing.Point(311, 330);
+            this.buttonAddToInvoice.Location = new System.Drawing.Point(320, 325);
             this.buttonAddToInvoice.Name = "buttonAddToInvoice";
             this.buttonAddToInvoice.Size = new System.Drawing.Size(125, 23);
             this.buttonAddToInvoice.TabIndex = 8;
@@ -99,9 +99,9 @@ namespace MiSPIS
             // 
             // buttonCreateInvoice
             // 
-            this.buttonCreateInvoice.Location = new System.Drawing.Point(20, 12);
+            this.buttonCreateInvoice.Location = new System.Drawing.Point(10, 10);
             this.buttonCreateInvoice.Name = "buttonCreateInvoice";
-            this.buttonCreateInvoice.Size = new System.Drawing.Size(113, 23);
+            this.buttonCreateInvoice.Size = new System.Drawing.Size(120, 23);
             this.buttonCreateInvoice.TabIndex = 17;
             this.buttonCreateInvoice.Text = "Записать";
             this.buttonCreateInvoice.Click += new System.EventHandler(this.buttonCreateInvoice_Click);
@@ -110,25 +110,25 @@ namespace MiSPIS
             // 
             this.comboBoxSuppliers.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBoxSuppliers.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBoxSuppliers.Location = new System.Drawing.Point(139, 44);
+            this.comboBoxSuppliers.Location = new System.Drawing.Point(140, 35);
             this.comboBoxSuppliers.Name = "comboBoxSuppliers";
-            this.comboBoxSuppliers.Size = new System.Drawing.Size(166, 21);
+            this.comboBoxSuppliers.Size = new System.Drawing.Size(170, 21);
             this.comboBoxSuppliers.TabIndex = 1;
             // 
             // comboBoxWarehouses
             // 
             this.comboBoxWarehouses.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBoxWarehouses.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBoxWarehouses.Location = new System.Drawing.Point(139, 71);
+            this.comboBoxWarehouses.Location = new System.Drawing.Point(140, 63);
             this.comboBoxWarehouses.Name = "comboBoxWarehouses";
-            this.comboBoxWarehouses.Size = new System.Drawing.Size(166, 21);
+            this.comboBoxWarehouses.Size = new System.Drawing.Size(170, 21);
             this.comboBoxWarehouses.TabIndex = 2;
             // 
             // comboBoxResponsiblePersons
             // 
             this.comboBoxResponsiblePersons.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBoxResponsiblePersons.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBoxResponsiblePersons.Location = new System.Drawing.Point(139, 303);
+            this.comboBoxResponsiblePersons.Location = new System.Drawing.Point(139, 299);
             this.comboBoxResponsiblePersons.Name = "comboBoxResponsiblePersons";
             this.comboBoxResponsiblePersons.Size = new System.Drawing.Size(166, 21);
             this.comboBoxResponsiblePersons.TabIndex = 7;
@@ -137,9 +137,9 @@ namespace MiSPIS
             // 
             this.dateTimePickerInvoiceDate.CustomFormat = "dd-mm-yyyy";
             this.dateTimePickerInvoiceDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerInvoiceDate.Location = new System.Drawing.Point(139, 15);
+            this.dateTimePickerInvoiceDate.Location = new System.Drawing.Point(140, 10);
             this.dateTimePickerInvoiceDate.Name = "dateTimePickerInvoiceDate";
-            this.dateTimePickerInvoiceDate.Size = new System.Drawing.Size(165, 20);
+            this.dateTimePickerInvoiceDate.Size = new System.Drawing.Size(170, 20);
             this.dateTimePickerInvoiceDate.TabIndex = 0;
             // 
             // dataGridViewInvoices
@@ -147,17 +147,17 @@ namespace MiSPIS
             this.dataGridViewInvoices.AllowUserToAddRows = false;
             this.dataGridViewInvoices.AllowUserToDeleteRows = false;
             this.dataGridViewInvoices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewInvoices.Location = new System.Drawing.Point(311, 12);
+            this.dataGridViewInvoices.Location = new System.Drawing.Point(320, 10);
             this.dataGridViewInvoices.Name = "dataGridViewInvoices";
             this.dataGridViewInvoices.ReadOnly = true;
             this.dataGridViewInvoices.RowHeadersWidth = 51;
-            this.dataGridViewInvoices.Size = new System.Drawing.Size(555, 150);
+            this.dataGridViewInvoices.Size = new System.Drawing.Size(650, 150);
             this.dataGridViewInvoices.TabIndex = 9;
             this.dataGridViewInvoices.SelectionChanged += new System.EventHandler(this.dataGridViewInvoices_SelectionChanged);
             // 
             // buttonDeleteInvoiceItem
             // 
-            this.buttonDeleteInvoiceItem.Location = new System.Drawing.Point(452, 330);
+            this.buttonDeleteInvoiceItem.Location = new System.Drawing.Point(450, 325);
             this.buttonDeleteInvoiceItem.Name = "buttonDeleteInvoiceItem";
             this.buttonDeleteInvoiceItem.Size = new System.Drawing.Size(125, 23);
             this.buttonDeleteInvoiceItem.TabIndex = 9;
@@ -168,7 +168,7 @@ namespace MiSPIS
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 102);
+            this.label1.Location = new System.Drawing.Point(10, 93);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 15);
             this.label1.TabIndex = 13;
@@ -177,7 +177,7 @@ namespace MiSPIS
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 128);
+            this.label2.Location = new System.Drawing.Point(10, 120);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 15);
             this.label2.TabIndex = 14;
@@ -186,7 +186,7 @@ namespace MiSPIS
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 154);
+            this.label3.Location = new System.Drawing.Point(10, 146);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 15);
             this.label3.TabIndex = 15;
@@ -195,7 +195,7 @@ namespace MiSPIS
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 47);
+            this.label4.Location = new System.Drawing.Point(10, 39);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 15);
             this.label4.TabIndex = 11;
@@ -204,7 +204,7 @@ namespace MiSPIS
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(17, 74);
+            this.label5.Location = new System.Drawing.Point(10, 66);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 15);
             this.label5.TabIndex = 12;
@@ -213,7 +213,7 @@ namespace MiSPIS
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 306);
+            this.label6.Location = new System.Drawing.Point(10, 302);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 15);
             this.label6.TabIndex = 16;
@@ -223,7 +223,7 @@ namespace MiSPIS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(895, 367);
+            this.ClientSize = new System.Drawing.Size(982, 353);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);

@@ -8,19 +8,16 @@ namespace MiSPIS
     public partial class Form1 : Form
     {
         private readonly IDataAccess dataAccess;
-        public string LastErrorMessage { get; private set; }
-        public Form1(IDataAccess dataAccessc)
-        {
-            this.dataAccess = dataAccess;
-            }
+        public string LastErrorMessage { get; private set; }         
 
         private MySqlConnection connection;
         private string connectionString = "server=localhost;port=3306;username=root;password=root;database=MiSPIS;";
         MySqlDataAdapter adapter;
         DataTable productsTable, suppliersTable, invoicesTable, invoiceItemsTable, warehousesTable, responsiblePersonsTable;
 
-        public Form1()
+        public Form1(IDataAccess dataAccess)
         {
+            this.dataAccess = dataAccess;
             InitializeComponent();
             InitializeDatabaseConnection();
             InitializeDataGridViewColumns();
