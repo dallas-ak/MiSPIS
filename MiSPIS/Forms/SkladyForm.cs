@@ -42,7 +42,7 @@ namespace MiSPIS.Forms
         private void RefreshDataGrid(DataGridView dgw)
         {
             dgw.Rows.Clear();
-            string queryString = $"SELECT storehouse_type_id, storehouse.storehouse_name, type.type_name FROM storehouse_type LEFT JOIN storehouse ON  (storehouse.storehouse_id = storehouse_type.storehouse_id) LEFT JOIN type ON (type.type_id = storehouse_type.type_id)";
+            string queryString = $"SELECT materials.material_id, material_vendor_code, material_name, storehouse.storehouse_name, type.type_name " +
             MySqlCommand command = new MySqlCommand(queryString, db.getConnection());
             db.OpenConnection();
             MySqlDataReader reader = command.ExecuteReader();
