@@ -40,7 +40,7 @@ namespace MiSPIS.Forms
                 MySqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    comboBoxTypeSklad.Items.Add(reader[0].ToString() + "-" + reader[1].ToString());
+                    comboBoxTypeSklad.Items.Add(reader[0].ToString() + " - " + reader[1].ToString());
                 }
                 reader.Close();
                 db.closeConnection();
@@ -93,8 +93,8 @@ namespace MiSPIS.Forms
             DB db = new DB();
             DataTable tb = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
-            MySqlCommand command = new MySqlCommand("SELECT * FROM storehouse_type WHERE storehouse_id = @storehouse_id AND type_id = @type_id", db.getConnection());
-            command.Parameters.Add("@storehouse_id", MySqlDbType.VarChar).Value = nameSklad.Text;
+            MySqlCommand command = new MySqlCommand("SELECT storehouse_name, type_name FROM storehouse, type WHERE storehouse_name = @storehouseName AND type_id = @type_id", db.getConnection());
+            command.Parameters.Add("@storehouseName", MySqlDbType.VarChar).Value = nameSklad.Text;
             command.Parameters.Add("@type_id", MySqlDbType.VarChar).Value = comboBoxTypeSklad.Text;
             adapter.SelectCommand = command;
             adapter.Fill(tb);
@@ -113,6 +113,12 @@ namespace MiSPIS.Forms
                 MessageBox.Show("Для удаления выберите тип склада");
                 return;
             }
+            string selectedItemPut = comboBoxTypeSklad.SelectedItem.ToString();
+            int index = comboBoxTypeSklad.FindString(selectedItemPut);
+            //разобьем элементы обратно на массив, как они и были до записи в combobox
+            string[] breakSelectedItem = selectedItemPut.Split('-');
+            //считаем первый элемент с массива
+            int put2 = Convert.ToInt32(breakSelectedItem[0].Trim());
             comboBoxTypeSklad.Items.Remove(comboBoxTypeSklad.SelectedItem);
             comboBoxTypeSklad.Text = string.Empty;
             DialogResult result = MessageBox.Show("Удалить?", "Подтвердите действие", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -121,13 +127,13 @@ namespace MiSPIS.Forms
                 DB db = new DB();
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
                 db.OpenConnection();
-                MySqlCommand command = new MySqlCommand("DELETE FROM storehouse_type WHERE storehouse_type_id = @storehouseTypeId ", db.getConnection());
-                command.Parameters.Add("@storehouseTypeId", MySqlDbType.VarChar).Value = comboBoxTypeSklad.SelectedItem;
+                MySqlCommand command = new MySqlCommand("DELETE FROM `type` WHERE `type`.`type_id` = @typeId ", db.getConnection());
+                command.Parameters.Add("@typeId", MySqlDbType.VarChar).Value = put2;
                 adapter.SelectCommand = command;
                 if (command.ExecuteNonQuery() == 1)
                     MessageBox.Show("Успешно удалено");
                 else
-                    MessageBox.Show("Для удаления выберите тип склада");
+                    MessageBox.Show("Ошибка удаления");
                 db.closeConnection();
             }
             else if (result == DialogResult.No)

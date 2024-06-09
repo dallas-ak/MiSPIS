@@ -32,7 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.articleMaterial = new System.Windows.Forms.TextBox();
+            this.vendorCode = new System.Windows.Forms.TextBox();
             this.nameMaterial = new System.Windows.Forms.TextBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -51,7 +51,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 15);
+            this.label1.Size = new System.Drawing.Size(48, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "Артикул";
             // 
@@ -60,7 +60,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 67);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(140, 15);
+            this.label2.Size = new System.Drawing.Size(121, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Наименование товара";
             // 
@@ -69,18 +69,18 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 100);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 15);
+            this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "Склад";
             // 
-            // articleMaterial
+            // vendorCode
             // 
-            this.articleMaterial.Location = new System.Drawing.Point(160, 29);
-            this.articleMaterial.MaxLength = 6;
-            this.articleMaterial.Name = "articleMaterial";
-            this.articleMaterial.Size = new System.Drawing.Size(260, 20);
-            this.articleMaterial.TabIndex = 0;
-            this.articleMaterial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.articleMaterial_KeyPress);
+            this.vendorCode.Location = new System.Drawing.Point(160, 29);
+            this.vendorCode.MaxLength = 6;
+            this.vendorCode.Name = "vendorCode";
+            this.vendorCode.Size = new System.Drawing.Size(260, 20);
+            this.vendorCode.TabIndex = 0;
+            this.vendorCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.articleMaterial_KeyPress);
             // 
             // nameMaterial
             // 
@@ -107,7 +107,7 @@
             this.ClientSize = new System.Drawing.Size(432, 203);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.nameMaterial);
-            this.Controls.Add(this.articleMaterial);
+            this.Controls.Add(this.vendorCode);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -128,7 +128,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox articleMaterial;
+        private System.Windows.Forms.TextBox vendorCode;
         private System.Windows.Forms.TextBox nameMaterial;
         private System.Windows.Forms.Button buttonSave;
     }

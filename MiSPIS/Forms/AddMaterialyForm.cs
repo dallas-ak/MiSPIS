@@ -23,11 +23,11 @@ namespace MiSPIS.Forms
             try
             {
                 db.OpenConnection();
-                MySqlCommand command = new MySqlCommand("SELECT * FROM storehouse", db.getConnection());
+                MySqlCommand command = new MySqlCommand("SELECT storehouse_type_id, storehouse.storehouse_name, type.type_name FROM storehouse_type LEFT JOIN storehouse ON  (storehouse.storehouse_id = storehouse_type.storehouse_id) LEFT JOIN type ON (type.type_id = storehouse_type.type_id)", db.getConnection());
                 MySqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    comboBoxNameSklad.Items.Add(reader[1].ToString() + " (" + reader[2].ToString() + ")");              
+                    comboBoxNameSklad.Items.Add(reader[0].ToString() + " - " + reader[1].ToString() + " (" + reader[2].ToString() + ")");              
                 }
                 reader.Close();
                 db.closeConnection();
@@ -39,10 +39,10 @@ namespace MiSPIS.Forms
         }
         private void articleMaterial_KeyPress(object sender, KeyPressEventArgs e)
         {
-            string s = articleMaterial.Text;
+            string s = vendorCode.Text;
             if (s.Count() == 6)
             {
-              articleMaterial.Clear();
+              vendorCode.Clear();
             }
             if (Char.IsDigit(e.KeyChar))
             {
@@ -54,7 +54,7 @@ namespace MiSPIS.Forms
         }
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            if (articleMaterial.Text == "" || articleMaterial.Text == " ")
+            if (vendorCode.Text == "" || vendorCode.Text == " ")
             {
                 MessageBox.Show("Введите акртикул ");
                 return;
@@ -71,12 +71,29 @@ namespace MiSPIS.Forms
 
             DB db = new DB();
             db.OpenConnection();
-            MySqlCommand command = new MySqlCommand("INSERT INTO `materials` (material_vendor_code, material_name, storehouse_name, storehouse_type_name) VALUES (@materialVendorCode, @materialName, `storehouse_name`, `storehouse_type_name`)", db.getConnection());
-            command.Parameters.Add("@materialVendorCode", MySqlDbType.VarChar).Value = articleMaterial.Text;
+            MySqlCommand command = new MySqlCommand("INSERT INTO `materials` (material_vendor_code, material_name) VALUES (@vendorCode, @materialName)", db.getConnection());
+            command.Parameters.Add("@vendorCode", MySqlDbType.VarChar).Value = vendorCode.Text;
             command.Parameters.Add("@materialName", MySqlDbType.VarChar).Value = nameMaterial.Text;
-
             if (command.ExecuteNonQuery() == 1)
+            {
+
+            }
+            else
+                MessageBox.Show("Ошибка добавления артикула или наименования");
+            db.closeConnection();
+            //заберем всю строку из combobox
+            string selectedItemPut = comboBoxNameSklad.SelectedItem.ToString();
+            int index = comboBoxNameSklad.FindString(selectedItemPut);
+            //разобьем элементы обратно на массив, как они и были до записи в combobox
+            string[] breakSelectedItem = selectedItemPut.Split('-');
+            //считаем первый элемент с массива
+            int put = Convert.ToInt32(breakSelectedItem[0].Trim());
+            db.OpenConnection();
+            MySqlCommand command2 = new MySqlCommand("INSERT INTO materials_storehouse_type (material_id, storehouse_type_id) VALUE (LAST_INSERT_ID(), " + put + ")", db.getConnection());
+            if (command2.ExecuteNonQuery() == 1)
+            {
                 MessageBox.Show("Товар добавлен");
+            }
             else
                 MessageBox.Show("Ошибка добавления");
             db.closeConnection();
@@ -84,14 +101,13 @@ namespace MiSPIS.Forms
             MaterialyForm materialyForm = new MaterialyForm();
             materialyForm.Show();
         }
-
         public Boolean isSkladExists()
         {
             DB db = new DB();
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
             MySqlCommand command = new MySqlCommand("SELECT * FROM `materials` WHERE `material_vendor_code` = @materialVendorCode", db.getConnection());
-            command.Parameters.Add("@materialVendorCode", MySqlDbType.VarChar).Value = articleMaterial.Text;
+            command.Parameters.Add("@materialVendorCode", MySqlDbType.VarChar).Value = vendorCode.Text;
             adapter.SelectCommand = command;
             adapter.Fill(table);
             if (table.Rows.Count > 0)

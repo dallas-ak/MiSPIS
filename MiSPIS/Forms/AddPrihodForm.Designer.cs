@@ -103,7 +103,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(10, 103);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
+            this.label1.Size = new System.Drawing.Size(76, 15);
             this.label1.TabIndex = 11;
             this.label1.Text = "Количество";
             // 
@@ -121,7 +121,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(10, 47);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.Size = new System.Drawing.Size(72, 15);
             this.label2.TabIndex = 9;
             this.label2.Text = "Поставщик";
             // 
@@ -130,7 +130,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(10, 74);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.Size = new System.Drawing.Size(42, 15);
             this.label3.TabIndex = 10;
             this.label3.Text = "Товар";
             // 
@@ -139,7 +139,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(10, 376);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 13);
+            this.label4.Size = new System.Drawing.Size(35, 15);
             this.label4.TabIndex = 14;
             this.label4.Text = "МОЛ";
             // 
@@ -148,7 +148,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(270, 103);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(33, 13);
+            this.label5.Size = new System.Drawing.Size(37, 15);
             this.label5.TabIndex = 12;
             this.label5.Text = "Цена";
             // 
@@ -173,7 +173,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(10, 349);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 13);
+            this.label6.Size = new System.Drawing.Size(42, 15);
             this.label6.TabIndex = 13;
             this.label6.Text = "Склад";
             // 
@@ -201,7 +201,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(13, 137);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(99, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(89, 27);
             this.toolStrip1.TabIndex = 21;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -211,7 +211,7 @@
             this.toolStripAdd.Image = ((System.Drawing.Image)(resources.GetObject("toolStripAdd.Image")));
             this.toolStripAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripAdd.Name = "toolStripAdd";
-            this.toolStripAdd.Size = new System.Drawing.Size(24, 24);
+            this.toolStripAdd.Size = new System.Drawing.Size(29, 24);
             this.toolStripAdd.Text = "Добавить товар";
             this.toolStripAdd.Click += new System.EventHandler(this.toolStripAdd_Click);
             // 
@@ -221,7 +221,7 @@
             this.toolStripRefresh.Image = ((System.Drawing.Image)(resources.GetObject("toolStripRefresh.Image")));
             this.toolStripRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripRefresh.Name = "toolStripRefresh";
-            this.toolStripRefresh.Size = new System.Drawing.Size(24, 24);
+            this.toolStripRefresh.Size = new System.Drawing.Size(29, 24);
             this.toolStripRefresh.Text = "Обновить";
             // 
             // toolStripDelete
@@ -230,7 +230,7 @@
             this.toolStripDelete.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDelete.Image")));
             this.toolStripDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDelete.Name = "toolStripDelete";
-            this.toolStripDelete.Size = new System.Drawing.Size(24, 24);
+            this.toolStripDelete.Size = new System.Drawing.Size(29, 24);
             this.toolStripDelete.Text = "Удалить товар";
             this.toolStripDelete.Click += new System.EventHandler(this.toolStripDelete_Click);
             // 
@@ -240,7 +240,7 @@
             this.toolStripSave.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSave.Image")));
             this.toolStripSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSave.Name = "toolStripSave";
-            this.toolStripSave.Size = new System.Drawing.Size(24, 24);
+            this.toolStripSave.Size = new System.Drawing.Size(29, 24);
             this.toolStripSave.Text = "Сохранить";
             this.toolStripSave.Click += new System.EventHandler(this.toolStripSave_Click);
             // 

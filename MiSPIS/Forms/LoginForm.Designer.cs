@@ -46,7 +46,7 @@
             this.labelUser.Location = new System.Drawing.Point(15, 84);
             this.labelUser.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelUser.Name = "labelUser";
-            this.labelUser.Size = new System.Drawing.Size(139, 24);
+            this.labelUser.Size = new System.Drawing.Size(179, 29);
             this.labelUser.TabIndex = 0;
             this.labelUser.Text = "Пользователь";
             // 
@@ -57,7 +57,7 @@
             this.labelPassword.Location = new System.Drawing.Point(15, 150);
             this.labelPassword.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(76, 24);
+            this.labelPassword.Size = new System.Drawing.Size(99, 29);
             this.labelPassword.TabIndex = 1;
             this.labelPassword.Text = "Пароль";
             // 
@@ -67,7 +67,7 @@
             this.loginField.Margin = new System.Windows.Forms.Padding(6);
             this.loginField.MaxLength = 20;
             this.loginField.Name = "loginField";
-            this.loginField.Size = new System.Drawing.Size(344, 34);
+            this.loginField.Size = new System.Drawing.Size(344, 41);
             this.loginField.TabIndex = 2;
             // 
             // passwordField
@@ -77,7 +77,7 @@
             this.passwordField.Margin = new System.Windows.Forms.Padding(6);
             this.passwordField.MaxLength = 12;
             this.passwordField.Name = "passwordField";
-            this.passwordField.Size = new System.Drawing.Size(344, 34);
+            this.passwordField.Size = new System.Drawing.Size(344, 41);
             this.passwordField.TabIndex = 3;
             // 
             // buttonLogin
@@ -109,7 +109,7 @@
             this.RegisterLabel.Location = new System.Drawing.Point(250, 274);
             this.RegisterLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.RegisterLabel.Name = "RegisterLabel";
-            this.RegisterLabel.Size = new System.Drawing.Size(99, 17);
+            this.RegisterLabel.Size = new System.Drawing.Size(122, 20);
             this.RegisterLabel.TabIndex = 5;
             this.RegisterLabel.Text = "Создать аккаунт";
             this.RegisterLabel.Click += new System.EventHandler(this.RegisterLabel_Click);
@@ -121,7 +121,7 @@
             this.labelAuthorization.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelAuthorization.Location = new System.Drawing.Point(200, 10);
             this.labelAuthorization.Name = "labelAuthorization";
-            this.labelAuthorization.Size = new System.Drawing.Size(200, 40);
+            this.labelAuthorization.Size = new System.Drawing.Size(233, 40);
             this.labelAuthorization.TabIndex = 6;
             this.labelAuthorization.Text = "Авторизация";
             this.labelAuthorization.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -148,7 +148,7 @@
             this.ShowPassword.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ShowPassword.Location = new System.Drawing.Point(385, 183);
             this.ShowPassword.Name = "ShowPassword";
-            this.ShowPassword.Size = new System.Drawing.Size(125, 21);
+            this.ShowPassword.Size = new System.Drawing.Size(154, 24);
             this.ShowPassword.TabIndex = 8;
             this.ShowPassword.Text = "Показать пароль";
             this.ShowPassword.UseVisualStyleBackColor = true;
@@ -158,7 +158,7 @@
             // 
             this.AcceptButton = this.buttonLogin;
             this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 26F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 33F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 300);
             this.Controls.Add(this.ShowPassword);

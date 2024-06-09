@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -93,8 +94,9 @@ namespace MiSPIS.Forms
             if (isPostavschikExists())
                 return;
             DB db = new DB();
-            MySqlCommand command = new MySqlCommand("INSERT INTO `counterparty` (`counterparty_type`, `counterparty_INN`, `counterparty_KPP`, `counterparty_full_name`, `counterparty_short_name`) VALUES (@counterpartyType, @counterpartyINN, @counterpartyKPP, @counterpartyFullName, @counterpartyShortName)", db.getConnection());
-            command.Parameters.Add("@counterpartyType", MySqlDbType.VarChar).Value = comboBoxTypePostavschiki.Text;
+            var id = Convert.ToInt32(comboBoxTypePostavschiki.SelectedIndex); id++;
+            MySqlCommand command = new MySqlCommand("INSERT INTO `counterparty` (counterparty_type_id, counterparty_INN, counterparty_KPP, counterparty_full_name, counterparty_short_name) VALUES (@counterpartyTypeId, @counterpartyINN, @counterpartyKPP, @counterpartyFullName, @counterpartyShortName)", db.getConnection());
+            command.Parameters.Add("@counterpartyTypeId", MySqlDbType.VarChar).Value = id;
             command.Parameters.Add("@counterpartyINN", MySqlDbType.VarChar).Value = INN.Text;
             command.Parameters.Add("@counterpartyKPP", MySqlDbType.VarChar).Value = KPP.Text;
             command.Parameters.Add("@counterpartyShortName", MySqlDbType.VarChar).Value = ShortName.Text;

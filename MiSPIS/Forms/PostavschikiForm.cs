@@ -29,11 +29,11 @@ namespace MiSPIS.Forms
         private void CreateColumns()
         {
             dataGridView1.Columns.Add("counterparty_id", "Код");
-            dataGridView1.Columns.Add("counterparty_type", "Вид поставщика");
+            dataGridView1.Columns.Add("counterparty_type_name", "Вид поставщика");
             dataGridView1.Columns.Add("counterparty_INN", "ИНН");
             dataGridView1.Columns.Add("counterparty_KPP", "КПП");         
             dataGridView1.Columns.Add("counterparty_short_name", "Краткое наименование");
-            dataGridView1.Columns.Add("counterparty_full_name", "Полное наименование");
+            dataGridView1.Columns.Add("counterparty_full_name", "Полное наименование"); 
             dataGridView1.Columns.Add("IsNew", String.Empty);
         }
         private void ReadSingleRow(DataGridView dwg, IDataRecord record)
@@ -43,7 +43,7 @@ namespace MiSPIS.Forms
         private void RefreshDataGrid(DataGridView dgw)
         {
             dgw.Rows.Clear();
-            string queryString = $"select * from counterparty";
+            string queryString = $"SELECT counterparty_id , counterparty_INN, counterparty_KPP, counterparty_short_name, counterparty_full_name FROM counterparty LEFT JOIN counterparty_type ON (counterparty.counterparty_id = counterparty_type.counterparty_type_id);\r\n";
             MySqlCommand command = new MySqlCommand(queryString, db.getConnection());
             db.OpenConnection();
             MySqlDataReader reader = command.ExecuteReader();

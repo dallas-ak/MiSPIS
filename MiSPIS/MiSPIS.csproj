@@ -104,6 +104,13 @@
     <Compile Include="Forms\AddMaterialyForm.Designer.cs">
       <DependentUpon>AddMaterialyForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IDataAccess.cs" />
     <Compile Include="Forms\MaterialyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +179,9 @@
     <Compile Include="Forms\RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sale.cs" />
+    <Compile Include="SalesItem.cs" />
+    <Compile Include="System\Configuration\ConfigurationManager.cs" />
     <EmbeddedResource Include="Forms\AddPrihodForm.resx">
       <DependentUpon>AddPrihodForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddSkladForm.resx">
       <DependentUpon>AddSkladForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MaterialyForm.resx">
       <DependentUpon>MaterialyForm.cs</DependentUpon>
