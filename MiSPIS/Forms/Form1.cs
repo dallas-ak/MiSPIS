@@ -269,11 +269,11 @@ namespace MiSPIS
 
 
             // Проверяем, что есть хотя бы одна строка в dataGridViewInvoiceItems
-            if (dataGridViewInvoiceItems.Rows.Count == 0)
-            {
-                MessageBox.Show("Добавьте хотя бы одну позицию в счет перед его созданием");
-                return;
-            }
+          // if (dataGridViewInvoiceItems.Rows.Count == 0)
+          //  {
+          //      MessageBox.Show("Добавьте хотя бы одну позицию в счет перед его созданием");
+          //       return;
+          //  }
 
             // Проверяем, что все позиции накладной заполнены
             if (!AreInvoiceItemsValid())
@@ -306,52 +306,55 @@ namespace MiSPIS
             }
             connection.Close();
             LoadInvoices();
-            AddToStock();
+            AddToStock(); // Добавляем товары на склад после создания накладной
         }
 
         private void AddToStock()
         {
             int warehouseID = Convert.ToInt32(comboBoxWarehouses.SelectedValue);
-            int productID = Convert.ToInt32(comboBoxProducts.SelectedValue);
-            int quantity = Convert.ToInt32(textBoxQuantity.Text);
-        //  decimal price = Convert.ToDecimal(textBoxPrice.Text);
 
             connection.Open();
 
-             // Проверяем, существует ли уже такая позиция товара на складе
-            string query = "SELECT * FROM stock WHERE ProductID = @productID AND WarehouseID = @warehouseID";
-            MySqlCommand command = new MySqlCommand(query, connection);
-            command.Parameters.AddWithValue("@productID", productID);
-            command.Parameters.AddWithValue("@warehouseID", productID);
-            MySqlDataReader reader = command.ExecuteReader();
-            if (reader.HasRows)
+            foreach (DataGridViewRow row in dataGridViewInvoiceItems.Rows)
             {
-                reader.Close();
-                // Обновляем количество товара
-                query = "UPDATE stock SET Quantity = Quantity + @quantity WHERE ProductID = @productID AND WarehouseID = @warehouseID";
-                command = new MySqlCommand(query, connection);
-                command.Parameters.AddWithValue("@warehouseID", warehouseID);
+                if (row.IsNewRow) continue;
+
+                int productID = Convert.ToInt32(row.Cells["ProductID"].Value);
+                int quantity = Convert.ToInt32(row.Cells["Quantity"].Value);
+
+                // Проверяем, существует ли уже такая позиция товара на складе
+                string query = "SELECT * FROM stock WHERE ProductID = @productID AND WarehouseID = @warehouseID";
+                MySqlCommand command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@productID", productID);
-                command.Parameters.AddWithValue("@quantity", quantity);
-             // command.Parameters.AddWithValue("@price", price);
-                
-                command.ExecuteNonQuery();
-                MessageBox.Show("Количество товара на складе успешно обновлено!");
-            }
-            else
-            {
-                reader.Close();
-                // Добавляем новую позицию на склад
-                query = "INSERT INTO stock (WarehouseID, ProductID, Quantity) VALUES (@warehouseID, @productID, @quantity)";
-                command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@warehouseID", warehouseID);
-                command.Parameters.AddWithValue("@productID", productID);
-                command.Parameters.AddWithValue("@quantity", quantity);
-           //     command.Parameters.AddWithValue("@price", price);
-                command.ExecuteNonQuery();
-                MessageBox.Show("Товар успешно добавлен на склад!");
+
+                MySqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Close();
+                    // Обновляем количество товара
+                    query = "UPDATE stock SET Quantity = Quantity + @quantity WHERE ProductID = @productID AND WarehouseID = @warehouseID";
+                    command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@warehouseID", warehouseID);
+                    command.Parameters.AddWithValue("@productID", productID);
+                    command.Parameters.AddWithValue("@quantity", quantity);
+                    command.ExecuteNonQuery();
+                }
+                else
+                {
+                    reader.Close();
+                    // Добавляем новую позицию на склад
+                    query = "INSERT INTO stock (WarehouseID, ProductID, Quantity) VALUES (@warehouseID, @productID, @quantity)";
+                    command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@warehouseID", warehouseID);
+                    command.Parameters.AddWithValue("@productID", productID);
+                    command.Parameters.AddWithValue("@quantity", quantity);
+                    command.ExecuteNonQuery();
+                }
             }
+
             connection.Close();
+            MessageBox.Show("Товары успешно добавлены на склад или обновлены!");
         }
 
         private void LoadInvoices()

@@ -170,8 +170,6 @@ namespace MiSPIS
             dataGridViewSales.DataSource = salesTable; 
         }
 
-
-
         private void buttonAddToSale_Click(object sender, EventArgs e)
         {
             // Проверяем, что все поля заполнены
@@ -271,7 +269,6 @@ namespace MiSPIS
                 cmd.Parameters.AddWithValue("@quantity", row.Cells["Quantity"].Value);
                 cmd.Parameters.AddWithValue("@price", row.Cells["Price"].Value);
                 cmd.Parameters.AddWithValue("@total", row.Cells["Total"].Value);
-
                 cmd.ExecuteNonQuery();
             }
             connection.Close();

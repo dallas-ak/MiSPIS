@@ -1,13 +1,15 @@
-// MyApp.Tests/Form1Tests.cs
-using Moq;
 using System;
 using System.Data;
 using System.Windows.Forms;
+using MiSPIS;
+using Moq;
 using Xunit;
+
+
 
 namespace MyApp.Tests
 {
-    public class Form1Tests
+    public class Form1
     {
         private Form1 form;
         private Mock<IDataAccess> dataAccessMock;
@@ -57,5 +59,9 @@ namespace MyApp.Tests
         }
 
         // ¬ы можете добавить больше тестов здесь
+    }
+
+    internal interface IDataAccess
+    {
     }
 }
