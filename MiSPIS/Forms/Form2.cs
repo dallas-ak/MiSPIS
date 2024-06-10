@@ -258,10 +258,60 @@ namespace MiSPIS
             cmd.ExecuteNonQuery();
             long saleId = cmd.LastInsertedId;
 
+            // Проверка наличия товаров на складе и обновление их количества
+            foreach (DataGridViewRow row in dataGridViewSaleItems.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                int productID = Convert.ToInt32(row.Cells["ProductID"].Value);
+                int quantity = Convert.ToInt32(row.Cells["Quantity"].Value);
+                int warehouseID = Convert.ToInt32(comboBoxWarehouses.SelectedValue);
+
+                // Проверяем, существует ли уже такая позиция товара на складе
+                query = "SELECT Quantity FROM stock WHERE ProductID = @productID AND WarehouseID = @warehouseID";
+                cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@productID", productID);
+                cmd.Parameters.AddWithValue("@warehouseID", warehouseID);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    int stockQuantity = reader.GetInt32("Quantity");
+                    reader.Close();
+
+                    if (stockQuantity >= quantity)
+                    {
+                        // Обновляем количество товара на складе
+                        query = "UPDATE stock SET Quantity = Quantity - @quantity WHERE ProductID = @productID AND WarehouseID = @warehouseID";
+                        cmd = new MySqlCommand(query, connection);
+                        cmd.Parameters.AddWithValue("@productID", productID);
+                        cmd.Parameters.AddWithValue("@warehouseID", warehouseID);
+                        cmd.Parameters.AddWithValue("@quantity", quantity);
+                        cmd.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        reader.Close();
+                        connection.Close();
+                        MessageBox.Show($"Недостаточно товара (ID: {productID}) на складе для выполнения продажи. Доступное количество: {stockQuantity}");
+                        return;
+                    }
+                }
+                else
+                {
+                    reader.Close();
+                    connection.Close();
+                    MessageBox.Show($"Товар (ID: {productID}) отсутствует на складе.");
+                    return;
+                }
+            }
+
             // Вставка позиций продажи
             foreach (DataGridViewRow row in dataGridViewSaleItems.Rows)
             {
                 if (row.IsNewRow) continue;
+
                 query = "INSERT INTO SalesItems (SaleID, ProductID, Quantity, Price, Total) VALUES (@saleId, @productId, @quantity, @price, @total)";
                 cmd = new MySqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("@saleId", saleId);
@@ -271,8 +321,10 @@ namespace MiSPIS
                 cmd.Parameters.AddWithValue("@total", row.Cells["Total"].Value);
                 cmd.ExecuteNonQuery();
             }
+
             connection.Close();
             LoadSales();
+            MessageBox.Show("Продажа успешно создана и товары обновлены на складе!");
         }
 
         private bool AreSaleItemsValid()

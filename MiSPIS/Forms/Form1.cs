@@ -306,7 +306,7 @@ namespace MiSPIS
             }
             connection.Close();
             LoadInvoices();
-            AddToStock(); // Добавляем товары на склад после создания накладной
+            AddToStock(); // Добавляем товары на склад пос
         }
 
         private void AddToStock()
@@ -324,32 +324,32 @@ namespace MiSPIS
 
                 // Проверяем, существует ли уже такая позиция товара на складе
                 string query = "SELECT * FROM stock WHERE ProductID = @productID AND WarehouseID = @warehouseID";
-                MySqlCommand command = new MySqlCommand(query, connection);
-                command.Parameters.AddWithValue("@productID", productID);
-                command.Parameters.AddWithValue("@warehouseID", warehouseID);
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@productID", productID);
+                cmd.Parameters.AddWithValue("@warehouseID", warehouseID);
 
-                MySqlDataReader reader = command.ExecuteReader();
+                MySqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {
                     reader.Close();
                     // Обновляем количество товара
                     query = "UPDATE stock SET Quantity = Quantity + @quantity WHERE ProductID = @productID AND WarehouseID = @warehouseID";
-                    command = new MySqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@warehouseID", warehouseID);
-                    command.Parameters.AddWithValue("@productID", productID);
-                    command.Parameters.AddWithValue("@quantity", quantity);
-                    command.ExecuteNonQuery();
+                    cmd = new MySqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("@warehouseID", warehouseID);
+                    cmd.Parameters.AddWithValue("@productID", productID);
+                    cmd.Parameters.AddWithValue("@quantity", quantity);
+                    cmd.ExecuteNonQuery();
                 }
                 else
                 {
                     reader.Close();
                     // Добавляем новую позицию на склад
                     query = "INSERT INTO stock (WarehouseID, ProductID, Quantity) VALUES (@warehouseID, @productID, @quantity)";
-                    command = new MySqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@warehouseID", warehouseID);
-                    command.Parameters.AddWithValue("@productID", productID);
-                    command.Parameters.AddWithValue("@quantity", quantity);
-                    command.ExecuteNonQuery();
+                    cmd = new MySqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("@warehouseID", warehouseID);
+                    cmd.Parameters.AddWithValue("@productID", productID);
+                    cmd.Parameters.AddWithValue("@quantity", quantity);
+                    cmd.ExecuteNonQuery();
                 }
             }
 
