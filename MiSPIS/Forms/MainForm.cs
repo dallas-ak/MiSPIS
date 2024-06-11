@@ -26,10 +26,10 @@ namespace MiSPIS
             Application.Exit();
         }
 
-        private void SkladyStripMenu_Click(object sender, EventArgs e)
+        private void StripMenuWarehouses_Click(object sender, EventArgs e)
         {
-            SkladyForm skladyForm = new SkladyForm();
-            skladyForm.Show();
+            FormWarehouses formWarehouses = new FormWarehouses();
+            formWarehouses.Show();
         }
 
         private void MaterialyStripMenu_Click(object sender, EventArgs e)
