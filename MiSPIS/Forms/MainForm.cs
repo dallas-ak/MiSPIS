@@ -52,8 +52,8 @@ namespace MiSPIS
 
         private void OtchetyStripMenu_Click(object sender, EventArgs e)
         {
-            OtchetyForm otchetyForm = new OtchetyForm();
-            otchetyForm.Show();
+            FormReports formReports = new FormReports();
+            formReports.Show();
         }
 
         private void buttonPrihod_Click(object sender, EventArgs e)
