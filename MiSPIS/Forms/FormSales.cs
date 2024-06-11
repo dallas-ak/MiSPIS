@@ -5,7 +5,7 @@ using MySql.Data.MySqlClient;
 
 namespace MiSPIS
 {
-    public partial class Form2 : Form
+    public partial class FormSales : Form
     {
         private readonly IDataAccess dataAccess;
         public string LastErrorMessage { get; private set; }
@@ -13,9 +13,9 @@ namespace MiSPIS
         private MySqlConnection connection;
         private string connectionString = "server=localhost;port=3306;username=root;password=root;database=MiSPIS;";
         MySqlDataAdapter adapter;
-        DataTable clientsTable, warehousesTable, productsTable, salesTable, salesItemsTable;
+        DataTable clientsTable, warehousesTable, responsiblePersonsTable, productsTable, salesTable, salesItemsTable;
 
-        public Form2(IDataAccess dataAccess)
+        public FormSales(IDataAccess dataAccess)
         {
             this.dataAccess = dataAccess;
             InitializeComponent();
@@ -23,6 +23,7 @@ namespace MiSPIS
             InitializeDataGridViewColumns();
             LoadClients();
             LoadWarehouses();
+            LoadResponsiblePersons();
             LoadProducts();
             LoadSales();
         }
@@ -67,12 +68,21 @@ namespace MiSPIS
                 ReadOnly = true
             };
 
+            DataGridViewTextBoxColumn responsiblePersonColumn = new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Менеджер",
+                Name = "ResponsiblePerson",
+                DataPropertyName = "ResponsiblePerson",
+                ReadOnly = true
+            };
+
             dataGridViewSales.Columns.AddRange(new DataGridViewColumn[]
             {
                 saleIdColumn,
                 transactionIdColumn,
                 saleDateColumn,
-                clientColumn
+                clientColumn,
+                responsiblePersonColumn
             });
 
             // Инициализация столбцов для dataGridViewSaleItems
@@ -147,7 +157,18 @@ namespace MiSPIS
             comboBoxWarehouses.ValueMember = "WarehouseID";
             comboBoxWarehouses.SelectedIndex = -1;
         }
-        private void LoadProducts()
+        private void LoadResponsiblePersons()
+        {
+            string query = "SELECT PersonID, PersonName FROM ResponsiblePersons";
+            adapter = new MySqlDataAdapter(query, connection);
+            responsiblePersonsTable = new DataTable();
+            adapter.Fill(responsiblePersonsTable);
+            comboBoxResponsiblePersons.DataSource = responsiblePersonsTable;
+            comboBoxResponsiblePersons.DisplayMember = "PersonName";
+            comboBoxResponsiblePersons.ValueMember = "PersonID";
+            comboBoxResponsiblePersons.SelectedIndex = -1;
+        }
+            private void LoadProducts()
         {
             string query = "SELECT ProductID, ProductName FROM Products";
             adapter = new MySqlDataAdapter(query, connection);
@@ -160,14 +181,24 @@ namespace MiSPIS
         }
         private void LoadSales()
         {
-            string query = "SELECT SaleID, TransactionID, SaleDate, " +
-                           "(SELECT ClientName FROM Clients WHERE ClientID = Sales.ClientID) AS Client " +
-                           "FROM Sales";
-            adapter = new MySqlDataAdapter(query, connection);
-            salesTable = new DataTable();
-            adapter.Fill(salesTable);
+            string query = @"
+        SELECT 
+            Sales.SaleID, 
+            Sales.SaleDate, 
+            Sales.TransactionID,
+            Clients.ClientName AS Client, 
+            ResponsiblePersons.PersonName AS ResponsiblePerson 
+        FROM 
+            Sales
+        JOIN 
+            Clients ON Sales.ClientID = Clients.ClientID
+        JOIN 
+            ResponsiblePersons ON Sales.PersonID = ResponsiblePersons.PersonID";
 
-            dataGridViewSales.DataSource = salesTable; 
+            adapter = new MySqlDataAdapter(query, connection);
+            DataTable salesTable = new DataTable();
+            adapter.Fill(salesTable);
+            dataGridViewSales.DataSource = salesTable;
         }
 
         private void buttonAddToSale_Click(object sender, EventArgs e)
@@ -250,11 +281,12 @@ namespace MiSPIS
             string transactionId = GenerateTransactionId();
 
             // Вставка продажи
-            string query = "INSERT INTO Sales (SaleDate, ClientID, TransactionID) VALUES (@date, @client, @transactionId)";
+            string query = "INSERT INTO Sales (SaleDate, ClientID, TransactionID, PersonID) VALUES (@date, @client, @transactionId, @person)";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@date", dateTimePickerSaleDate.Value);
             cmd.Parameters.AddWithValue("@client", comboBoxClients.SelectedValue);
             cmd.Parameters.AddWithValue("@transactionId", transactionId);
+            cmd.Parameters.AddWithValue("@person", comboBoxResponsiblePersons.SelectedValue);
             cmd.ExecuteNonQuery();
             long saleId = cmd.LastInsertedId;
 
@@ -341,6 +373,12 @@ namespace MiSPIS
                 }
             }
             return true;
+        }
+
+        private void buttonShowStock_Click(object sender, EventArgs e)
+        {
+            FormStock formStock = new FormStock();
+            formStock.Show();
         }
 
         private string GenerateTransactionId()

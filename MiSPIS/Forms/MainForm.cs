@@ -58,20 +58,20 @@ namespace MiSPIS
 
         private void buttonPrihod_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1(dataAccess);
-            form1.Show();
+            FormInvoices formInvoices = new FormInvoices(dataAccess);
+            formInvoices.Show();
         }
 
         private void buttonRashod_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2(dataAccess);
-            form2.Show();
+            FormSales formSales = new FormSales(dataAccess);
+            formSales.Show();
         }
 
         private void buttonOstatki_Click(object sender, EventArgs e)
         {
-            OstatkiForm ostatkiForm = new OstatkiForm();
-            ostatkiForm.Show();
+            FormStock formStock = new FormStock();
+            formStock.Show();
         }
     }
 }

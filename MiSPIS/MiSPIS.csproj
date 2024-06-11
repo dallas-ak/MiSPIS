@@ -102,11 +102,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\Form2.cs">
+    <Compile Include="Forms\FormSales.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="Forms\FormSales.Designer.cs">
+      <DependentUpon>FormSales.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AddPrihodForm.cs">
       <SubType>Form</SubType>
@@ -146,11 +146,11 @@
     <Compile Include="Forms\AddMaterialyForm.Designer.cs">
       <DependentUpon>AddMaterialyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Form1.cs">
+    <Compile Include="Forms\FormInvoices.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\FormInvoices.Designer.cs">
+      <DependentUpon>FormInvoices.cs</DependentUpon>
     </Compile>
     <Compile Include="IDataAccess.cs" />
     <Compile Include="Forms\MaterialyForm.cs">
@@ -165,11 +165,11 @@
     <Compile Include="Forms\MOLForm.Designer.cs">
       <DependentUpon>MOLForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\OstatkiForm.cs">
+    <Compile Include="Forms\FormStock.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\OstatkiForm.Designer.cs">
-      <DependentUpon>OstatkiForm.cs</DependentUpon>
+    <Compile Include="Forms\FormStock.Designer.cs">
+      <DependentUpon>FormStock.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\OtchetyForm.cs">
       <SubType>Form</SubType>
@@ -222,8 +222,8 @@
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="System\Configuration\ConfigurationManager.cs" />
-    <EmbeddedResource Include="Forms\Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormSales.resx">
+      <DependentUpon>FormSales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddPrihodForm.resx">
       <DependentUpon>AddPrihodForm.cs</DependentUpon>
@@ -243,8 +243,8 @@
     <EmbeddedResource Include="Forms\AddSkladForm.resx">
       <DependentUpon>AddSkladForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormInvoices.resx">
+      <DependentUpon>FormInvoices.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MaterialyForm.resx">
       <DependentUpon>MaterialyForm.cs</DependentUpon>
@@ -252,8 +252,8 @@
     <EmbeddedResource Include="Forms\MOLForm.resx">
       <DependentUpon>MOLForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\OstatkiForm.resx">
-      <DependentUpon>OstatkiForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormStock.resx">
+      <DependentUpon>FormStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\OtchetyForm.resx">
       <DependentUpon>OtchetyForm.cs</DependentUpon>

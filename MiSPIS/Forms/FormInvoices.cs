@@ -5,7 +5,7 @@ using MySql.Data.MySqlClient;
 
 namespace MiSPIS
 {
-    public partial class Form1 : Form
+    public partial class FormInvoices : Form
     {
         private readonly IDataAccess dataAccess;
         public string LastErrorMessage { get; private set; }         
@@ -15,7 +15,7 @@ namespace MiSPIS
         MySqlDataAdapter adapter;
         DataTable productsTable, suppliersTable, invoicesTable, invoiceItemsTable, warehousesTable, responsiblePersonsTable;
 
-        public Form1(IDataAccess dataAccess)
+        public FormInvoices(IDataAccess dataAccess)
         {
             this.dataAccess = dataAccess;
             InitializeComponent();
@@ -306,7 +306,13 @@ namespace MiSPIS
             }
             connection.Close();
             LoadInvoices();
-            AddToStock(); // Добавляем товары на склад пос
+            AddToStock(); // Добавляем товары на склад после создания накладной
+        }
+
+        private void buttonShowStock_Click(object sender, EventArgs e)
+        {
+            FormStock formStock = new FormStock();
+            formStock.Show();
         }
 
         private void AddToStock()
