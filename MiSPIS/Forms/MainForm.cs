@@ -1,5 +1,4 @@
-﻿using MiSPIS.Forms;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -73,6 +72,12 @@ namespace MiSPIS
         {
             FormStock formStock = new FormStock();
             formStock.Show();
+        }
+
+        private void StripMenuClients_Click(object sender, EventArgs e)
+        {
+            FormClients formClients = new FormClients();
+            formClients.Show();
         }
     }
 }

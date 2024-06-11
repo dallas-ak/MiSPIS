@@ -46,12 +46,12 @@
             this.dataGridViewProducts.Name = "dataGridViewProducts";
             this.dataGridViewProducts.ReadOnly = true;
             this.dataGridViewProducts.RowHeadersWidth = 51;
-            this.dataGridViewProducts.Size = new System.Drawing.Size(496, 368);
+            this.dataGridViewProducts.Size = new System.Drawing.Size(512, 345);
             this.dataGridViewProducts.TabIndex = 0;
             // 
             // buttonAddProduct
             // 
-            this.buttonAddProduct.Location = new System.Drawing.Point(207, 11);
+            this.buttonAddProduct.Location = new System.Drawing.Point(223, 10);
             this.buttonAddProduct.Name = "buttonAddProduct";
             this.buttonAddProduct.Size = new System.Drawing.Size(148, 23);
             this.buttonAddProduct.TabIndex = 1;
@@ -61,7 +61,7 @@
             // 
             // buttonDeleteProduct
             // 
-            this.buttonDeleteProduct.Location = new System.Drawing.Point(361, 11);
+            this.buttonDeleteProduct.Location = new System.Drawing.Point(377, 10);
             this.buttonDeleteProduct.Name = "buttonDeleteProduct";
             this.buttonDeleteProduct.Size = new System.Drawing.Size(148, 23);
             this.buttonDeleteProduct.TabIndex = 2;
@@ -71,16 +71,16 @@
             // 
             // textBoxProductName
             // 
-            this.textBoxProductName.Location = new System.Drawing.Point(13, 13);
+            this.textBoxProductName.Location = new System.Drawing.Point(13, 12);
             this.textBoxProductName.Name = "textBoxProductName";
-            this.textBoxProductName.Size = new System.Drawing.Size(177, 20);
+            this.textBoxProductName.Size = new System.Drawing.Size(204, 20);
             this.textBoxProductName.TabIndex = 3;
             // 
             // FormProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(521, 420);
+            this.ClientSize = new System.Drawing.Size(537, 397);
             this.Controls.Add(this.textBoxProductName);
             this.Controls.Add(this.buttonDeleteProduct);
             this.Controls.Add(this.buttonAddProduct);

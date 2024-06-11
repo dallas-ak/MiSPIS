@@ -46,12 +46,12 @@
             this.dataGridViewResponsiblePersons.Name = "dataGridViewResponsiblePersons";
             this.dataGridViewResponsiblePersons.ReadOnly = true;
             this.dataGridViewResponsiblePersons.RowHeadersWidth = 51;
-            this.dataGridViewResponsiblePersons.Size = new System.Drawing.Size(496, 296);
+            this.dataGridViewResponsiblePersons.Size = new System.Drawing.Size(512, 345);
             this.dataGridViewResponsiblePersons.TabIndex = 0;
             // 
             // buttonAddResponsiblePerson
             // 
-            this.buttonAddResponsiblePerson.Location = new System.Drawing.Point(207, 11);
+            this.buttonAddResponsiblePerson.Location = new System.Drawing.Point(223, 11);
             this.buttonAddResponsiblePerson.Name = "buttonAddResponsiblePerson";
             this.buttonAddResponsiblePerson.Size = new System.Drawing.Size(148, 23);
             this.buttonAddResponsiblePerson.TabIndex = 1;
@@ -61,7 +61,7 @@
             // 
             // buttonDeleteResponsiblePersont
             // 
-            this.buttonDeleteResponsiblePersont.Location = new System.Drawing.Point(361, 11);
+            this.buttonDeleteResponsiblePersont.Location = new System.Drawing.Point(377, 11);
             this.buttonDeleteResponsiblePersont.Name = "buttonDeleteResponsiblePersont";
             this.buttonDeleteResponsiblePersont.Size = new System.Drawing.Size(148, 23);
             this.buttonDeleteResponsiblePersont.TabIndex = 2;
@@ -71,20 +71,21 @@
             // 
             // textBoxResponsiblePersonName
             // 
-            this.textBoxResponsiblePersonName.Location = new System.Drawing.Point(13, 13);
+            this.textBoxResponsiblePersonName.Location = new System.Drawing.Point(13, 12);
             this.textBoxResponsiblePersonName.Name = "textBoxResponsiblePersonName";
-            this.textBoxResponsiblePersonName.Size = new System.Drawing.Size(177, 20);
+            this.textBoxResponsiblePersonName.Size = new System.Drawing.Size(204, 20);
             this.textBoxResponsiblePersonName.TabIndex = 3;
             // 
             // FormResponsiblePersons
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(521, 347);
+            this.ClientSize = new System.Drawing.Size(537, 397);
             this.Controls.Add(this.textBoxResponsiblePersonName);
             this.Controls.Add(this.buttonDeleteResponsiblePersont);
             this.Controls.Add(this.buttonAddResponsiblePerson);
             this.Controls.Add(this.dataGridViewResponsiblePersons);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormResponsiblePersons";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Материально-ответственные лица (МОЛ)";

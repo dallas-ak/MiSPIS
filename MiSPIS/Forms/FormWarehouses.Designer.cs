@@ -46,12 +46,12 @@
             this.dataGridViewWarehouses.Name = "dataGridViewWarehouses";
             this.dataGridViewWarehouses.ReadOnly = true;
             this.dataGridViewWarehouses.RowHeadersWidth = 51;
-            this.dataGridViewWarehouses.Size = new System.Drawing.Size(496, 296);
+            this.dataGridViewWarehouses.Size = new System.Drawing.Size(512, 345);
             this.dataGridViewWarehouses.TabIndex = 0;
             // 
             // buttonAddWarehouse
             // 
-            this.buttonAddWarehouse.Location = new System.Drawing.Point(207, 11);
+            this.buttonAddWarehouse.Location = new System.Drawing.Point(223, 11);
             this.buttonAddWarehouse.Name = "buttonAddWarehouse";
             this.buttonAddWarehouse.Size = new System.Drawing.Size(148, 23);
             this.buttonAddWarehouse.TabIndex = 1;
@@ -61,7 +61,7 @@
             // 
             // buttonDeleteWarehouse
             // 
-            this.buttonDeleteWarehouse.Location = new System.Drawing.Point(361, 11);
+            this.buttonDeleteWarehouse.Location = new System.Drawing.Point(377, 11);
             this.buttonDeleteWarehouse.Name = "buttonDeleteWarehouse";
             this.buttonDeleteWarehouse.Size = new System.Drawing.Size(148, 23);
             this.buttonDeleteWarehouse.TabIndex = 2;
@@ -71,16 +71,16 @@
             // 
             // textBoxWarehouseName
             // 
-            this.textBoxWarehouseName.Location = new System.Drawing.Point(13, 13);
+            this.textBoxWarehouseName.Location = new System.Drawing.Point(13, 12);
             this.textBoxWarehouseName.Name = "textBoxWarehouseName";
-            this.textBoxWarehouseName.Size = new System.Drawing.Size(177, 20);
+            this.textBoxWarehouseName.Size = new System.Drawing.Size(204, 20);
             this.textBoxWarehouseName.TabIndex = 3;
             // 
             // FormWarehouses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(521, 347);
+            this.ClientSize = new System.Drawing.Size(537, 397);
             this.Controls.Add(this.textBoxWarehouseName);
             this.Controls.Add(this.buttonDeleteWarehouse);
             this.Controls.Add(this.buttonAddWarehouse);

@@ -35,6 +35,7 @@
             this.StripMenuProducts = new System.Windows.Forms.ToolStripMenuItem();
             this.PostavschikiStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.MOLStripMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.StripMenuClients = new System.Windows.Forms.ToolStripMenuItem();
             this.OtchetyStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonPrihod = new System.Windows.Forms.Button();
@@ -54,7 +55,7 @@
             this.ExitStripMenu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(572, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(572, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -64,50 +65,58 @@
             this.StripMenuWarehouses,
             this.StripMenuProducts,
             this.PostavschikiStripMenu,
-            this.MOLStripMenu});
+            this.MOLStripMenu,
+            this.StripMenuClients});
             this.SpravochnikiStripMenu.Name = "SpravochnikiStripMenu";
-            this.SpravochnikiStripMenu.Size = new System.Drawing.Size(94, 20);
+            this.SpravochnikiStripMenu.Size = new System.Drawing.Size(117, 24);
             this.SpravochnikiStripMenu.Text = "Справочники";
             // 
             // StripMenuWarehouses
             // 
             this.StripMenuWarehouses.Name = "StripMenuWarehouses";
-            this.StripMenuWarehouses.Size = new System.Drawing.Size(180, 22);
+            this.StripMenuWarehouses.Size = new System.Drawing.Size(224, 26);
             this.StripMenuWarehouses.Text = "Склады";
             this.StripMenuWarehouses.Click += new System.EventHandler(this.StripMenuWarehouses_Click);
             // 
             // StripMenuProducts
             // 
             this.StripMenuProducts.Name = "StripMenuProducts";
-            this.StripMenuProducts.Size = new System.Drawing.Size(180, 22);
+            this.StripMenuProducts.Size = new System.Drawing.Size(224, 26);
             this.StripMenuProducts.Text = "Товары";
             this.StripMenuProducts.Click += new System.EventHandler(this.StripMenuProducts_Click);
             // 
             // PostavschikiStripMenu
             // 
             this.PostavschikiStripMenu.Name = "PostavschikiStripMenu";
-            this.PostavschikiStripMenu.Size = new System.Drawing.Size(180, 22);
+            this.PostavschikiStripMenu.Size = new System.Drawing.Size(224, 26);
             this.PostavschikiStripMenu.Text = "Поставщики";
             this.PostavschikiStripMenu.Click += new System.EventHandler(this.StripMenuSuppliers_Click);
             // 
             // MOLStripMenu
             // 
             this.MOLStripMenu.Name = "MOLStripMenu";
-            this.MOLStripMenu.Size = new System.Drawing.Size(180, 22);
+            this.MOLStripMenu.Size = new System.Drawing.Size(224, 26);
             this.MOLStripMenu.Text = "МОЛ";
             this.MOLStripMenu.Click += new System.EventHandler(this.StripMenuResponsiblePersons_Click);
+            // 
+            // StripMenuClients
+            // 
+            this.StripMenuClients.Name = "StripMenuClients";
+            this.StripMenuClients.Size = new System.Drawing.Size(224, 26);
+            this.StripMenuClients.Text = "Клиенты";
+            this.StripMenuClients.Click += new System.EventHandler(this.StripMenuClients_Click);
             // 
             // OtchetyStripMenu
             // 
             this.OtchetyStripMenu.Name = "OtchetyStripMenu";
-            this.OtchetyStripMenu.Size = new System.Drawing.Size(60, 20);
+            this.OtchetyStripMenu.Size = new System.Drawing.Size(73, 24);
             this.OtchetyStripMenu.Text = "Отчёты";
             this.OtchetyStripMenu.Click += new System.EventHandler(this.StripMenuReports_Click);
             // 
             // ExitStripMenu
             // 
             this.ExitStripMenu.Name = "ExitStripMenu";
-            this.ExitStripMenu.Size = new System.Drawing.Size(54, 20);
+            this.ExitStripMenu.Size = new System.Drawing.Size(67, 24);
             this.ExitStripMenu.Text = "Выход";
             this.ExitStripMenu.Click += new System.EventHandler(this.ExitStripMenu_Click);
             // 
@@ -153,7 +162,7 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 26F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 33F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
@@ -169,6 +178,7 @@
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "MainForm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Учет материалов на складе";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -192,5 +202,6 @@
         private System.Windows.Forms.Button buttonRashod;
         private System.Windows.Forms.Button buttonOstatki;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem StripMenuClients;
     }
 }

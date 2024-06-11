@@ -43,11 +43,11 @@
             this.dataGridViewReports.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewReports.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dataGridViewReports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewReports.Location = new System.Drawing.Point(13, 95);
+            this.dataGridViewReports.Location = new System.Drawing.Point(14, 68);
             this.dataGridViewReports.Name = "dataGridViewReports";
             this.dataGridViewReports.ReadOnly = true;
             this.dataGridViewReports.RowHeadersWidth = 51;
-            this.dataGridViewReports.Size = new System.Drawing.Size(511, 343);
+            this.dataGridViewReports.Size = new System.Drawing.Size(511, 317);
             this.dataGridViewReports.TabIndex = 0;
             // 
             // dateTimePickerReportDate
@@ -67,7 +67,7 @@
             // 
             // buttonGenerateSalesReport
             // 
-            this.buttonGenerateSalesReport.Location = new System.Drawing.Point(13, 49);
+            this.buttonGenerateSalesReport.Location = new System.Drawing.Point(12, 39);
             this.buttonGenerateSalesReport.Name = "buttonGenerateSalesReport";
             this.buttonGenerateSalesReport.Size = new System.Drawing.Size(249, 23);
             this.buttonGenerateSalesReport.TabIndex = 3;
@@ -77,7 +77,7 @@
             // 
             // buttonGenerateResponsibleReport
             // 
-            this.buttonGenerateResponsibleReport.Location = new System.Drawing.Point(275, 49);
+            this.buttonGenerateResponsibleReport.Location = new System.Drawing.Point(275, 39);
             this.buttonGenerateResponsibleReport.Name = "buttonGenerateResponsibleReport";
             this.buttonGenerateResponsibleReport.Size = new System.Drawing.Size(249, 23);
             this.buttonGenerateResponsibleReport.TabIndex = 4;
@@ -89,7 +89,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 450);
+            this.ClientSize = new System.Drawing.Size(537, 397);
             this.Controls.Add(this.buttonGenerateResponsibleReport);
             this.Controls.Add(this.buttonGenerateSalesReport);
             this.Controls.Add(this.comboBoxResponsiblePersons);
