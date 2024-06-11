@@ -32,7 +32,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.SpravochnikiStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.StripMenuWarehouses = new System.Windows.Forms.ToolStripMenuItem();
-            this.MaterialyStripMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.StripMenuProducts = new System.Windows.Forms.ToolStripMenuItem();
             this.PostavschikiStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.MOLStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.OtchetyStripMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,7 +62,7 @@
             // 
             this.SpravochnikiStripMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StripMenuWarehouses,
-            this.MaterialyStripMenu,
+            this.StripMenuProducts,
             this.PostavschikiStripMenu,
             this.MOLStripMenu});
             this.SpravochnikiStripMenu.Name = "SpravochnikiStripMenu";
@@ -72,28 +72,28 @@
             // StripMenuWarehouses
             // 
             this.StripMenuWarehouses.Name = "StripMenuWarehouses";
-            this.StripMenuWarehouses.Size = new System.Drawing.Size(144, 22);
+            this.StripMenuWarehouses.Size = new System.Drawing.Size(180, 22);
             this.StripMenuWarehouses.Text = "Склады";
             this.StripMenuWarehouses.Click += new System.EventHandler(this.StripMenuWarehouses_Click);
             // 
-            // MaterialyStripMenu
+            // StripMenuProducts
             // 
-            this.MaterialyStripMenu.Name = "MaterialyStripMenu";
-            this.MaterialyStripMenu.Size = new System.Drawing.Size(144, 22);
-            this.MaterialyStripMenu.Text = "Материалы";
-            this.MaterialyStripMenu.Click += new System.EventHandler(this.MaterialyStripMenu_Click);
+            this.StripMenuProducts.Name = "StripMenuProducts";
+            this.StripMenuProducts.Size = new System.Drawing.Size(180, 22);
+            this.StripMenuProducts.Text = "Товары";
+            this.StripMenuProducts.Click += new System.EventHandler(this.StripMenuProducts_Click);
             // 
             // PostavschikiStripMenu
             // 
             this.PostavschikiStripMenu.Name = "PostavschikiStripMenu";
-            this.PostavschikiStripMenu.Size = new System.Drawing.Size(144, 22);
+            this.PostavschikiStripMenu.Size = new System.Drawing.Size(180, 22);
             this.PostavschikiStripMenu.Text = "Поставщики";
             this.PostavschikiStripMenu.Click += new System.EventHandler(this.PostavschikiStripMenu_Click);
             // 
             // MOLStripMenu
             // 
             this.MOLStripMenu.Name = "MOLStripMenu";
-            this.MOLStripMenu.Size = new System.Drawing.Size(144, 22);
+            this.MOLStripMenu.Size = new System.Drawing.Size(180, 22);
             this.MOLStripMenu.Text = "МОЛ";
             this.MOLStripMenu.Click += new System.EventHandler(this.MOLStripMenu_Click);
             // 
@@ -183,7 +183,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem SpravochnikiStripMenu;
         private System.Windows.Forms.ToolStripMenuItem StripMenuWarehouses;
-        private System.Windows.Forms.ToolStripMenuItem MaterialyStripMenu;
+        private System.Windows.Forms.ToolStripMenuItem StripMenuProducts;
         private System.Windows.Forms.ToolStripMenuItem PostavschikiStripMenu;
         private System.Windows.Forms.ToolStripMenuItem MOLStripMenu;
         private System.Windows.Forms.ToolStripMenuItem OtchetyStripMenu;

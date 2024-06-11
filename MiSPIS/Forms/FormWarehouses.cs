@@ -71,7 +71,7 @@ namespace MiSPIS
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Ошибка добавления склада: " + ex.Message);
+                    MessageBox.Show("Ошибка при добавлении склада: " + ex.Message);
                 }
                 finally
                 {
@@ -107,7 +107,7 @@ namespace MiSPIS
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Ошибка удаления склада: " + ex.Message);
+                        MessageBox.Show("Ошибка при удалении склада: " + ex.Message);
                     }
                     finally
                     {

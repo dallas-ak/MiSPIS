@@ -30,7 +30,7 @@
         {
             this.dataGridViewWarehouses = new System.Windows.Forms.DataGridView();
             this.buttonAddWarehouse = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonDeleteWarehouse = new System.Windows.Forms.Button();
             this.textBoxWarehouseName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWarehouses)).BeginInit();
             this.SuspendLayout();
@@ -58,15 +58,15 @@
             this.buttonAddWarehouse.UseVisualStyleBackColor = true;
             this.buttonAddWarehouse.Click += new System.EventHandler(this.buttonAddWarehouse_Click);
             // 
-            // button2
+            // buttonDeleteWarehouse
             // 
-            this.button2.Location = new System.Drawing.Point(361, 11);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(148, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Удалить склад";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.buttonDeleteWarehouse_Click);
+            this.buttonDeleteWarehouse.Location = new System.Drawing.Point(361, 11);
+            this.buttonDeleteWarehouse.Name = "buttonDeleteWarehouse";
+            this.buttonDeleteWarehouse.Size = new System.Drawing.Size(148, 23);
+            this.buttonDeleteWarehouse.TabIndex = 2;
+            this.buttonDeleteWarehouse.Text = "Удалить склад";
+            this.buttonDeleteWarehouse.UseVisualStyleBackColor = true;
+            this.buttonDeleteWarehouse.Click += new System.EventHandler(this.buttonDeleteWarehouse_Click);
             // 
             // textBoxWarehouseName
             // 
@@ -81,7 +81,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(521, 347);
             this.Controls.Add(this.textBoxWarehouseName);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.buttonDeleteWarehouse);
             this.Controls.Add(this.buttonAddWarehouse);
             this.Controls.Add(this.dataGridViewWarehouses);
             this.Name = "FormWarehouses";
@@ -96,7 +96,7 @@
 
         private System.Windows.Forms.DataGridView dataGridViewWarehouses;
         private System.Windows.Forms.Button buttonAddWarehouse;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonDeleteWarehouse;
         private System.Windows.Forms.TextBox textBoxWarehouseName;
     }
 }

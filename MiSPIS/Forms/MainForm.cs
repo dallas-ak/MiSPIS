@@ -32,9 +32,9 @@ namespace MiSPIS
             formWarehouses.Show();
         }
 
-        private void MaterialyStripMenu_Click(object sender, EventArgs e)
+        private void StripMenuProducts_Click(object sender, EventArgs e)
         {
-            MaterialyForm materialyForm = new MaterialyForm();
+            FormProducts materialyForm = new FormProducts();
             materialyForm.Show();
         }
 

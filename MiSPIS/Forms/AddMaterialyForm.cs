@@ -98,7 +98,7 @@ namespace MiSPIS.Forms
                 MessageBox.Show("Ошибка добавления");
             db.closeConnection();
             this.Hide();
-            MaterialyForm materialyForm = new MaterialyForm();
+            FormProducts materialyForm = new FormProducts();
             materialyForm.Show();
         }
         public Boolean isSkladExists()
