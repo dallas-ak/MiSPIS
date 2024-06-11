@@ -88,21 +88,21 @@
             this.PostavschikiStripMenu.Name = "PostavschikiStripMenu";
             this.PostavschikiStripMenu.Size = new System.Drawing.Size(180, 22);
             this.PostavschikiStripMenu.Text = "Поставщики";
-            this.PostavschikiStripMenu.Click += new System.EventHandler(this.PostavschikiStripMenu_Click);
+            this.PostavschikiStripMenu.Click += new System.EventHandler(this.StripMenuSuppliers_Click);
             // 
             // MOLStripMenu
             // 
             this.MOLStripMenu.Name = "MOLStripMenu";
             this.MOLStripMenu.Size = new System.Drawing.Size(180, 22);
             this.MOLStripMenu.Text = "МОЛ";
-            this.MOLStripMenu.Click += new System.EventHandler(this.MOLStripMenu_Click);
+            this.MOLStripMenu.Click += new System.EventHandler(this.StripMenuResponsiblePersons_Click);
             // 
             // OtchetyStripMenu
             // 
             this.OtchetyStripMenu.Name = "OtchetyStripMenu";
             this.OtchetyStripMenu.Size = new System.Drawing.Size(60, 20);
             this.OtchetyStripMenu.Text = "Отчёты";
-            this.OtchetyStripMenu.Click += new System.EventHandler(this.OtchetyStripMenu_Click);
+            this.OtchetyStripMenu.Click += new System.EventHandler(this.StripMenuReports_Click);
             // 
             // ExitStripMenu
             // 

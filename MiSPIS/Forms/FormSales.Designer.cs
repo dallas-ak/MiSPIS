@@ -256,7 +256,7 @@
             this.Controls.Add(this.comboBoxClients);
             this.Controls.Add(this.dataGridViewSaleItems);
             this.Controls.Add(this.dataGridViewSales);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormSales";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

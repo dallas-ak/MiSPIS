@@ -34,23 +34,24 @@ namespace MiSPIS
 
         private void StripMenuProducts_Click(object sender, EventArgs e)
         {
-            FormProducts materialyForm = new FormProducts();
-            materialyForm.Show();
+            FormProducts formProducts = new FormProducts();
+            formProducts.Show();
         }
 
-        private void PostavschikiStripMenu_Click(object sender, EventArgs e)
+
+        private void StripMenuSuppliers_Click(object sender, EventArgs e)
         {
-            PostavschikiForm postavschikiForm = new PostavschikiForm();
-            postavschikiForm.Show();
+            FormSuppliers formSuppliers = new FormSuppliers();
+            formSuppliers.Show();
         }
 
-        private void MOLStripMenu_Click(object sender, EventArgs e)
+        private void StripMenuResponsiblePersons_Click(object sender, EventArgs e)
         {
-            MOLForm molForm = new MOLForm();
-            molForm.Show();
+            FormResponsiblePersons formResponsiblePersons = new FormResponsiblePersons();
+            formResponsiblePersons.Show();
         }
 
-        private void OtchetyStripMenu_Click(object sender, EventArgs e)
+        private void StripMenuReports_Click(object sender, EventArgs e)
         {
             FormReports formReports = new FormReports();
             formReports.Show();

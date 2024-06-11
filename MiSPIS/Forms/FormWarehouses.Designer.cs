@@ -45,6 +45,7 @@
             this.dataGridViewWarehouses.Location = new System.Drawing.Point(13, 40);
             this.dataGridViewWarehouses.Name = "dataGridViewWarehouses";
             this.dataGridViewWarehouses.ReadOnly = true;
+            this.dataGridViewWarehouses.RowHeadersWidth = 51;
             this.dataGridViewWarehouses.Size = new System.Drawing.Size(496, 296);
             this.dataGridViewWarehouses.TabIndex = 0;
             // 
@@ -84,7 +85,9 @@
             this.Controls.Add(this.buttonDeleteWarehouse);
             this.Controls.Add(this.buttonAddWarehouse);
             this.Controls.Add(this.dataGridViewWarehouses);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormWarehouses";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Склады";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWarehouses)).EndInit();
             this.ResumeLayout(false);

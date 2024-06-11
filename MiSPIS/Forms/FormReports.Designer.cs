@@ -97,6 +97,7 @@
             this.Controls.Add(this.dataGridViewReports);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormReports";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Отчёты";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReports)).EndInit();
             this.ResumeLayout(false);

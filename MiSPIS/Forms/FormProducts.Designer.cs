@@ -45,7 +45,8 @@
             this.dataGridViewProducts.Location = new System.Drawing.Point(13, 40);
             this.dataGridViewProducts.Name = "dataGridViewProducts";
             this.dataGridViewProducts.ReadOnly = true;
-            this.dataGridViewProducts.Size = new System.Drawing.Size(496, 296);
+            this.dataGridViewProducts.RowHeadersWidth = 51;
+            this.dataGridViewProducts.Size = new System.Drawing.Size(496, 368);
             this.dataGridViewProducts.TabIndex = 0;
             // 
             // buttonAddProduct
@@ -79,12 +80,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(521, 347);
+            this.ClientSize = new System.Drawing.Size(521, 420);
             this.Controls.Add(this.textBoxProductName);
             this.Controls.Add(this.buttonDeleteProduct);
             this.Controls.Add(this.buttonAddProduct);
             this.Controls.Add(this.dataGridViewProducts);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormProducts";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Товары";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProducts)).EndInit();
             this.ResumeLayout(false);

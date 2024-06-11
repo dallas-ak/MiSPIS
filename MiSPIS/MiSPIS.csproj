@@ -102,32 +102,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\FormResponsiblePersons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormResponsiblePersons.Designer.cs">
+      <DependentUpon>FormResponsiblePersons.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormSales.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FormSales.Designer.cs">
       <DependentUpon>FormSales.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AddMOLForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AddMOLForm.Designer.cs">
-      <DependentUpon>AddMOLForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Connection\DB.cs" />
     <Compile Include="Connection\md5.cs" />
-    <Compile Include="Forms\AddPostavschikiForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AddPostavschikiForm.Designer.cs">
-      <DependentUpon>AddPostavschikiForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\AddMaterialyForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AddMaterialyForm.Designer.cs">
-      <DependentUpon>AddMaterialyForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FormInvoices.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +128,12 @@
     <Compile Include="Forms\FormProducts.Designer.cs">
       <DependentUpon>FormProducts.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormSuppliers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSuppliers.Designer.cs">
+      <DependentUpon>FormSuppliers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormWarehouses.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,12 +141,6 @@
       <DependentUpon>FormWarehouses.cs</DependentUpon>
     </Compile>
     <Compile Include="IDataAccess.cs" />
-    <Compile Include="Forms\MOLForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\MOLForm.Designer.cs">
-      <DependentUpon>MOLForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FormStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,12 +152,6 @@
     </Compile>
     <Compile Include="Forms\FormReports.Designer.cs">
       <DependentUpon>FormReports.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\PostavschikiForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\PostavschikiForm.Designer.cs">
-      <DependentUpon>PostavschikiForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
@@ -192,17 +174,11 @@
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="System\Configuration\ConfigurationManager.cs" />
+    <EmbeddedResource Include="Forms\FormResponsiblePersons.resx">
+      <DependentUpon>FormResponsiblePersons.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormSales.resx">
       <DependentUpon>FormSales.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddMOLForm.resx">
-      <DependentUpon>AddMOLForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddMaterialyForm.resx">
-      <DependentUpon>AddMaterialyForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddPostavschikiForm.resx">
-      <DependentUpon>AddPostavschikiForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormInvoices.resx">
       <DependentUpon>FormInvoices.cs</DependentUpon>
@@ -210,20 +186,17 @@
     <EmbeddedResource Include="Forms\FormProducts.resx">
       <DependentUpon>FormProducts.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSuppliers.resx">
+      <DependentUpon>FormSuppliers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormWarehouses.resx">
       <DependentUpon>FormWarehouses.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MOLForm.resx">
-      <DependentUpon>MOLForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormStock.resx">
       <DependentUpon>FormStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormReports.resx">
       <DependentUpon>FormReports.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PostavschikiForm.resx">
-      <DependentUpon>PostavschikiForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
