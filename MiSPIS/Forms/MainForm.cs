@@ -50,19 +50,13 @@ namespace MiSPIS
             formResponsiblePersons.Show();
         }
 
-        private void StripMenuReports_Click(object sender, EventArgs e)
-        {
-            FormReports formReports = new FormReports();
-            formReports.Show();
-        }
-
-        private void buttonPrihod_Click(object sender, EventArgs e)
+        private void buttonInvoices_Click(object sender, EventArgs e)
         {
             FormInvoices formInvoices = new FormInvoices(dataAccess);
             formInvoices.Show();
         }
 
-        private void buttonRashod_Click(object sender, EventArgs e)
+        private void buttonSales_Click(object sender, EventArgs e)
         {
             FormSales formSales = new FormSales(dataAccess);
             formSales.Show();
@@ -78,6 +72,17 @@ namespace MiSPIS
         {
             FormClients formClients = new FormClients();
             formClients.Show();
+        }
+
+        private void StripMenuReportsSales_Click(object sender, EventArgs e)
+        {
+            FormReportsSales formReportsSales = new FormReportsSales();
+            formReportsSales.Show();
+        }
+        private void StripMenuReportsManagers_Click(object sender, EventArgs e)
+        {
+            FormReportsManagers formReportsManagers = new FormReportsManagers();        
+            formReportsManagers.Show();
         }
     }
 }

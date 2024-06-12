@@ -102,6 +102,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\FormReportsManagers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormReportsManagers.Designer.cs">
+      <DependentUpon>FormReportsManagers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormResponsiblePersons.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,11 +159,11 @@
     <Compile Include="Forms\FormStock.Designer.cs">
       <DependentUpon>FormStock.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormReports.cs">
+    <Compile Include="Forms\FormReportsSales.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormReports.Designer.cs">
-      <DependentUpon>FormReports.cs</DependentUpon>
+    <Compile Include="Forms\FormReportsSales.Designer.cs">
+      <DependentUpon>FormReportsSales.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
@@ -180,6 +186,9 @@
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="System\Configuration\ConfigurationManager.cs" />
+    <EmbeddedResource Include="Forms\FormReportsManagers.resx">
+      <DependentUpon>FormReportsManagers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormResponsiblePersons.resx">
       <DependentUpon>FormResponsiblePersons.cs</DependentUpon>
     </EmbeddedResource>
@@ -204,8 +213,8 @@
     <EmbeddedResource Include="Forms\FormStock.resx">
       <DependentUpon>FormStock.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormReports.resx">
-      <DependentUpon>FormReports.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormReportsSales.resx">
+      <DependentUpon>FormReportsSales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

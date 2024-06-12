@@ -13,7 +13,7 @@ namespace MiSPIS
         private MySqlConnection connection;
         private string connectionString = "server=localhost;port=3306;username=root;password=root;database=MiSPIS;";
         MySqlDataAdapter adapter;
-        DataTable clientsTable, warehousesTable, responsiblePersonsTable, productsTable, salesTable, salesItemsTable;
+        DataTable clientsTable, warehousesTable, responsiblePersonsTable, productsTable, salesItemsTable;
 
         public FormSales(IDataAccess dataAccess)
         {
