@@ -19,22 +19,17 @@ namespace MiSPIS
             InitializeComponent();
             passwordField.UseSystemPasswordChar = true;
         }
-
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             String loginUser = loginField.Text; // Получили введенный логин
             String passUser = md5.hashPassword(passwordField.Text); // Получили введенный пароль
 
             DB db = new DB();
-
             DataTable table = new DataTable();
-
             MySqlDataAdapter adapter = new MySqlDataAdapter();
-
             MySqlCommand command = new MySqlCommand("SELECT * FROM `users` WHERE `login` = @uL AND `pass` = @uP", db.getConnection()); // Выбор всех записей, у которых логин и пароль совпадает с введенным логином и паролем из БД
             command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = loginUser; // меняем заглушку на переменную логина
             command.Parameters.Add("@uP", MySqlDbType.VarChar).Value = passUser; // меняем заглушку на переменную пароля
-
             adapter.SelectCommand = command; // выбрали и выполнили команду
             adapter.Fill(table); // заносим полученные данные в table
 
