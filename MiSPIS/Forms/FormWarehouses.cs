@@ -9,19 +9,16 @@ namespace MiSPIS
     {
         private MySqlConnection connection;
         private string connectionString = "server=localhost;port=3306;username=root;password=root;database=MiSPIS;";
-
         public FormWarehouses()
         {
             InitializeComponent();
             InitializeDatabaseConnection();
             LoadWarehouses();
         }
-
         private void InitializeDatabaseConnection()
         {
             connection = new MySqlConnection(connectionString);
         }
-
         private void LoadWarehouses()
         {
             string query = "SELECT WarehouseID, WarehouseName FROM Warehouses";
@@ -58,7 +55,6 @@ namespace MiSPIS
                 MessageBox.Show("Пожалуйста, введите имя склада");
                 return;
             }
-
             string query = "INSERT INTO Warehouses (WarehouseName) VALUES (@warehouseName)";
             using (MySqlCommand command = new MySqlCommand(query, connection))
             {
@@ -78,7 +74,6 @@ namespace MiSPIS
                     connection.Close();
                 }
             }
-
             LoadWarehouses();
             textBoxWarehouseName.Clear();
         }
@@ -90,7 +85,6 @@ namespace MiSPIS
                 MessageBox.Show("Пожалуйста, выберите склад для удаления");
                 return;
             }
-
             if (MessageBox.Show("Вы уверены, что хотите удалить этот склад?", "Подтверждение", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 int selectedWarehouseID = Convert.ToInt32(dataGridViewWarehouses.SelectedRows[0].Cells["WarehouseID"].Value);

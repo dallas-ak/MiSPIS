@@ -9,19 +9,16 @@ namespace MiSPIS
     {
         private MySqlConnection connection;
         private string connectionString = "server=localhost;port=3306;username=root;password=root;database=MiSPIS;";
-
         public FormResponsiblePersons()
         {
             InitializeComponent();
             InitializeDatabaseConnection();
             LoadResponsiblePersons();
         }
-
         private void InitializeDatabaseConnection()
         {
             connection = new MySqlConnection(connectionString);
         }
-
         private void LoadResponsiblePersons()
         {
             string query = "SELECT PersonID, PersonName FROM ResponsiblePersons";
@@ -58,7 +55,6 @@ namespace MiSPIS
                 MessageBox.Show("Пожалуйста, введите ФИО");
                 return;
             }
-
             string query = "INSERT INTO ResponsiblePersons (PersonName) VALUES (@PersonName)";
             using (MySqlCommand command = new MySqlCommand(query, connection))
             {
@@ -78,11 +74,9 @@ namespace MiSPIS
                     connection.Close();
                 }
             }
-
             LoadResponsiblePersons();
             textBoxResponsiblePersonName.Clear();
         }
-
         private void buttonDeleteResponsiblePerson_Click(object sender, EventArgs e)
         {
             if (dataGridViewResponsiblePersons.SelectedRows.Count == 0)
@@ -90,7 +84,6 @@ namespace MiSPIS
                 MessageBox.Show("Пожалуйста, выберите МОЛ");
                 return;
             }
-
             if (MessageBox.Show("Вы уверены, что хотите удалить МОЛ?", "Подтверждение", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 int selectedResponsiblePersonID = Convert.ToInt32(dataGridViewResponsiblePersons.SelectedRows[0].Cells["PersonID"].Value);
@@ -114,7 +107,6 @@ namespace MiSPIS
                         connection.Close();
                     }
                 }
-
                 LoadResponsiblePersons();
             }
         }

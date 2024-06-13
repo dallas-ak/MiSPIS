@@ -12,7 +12,6 @@ namespace MiSPIS
         private string connectionString = "server=localhost;port=3306;username=root;password=root;database=MiSPIS;";
         private MySqlDataAdapter adapter;
         private DataTable responsibleTable;
-
         public FormReportsManagers()
         {
             InitializeComponent();
@@ -22,12 +21,10 @@ namespace MiSPIS
             InitializeEventHandlers();
             HideEndDatePicker();
         }
-
         private void InitializeDatabaseConnection()
         {
             connection = new MySqlConnection(connectionString);
         }
-
         private void LoadResponsibles()
         {
             string query = "SELECT PersonID, PersonName FROM responsiblepersons"; // Предположим, что у вас есть таблица ответственных
@@ -35,30 +32,25 @@ namespace MiSPIS
             adapter = new MySqlDataAdapter(cmd);
             responsibleTable = new DataTable();
             adapter.Fill(responsibleTable);
-
             DataRow allRow = responsibleTable.NewRow();
             allRow["PersonID"] = -1;
             allRow["PersonName"] = "Все";
             responsibleTable.Rows.InsertAt(allRow, 0);
-
             comboBoxResponsible.DataSource = responsibleTable;
             comboBoxResponsible.DisplayMember = "PersonName";
             comboBoxResponsible.ValueMember = "PersonID";
         }
-
         private void InitializeComboBoxPeriod()
         {
             comboBoxPeriod.Items.AddRange(new string[] { "День", "Месяц", "Квартал", "Год", "Произвольный период" });
             comboBoxPeriod.SelectedIndex = 0; // Устанавливаем начальное значение
         }
-
         private void InitializeEventHandlers()
         {
             comboBoxResponsible.SelectedIndexChanged += ComboBoxResponsible_SelectedIndexChanged;
             comboBoxPeriod.SelectedIndexChanged += ComboBoxPeriod_SelectedIndexChanged;
             ButtonGenerateManagersReport.Click += ButtonGenerateManagersReport_Click;
         }
-
         private void ComboBoxResponsible_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxResponsible.SelectedItem != null)
@@ -70,7 +62,6 @@ namespace MiSPIS
                 comboBoxPeriod.Enabled = false;
             }
         }
-
         private void ComboBoxPeriod_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxPeriod.SelectedItem.ToString() == "Произвольный период")
@@ -86,7 +77,6 @@ namespace MiSPIS
                 dateTimePickerStartDate.Value = startDate;
             }
         }
-
         private void ButtonGenerateManagersReport_Click(object sender, EventArgs e)
         {
             if (comboBoxResponsible.SelectedItem == null)
@@ -94,10 +84,8 @@ namespace MiSPIS
                 MessageBox.Show("Выберите ответственное лицо.");
                 return;
             }
-
             int personID = (int)comboBoxResponsible.SelectedValue;
             string period = comboBoxPeriod.SelectedItem.ToString();
-
             if (period == "Произвольный период")
             {
                 DateTime startDate = dateTimePickerStartDate.Value;
@@ -111,7 +99,6 @@ namespace MiSPIS
                 GenerateSalesReport(personID, startDate, endDate);
             }
         }
-
         private void GenerateSalesReport(int personID, DateTime startDate, DateTime endDate)
         {
             string query = "SELECT Sales.SaleID AS 'ID Продажи', Sales.SaleDate AS 'Дата продажи', Clients.ClientName AS Клиент, Products.ProductName AS Товар, SalesItems.Quantity AS Количество, SalesItems.Total AS Сумма " +
@@ -125,7 +112,6 @@ namespace MiSPIS
             {
                 query += " AND Sales.PersonID = @personID";
             }
-
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@startDate", startDate.Date);
             cmd.Parameters.AddWithValue("@endDate", endDate.Date);
@@ -133,24 +119,19 @@ namespace MiSPIS
             {
                 cmd.Parameters.AddWithValue("@personID", personID);
             }
-
             adapter = new MySqlDataAdapter(cmd);
             DataTable reportTable = new DataTable();
             adapter.Fill(reportTable);
             dataGridViewReportsManagers.DataSource = reportTable;
-
             // Вычисление общей суммы всех продаж
             decimal totalSalesAmount = reportTable.AsEnumerable().Sum(row => row.Field<decimal>("Сумма"));
-
             // Вывод общей суммы всех продаж в Label
             labelTotalSalesAmount.Text = $"Общая сумма всех продаж: {totalSalesAmount:C}"; // :C для форматирования как валюты
         }
-
         private void HideEndDatePicker()
         {
             dateTimePickerEndDate.Visible = false;  
         }
-
         private DateTime GetStartDate(string period)
         {
             DateTime startDate = DateTime.Today;
@@ -169,7 +150,6 @@ namespace MiSPIS
             }
             return startDate;
         }
-
         private DateTime GetEndDate(DateTime startDate, string period)
         {
             switch (period)

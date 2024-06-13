@@ -7,17 +7,13 @@ namespace MiSPIS
 {
     public partial class FormInvoices : Form
     {
-        private readonly IDataAccess dataAccess;
         public string LastErrorMessage { get; private set; }         
-
         private MySqlConnection connection;
         private string connectionString = "server=localhost;port=3306;username=root;password=root;database=MiSPIS;";
         MySqlDataAdapter adapter;
         DataTable productsTable, suppliersTable, invoicesTable, invoiceItemsTable, warehousesTable, responsiblePersonsTable;
-
-        public FormInvoices(IDataAccess dataAccess)
+        public FormInvoices()
         {
-            this.dataAccess = dataAccess;
             InitializeComponent();
             InitializeDatabaseConnection();
             InitializeDataGridViewColumns();
@@ -52,7 +48,6 @@ namespace MiSPIS
                 DataPropertyName = "InvoiceDate",
                 ReadOnly = true
             };
-
             DataGridViewTextBoxColumn supplierColumn = new DataGridViewTextBoxColumn
             {
                 HeaderText = "Поставщик",
@@ -60,7 +55,6 @@ namespace MiSPIS
                 DataPropertyName = "Supplier",
                 ReadOnly = true
             };
-
             DataGridViewTextBoxColumn warehouseColumn = new DataGridViewTextBoxColumn
             {
                 HeaderText = "Склад",
@@ -68,7 +62,6 @@ namespace MiSPIS
                 DataPropertyName = "Warehouse",
                 ReadOnly = true
             };
-
             DataGridViewTextBoxColumn responsiblePersonColumn = new DataGridViewTextBoxColumn
             {
                 HeaderText = "МОЛ",
@@ -76,7 +69,6 @@ namespace MiSPIS
                 DataPropertyName = "ResponsiblePerson",
                 ReadOnly = true
             };
-
             dataGridViewInvoices.Columns.AddRange(new DataGridViewColumn[]
             {
                 invoiceIdColumn,
@@ -85,11 +77,9 @@ namespace MiSPIS
                 warehouseColumn,
                 responsiblePersonColumn
             });
-
             // Initialize columns for dataGridViewInvoiceItems
             dataGridViewInvoiceItems.AutoGenerateColumns = false;
             dataGridViewInvoiceItems.Columns.Clear();
-
             DataGridViewTextBoxColumn productIdColumn = new DataGridViewTextBoxColumn
             {
                 HeaderText = "Номер",
@@ -97,7 +87,6 @@ namespace MiSPIS
                 DataPropertyName = "ProductID",
                 ReadOnly = true
             };
-
             DataGridViewTextBoxColumn productNameColumn = new DataGridViewTextBoxColumn
             {
                 HeaderText = "Товар",
@@ -105,14 +94,12 @@ namespace MiSPIS
                 DataPropertyName = "ProductName",
                 ReadOnly = true
             };
-
             DataGridViewTextBoxColumn quantityColumn = new DataGridViewTextBoxColumn
             {
                 HeaderText = "Количество",
                 Name = "Quantity",
                 DataPropertyName = "Quantity"
             };
-
             DataGridViewTextBoxColumn priceColumn = new DataGridViewTextBoxColumn
             {
                 HeaderText = "Цена",
@@ -120,7 +107,6 @@ namespace MiSPIS
                 DataPropertyName = "Price"
 
             };
-
             DataGridViewTextBoxColumn totalColumn = new DataGridViewTextBoxColumn
             {
                 HeaderText = "Сумма",
@@ -137,7 +123,6 @@ namespace MiSPIS
                 totalColumn
             });
         }
-
         private void LoadSuppliers() 
         {
             string query = "SELECT SupplierID, SupplierName FROM Suppliers";
@@ -193,27 +178,22 @@ namespace MiSPIS
                 MessageBox.Show("Добавьте данные о товаре");
                 return;
             }
-
             // Получаем ProductID из выбранного продукта
             int productId = (int)comboBoxProducts.SelectedValue;
-
             // Получаем название продукта
             string productName = comboBoxProducts.Text;
-
             // Парсим количество
             if (!int.TryParse(textBoxQuantity.Text, out int quantity))
             {
                 MessageBox.Show("Проверьте количество товара");
                 return;
             }
-
             // Парсим цену
             if (!decimal.TryParse(textBoxPrice.Text, out decimal price))
             {
                 MessageBox.Show("Проверьте цену товара");
                 return;
             }
-
             // Проверяем, существует ли уже такая позиция товара в dataGridViewInvoiceItems
             bool itemExists = false;
             foreach (DataGridViewRow row in dataGridViewInvoiceItems.Rows)
@@ -232,7 +212,6 @@ namespace MiSPIS
                     break;
                 }
             }
-
             if (!itemExists)
             {
                 // Если позиция товара не существует, добавляем новую строку
@@ -257,7 +236,6 @@ namespace MiSPIS
         }
         private void buttonCreateInvoice_Click(object sender, EventArgs e)
         {
-            //xUnit тест
             // Проверяем, что есть хотя бы одна строка в dataGridViewInvoiceItems
             if (dataGridViewInvoiceItems.Rows.Count == 0)
             {
@@ -265,23 +243,11 @@ namespace MiSPIS
                 MessageBox.Show(LastErrorMessage);
                 return;
             }
-            //xUnit тест
-
-
-            // Проверяем, что есть хотя бы одна строка в dataGridViewInvoiceItems
-          // if (dataGridViewInvoiceItems.Rows.Count == 0)
-          //  {
-          //      MessageBox.Show("Добавьте хотя бы одну позицию в счет перед его созданием");
-          //       return;
-          //  }
-
-            // Проверяем, что все позиции накладной заполнены
             if (!AreInvoiceItemsValid())
             {
                 MessageBox.Show("Заполните все позиции накладной перед созданием");
                 return;
             }
-
             connection.Open();
             string query = "INSERT INTO Invoices (InvoiceDate, SupplierID, WarehouseID, PersonID) VALUES (@date, @supplier, @warehouse, @person)";
             MySqlCommand cmd = new MySqlCommand(query, connection);
@@ -291,7 +257,6 @@ namespace MiSPIS
             cmd.Parameters.AddWithValue("@person",comboBoxResponsiblePersons.SelectedValue);
             cmd.ExecuteNonQuery();
             long invoiceId = cmd.LastInsertedId;
-
             foreach (DataGridViewRow row in dataGridViewInvoiceItems.Rows)
             {
                 if (row.IsNewRow) continue;
@@ -308,32 +273,25 @@ namespace MiSPIS
             LoadInvoices();
             AddToStock(); // Добавляем товары на склад после создания накладной
         }
-
         private void buttonShowStock_Click(object sender, EventArgs e)
         {
             FormStock formStock = new FormStock();
             formStock.Show();
         }
-
         private void AddToStock()
         {
             int warehouseID = Convert.ToInt32(comboBoxWarehouses.SelectedValue);
-
             connection.Open();
-
             foreach (DataGridViewRow row in dataGridViewInvoiceItems.Rows)
             {
                 if (row.IsNewRow) continue;
-
                 int productID = Convert.ToInt32(row.Cells["ProductID"].Value);
                 int quantity = Convert.ToInt32(row.Cells["Quantity"].Value);
-
                 // Проверяем, существует ли уже такая позиция товара на складе
                 string query = "SELECT * FROM stock WHERE ProductID = @productID AND WarehouseID = @warehouseID";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("@productID", productID);
                 cmd.Parameters.AddWithValue("@warehouseID", warehouseID);
-
                 MySqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {
@@ -358,11 +316,9 @@ namespace MiSPIS
                     cmd.ExecuteNonQuery();
                 }
             }
-
             connection.Close();
             MessageBox.Show("Товары успешно добавлены на склад или обновлены!");
         }
-
         private void LoadInvoices()
         {
             string query = "SELECT InvoiceID, InvoiceDate, " +
@@ -373,7 +329,6 @@ namespace MiSPIS
             adapter = new MySqlDataAdapter(query, connection);
             invoicesTable = new DataTable();
             adapter.Fill(invoicesTable);
-
             dataGridViewInvoices.DataSource = invoicesTable;
         }
         private void dataGridViewInvoices_SelectionChanged(object sender, EventArgs e)
@@ -394,16 +349,13 @@ namespace MiSPIS
             adapter.SelectCommand.Parameters.AddWithValue("@invoiceId", invoiceId);
             invoiceItemsTable = new DataTable();
             adapter.Fill(invoiceItemsTable);
-
             // Очищаем строки dataGridViewInvoiceItems перед добавлением новых данных
             dataGridViewInvoiceItems.Rows.Clear();
-
             foreach (DataRow row in invoiceItemsTable.Rows)
             {
                 dataGridViewInvoiceItems.Rows.Add(row["ProductID"], row["ProductName"], row["Quantity"], row["Price"], row["Total"]);
             }
         }
-
         private void buttonDeleteInvoiceItem_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dataGridViewInvoiceItems.SelectedRows)

@@ -1,12 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MiSPIS.Connection;
 
@@ -23,7 +18,6 @@ namespace MiSPIS
         {
             String loginUser = loginField.Text; // Получили введенный логин
             String passUser = md5.hashPassword(passwordField.Text); // Получили введенный пароль
-
             DB db = new DB();
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
@@ -42,14 +36,12 @@ namespace MiSPIS
             else
                 MessageBox.Show("Печалька");
         }
-
         private void RegisterLabel_Click(object sender, EventArgs e)
         {       
             this.Hide();
             RegisterForm registerForm = new RegisterForm();
             registerForm.Show();
         }
-
         Point lastPoint;
         private void LoginForm_MouseMove(object sender, MouseEventArgs e)
         {
@@ -59,17 +51,14 @@ namespace MiSPIS
                 this.Top += e.Y - lastPoint.Y;
             }
         }
-
         private void LoginForm_MouseDown(object sender, MouseEventArgs e)
         {
             lastPoint = new Point(e.X, e.Y);
         }
-
         private void buttonClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void ShowPassword_CheckedChanged(object sender, EventArgs e)
         {
             if (ShowPassword.Checked)

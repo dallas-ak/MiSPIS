@@ -7,17 +7,13 @@ namespace MiSPIS
 {
     public partial class FormSales : Form
     {
-        private readonly IDataAccess dataAccess;
         public string LastErrorMessage { get; private set; }
-
         private MySqlConnection connection;
         private string connectionString = "server=localhost;port=3306;username=root;password=root;database=MiSPIS;";
         MySqlDataAdapter adapter;
         DataTable clientsTable, warehousesTable, responsiblePersonsTable, productsTable, salesItemsTable;
-
-        public FormSales(IDataAccess dataAccess)
+        public FormSales()
         {
-            this.dataAccess = dataAccess;
             InitializeComponent();
             InitializeDatabaseConnection();
             InitializeDataGridViewColumns();
@@ -27,18 +23,15 @@ namespace MiSPIS
             LoadProducts();
             LoadSales();
         }
-
         private void InitializeDatabaseConnection()
         {
             connection = new MySqlConnection(connectionString);
         }
-
         private void InitializeDataGridViewColumns()
         {
             // Инициализация столбцов для dataGridViewSales
             dataGridViewSales.AutoGenerateColumns = false;
             dataGridViewSales.Columns.Clear();
-
             DataGridViewTextBoxColumn saleIdColumn = new DataGridViewTextBoxColumn
             {
                 HeaderText = "Номер",
@@ -67,7 +60,6 @@ namespace MiSPIS
                 DataPropertyName = "Client",
                 ReadOnly = true
             };
-
             DataGridViewTextBoxColumn responsiblePersonColumn = new DataGridViewTextBoxColumn
             {
                 HeaderText = "Менеджер",
@@ -75,7 +67,6 @@ namespace MiSPIS
                 DataPropertyName = "ResponsiblePerson",
                 ReadOnly = true
             };
-
             dataGridViewSales.Columns.AddRange(new DataGridViewColumn[]
             {
                 saleIdColumn,
@@ -84,11 +75,9 @@ namespace MiSPIS
                 clientColumn,
                 responsiblePersonColumn
             });
-
             // Инициализация столбцов для dataGridViewSaleItems
             dataGridViewSaleItems.AutoGenerateColumns = false;
             dataGridViewSaleItems.Columns.Clear();
-
             DataGridViewTextBoxColumn productIdColumn = new DataGridViewTextBoxColumn
             {
                 HeaderText = "Номер",
@@ -124,7 +113,6 @@ namespace MiSPIS
                 DataPropertyName = "Total",
                 ReadOnly = true
             };
-
             dataGridViewSaleItems.Columns.AddRange(new DataGridViewColumn[]
             {
                 productIdColumn,
@@ -134,7 +122,6 @@ namespace MiSPIS
                 totalColumn
             });
         }
-
         private void LoadClients()
         {
             string query = "SELECT ClientID, ClientName FROM Clients";
@@ -200,7 +187,6 @@ namespace MiSPIS
             adapter.Fill(salesTable);
             dataGridViewSales.DataSource = salesTable;
         }
-
         private void buttonAddToSale_Click(object sender, EventArgs e)
         {
             // Проверяем, что все поля заполнены
@@ -211,7 +197,6 @@ namespace MiSPIS
                 MessageBox.Show("Добавьте данные о товаре");
                 return;
             }
-
             // Получаем ProductID из выбранного продукта
             int productId = (int)comboBoxProducts.SelectedValue;
 
@@ -224,14 +209,12 @@ namespace MiSPIS
                 MessageBox.Show("Проверьте количество товара");
                 return;
             }
-
             // Парсим цену
             if (!decimal.TryParse(textBoxPrice.Text, out decimal price))
             {
                 MessageBox.Show("Проверьте цену товара");
                 return;
             }
-
             // Проверяем, существует ли уже такая позиция товара в dataGridViewSaleItems
             bool itemExists = false;
             foreach (DataGridViewRow row in dataGridViewSaleItems.Rows)
@@ -250,7 +233,6 @@ namespace MiSPIS
                     break;
                 }
             }
-
             if (!itemExists)
             {
                 // Если позиция товара не существует, добавляем новую строку
@@ -258,7 +240,6 @@ namespace MiSPIS
                 dataGridViewSaleItems.Rows.Add(productId, productName, quantity, price, total);
             }
         }
-
         private void buttonCreateSale_Click(object sender, EventArgs e)
         {
             // Проверяем, что есть хотя бы одна строка в dataGridViewSaleItems
@@ -267,19 +248,15 @@ namespace MiSPIS
                 MessageBox.Show("Добавьте хотя бы одну позицию в продажу перед ее созданием");
                 return;
             }
-
             // Проверяем, что все позиции продажи заполнены
             if (!AreSaleItemsValid())
             {
                 MessageBox.Show("Заполните все позиции продажи перед созданием");
                 return;
             }
-
             connection.Open();
-
             // Генерация уникального идентификатора транзакции
             string transactionId = GenerateTransactionId();
-
             // Вставка продажи
             string query = "INSERT INTO Sales (SaleDate, ClientID, TransactionID, PersonID) VALUES (@date, @client, @transactionId, @person)";
             MySqlCommand cmd = new MySqlCommand(query, connection);
@@ -289,29 +266,24 @@ namespace MiSPIS
             cmd.Parameters.AddWithValue("@person", comboBoxResponsiblePersons.SelectedValue);
             cmd.ExecuteNonQuery();
             long saleId = cmd.LastInsertedId;
-
             // Проверка наличия товаров на складе и обновление их количества
             foreach (DataGridViewRow row in dataGridViewSaleItems.Rows)
             {
                 if (row.IsNewRow) continue;
-
                 int productID = Convert.ToInt32(row.Cells["ProductID"].Value);
                 int quantity = Convert.ToInt32(row.Cells["Quantity"].Value);
                 int warehouseID = Convert.ToInt32(comboBoxWarehouses.SelectedValue);
-
                 // Проверяем, существует ли уже такая позиция товара на складе
                 query = "SELECT Quantity FROM stock WHERE ProductID = @productID AND WarehouseID = @warehouseID";
                 cmd = new MySqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("@productID", productID);
                 cmd.Parameters.AddWithValue("@warehouseID", warehouseID);
-
                 MySqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {
                     reader.Read();
                     int stockQuantity = reader.GetInt32("Quantity");
                     reader.Close();
-
                     if (stockQuantity >= quantity)
                     {
                         // Обновляем количество товара на складе
@@ -338,7 +310,6 @@ namespace MiSPIS
                     return;
                 }
             }
-
             // Вставка позиций продажи
             foreach (DataGridViewRow row in dataGridViewSaleItems.Rows)
             {
@@ -353,12 +324,10 @@ namespace MiSPIS
                 cmd.Parameters.AddWithValue("@total", row.Cells["Total"].Value);
                 cmd.ExecuteNonQuery();
             }
-
             connection.Close();
             LoadSales();
             MessageBox.Show("Продажа успешно создана и товары обновлены на складе!");
         }
-
         private bool AreSaleItemsValid()
         {
             foreach (DataGridViewRow row in dataGridViewSaleItems.Rows)
@@ -374,20 +343,16 @@ namespace MiSPIS
             }
             return true;
         }
-
         private void buttonShowStock_Click(object sender, EventArgs e)
         {
             FormStock formStock = new FormStock();
             formStock.Show();
         }
-
         private string GenerateTransactionId()
         {
             Random random = new Random();
             return random.Next(100000000, 999999999).ToString();
         }
-
-
         private void dataGridViewSales_SelectionChanged(object sender, EventArgs e)
         {
             if (dataGridViewSales.SelectedRows.Count > 0)
@@ -396,7 +361,6 @@ namespace MiSPIS
                 LoadSaleItems(saleId);
             }
         }
-
         private void LoadSaleItems(int saleId)
         {
             string query = "SELECT ProductID, " +
@@ -407,7 +371,6 @@ namespace MiSPIS
             adapter.SelectCommand.Parameters.AddWithValue("@saleId", saleId);
             salesItemsTable = new DataTable();
             adapter.Fill(salesItemsTable);
-
             // Очищаем строки dataGridViewSaleItems перед добавлением новых данных
             dataGridViewSaleItems.Rows.Clear();
 
@@ -416,7 +379,6 @@ namespace MiSPIS
                 dataGridViewSaleItems.Rows.Add(row["ProductID"], row["ProductName"], row["Quantity"], row["Price"], row["Total"]);
             }
         }
-
         private void buttonDeleteSaleItem_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dataGridViewSaleItems.SelectedRows)
@@ -424,6 +386,5 @@ namespace MiSPIS
                 dataGridViewSaleItems.Rows.Remove(row);
             }
         }
-
     }
 }

@@ -9,19 +9,16 @@ namespace MiSPIS
     {
         private MySqlConnection connection;
         private string connectionString = "server=localhost;port=3306;username=root;password=root;database=MiSPIS;";
-
         public FormProducts()
         {
             InitializeComponent();
             InitializeDatabaseConnection();
             LoadProducts();
         }
-
         private void InitializeDatabaseConnection()
         {
             connection = new MySqlConnection(connectionString);
         }
-
         private void LoadProducts()
         {
             string query = "SELECT ProductID, ProductName FROM Products";
@@ -30,7 +27,6 @@ namespace MiSPIS
                 DataTable ProductsTable = new DataTable();
                 adapter.Fill(ProductsTable);
                 dataGridViewProducts.DataSource = ProductsTable;
-
                 // Set column headers in Russian
                 dataGridViewProducts.Columns.Clear();
 
@@ -58,7 +54,6 @@ namespace MiSPIS
                 MessageBox.Show("Пожалуйста, введите название товара");
                 return;
             }
-
             string query = "INSERT INTO Products (ProductName) VALUES (@ProductName)";
             using (MySqlCommand command = new MySqlCommand(query, connection))
             {
@@ -78,11 +73,9 @@ namespace MiSPIS
                     connection.Close();
                 }
             }
-
             LoadProducts();
             textBoxProductName.Clear();
         }
-
         private void buttonDeleteProduct_Click(object sender, EventArgs e)
         {
             if (dataGridViewProducts.SelectedRows.Count == 0)
@@ -90,11 +83,9 @@ namespace MiSPIS
                 MessageBox.Show("Пожалуйста, выберите товар для удаления");
                 return;
             }
-
             if (MessageBox.Show("Вы уверены, что хотите удалить этот товар?", "Подтверждение", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 int selectedProductID = Convert.ToInt32(dataGridViewProducts.SelectedRows[0].Cells["ProductID"].Value);
-
                 string query = "DELETE FROM Products WHERE ProductID = @ProductID";
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
@@ -114,7 +105,6 @@ namespace MiSPIS
                         connection.Close();
                     }
                 }
-
                 LoadProducts();
             }
         }

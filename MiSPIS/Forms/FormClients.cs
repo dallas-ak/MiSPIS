@@ -9,19 +9,16 @@ namespace MiSPIS
     {
         private MySqlConnection connection;
         private string connectionString = "server=localhost;port=3306;username=root;password=root;database=MiSPIS;";
-
         public FormClients()
         {
             InitializeComponent();
             InitializeDatabaseConnection();
             LoadClients();
         }
-
         private void InitializeDatabaseConnection()
         {
             connection = new MySqlConnection(connectionString);
         }
-
         private void LoadClients()
         {
             string query = "SELECT ClientID, ClientName FROM Clients";
@@ -30,10 +27,7 @@ namespace MiSPIS
                 DataTable ClientsTable = new DataTable();
                 adapter.Fill(ClientsTable);
                 dataGridViewClients.DataSource = ClientsTable;
-
-                // Set column headers in Russian
                 dataGridViewClients.Columns.Clear();
-
                 dataGridViewClients.Columns.Add(new DataGridViewTextBoxColumn
                 {
                     DataPropertyName = "ClientID",
@@ -58,7 +52,6 @@ namespace MiSPIS
                 MessageBox.Show("Пожалуйста, введите имя клиента");
                 return;
             }
-
             string query = "INSERT INTO Clients (ClientName) VALUES (@ClientName)";
             using (MySqlCommand command = new MySqlCommand(query, connection))
             {
@@ -78,11 +71,9 @@ namespace MiSPIS
                     connection.Close();
                 }
             }
-
             LoadClients();
             textBoxClientName.Clear();
         }
-
         private void buttonDeleteClient_Click(object sender, EventArgs e)
         {
             if (dataGridViewClients.SelectedRows.Count == 0)
@@ -90,7 +81,6 @@ namespace MiSPIS
                 MessageBox.Show("Пожалуйста, выберите клиент для удаления");
                 return;
             }
-
             if (MessageBox.Show("Вы уверены, что хотите удалить этот клиент?", "Подтверждение", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 int selectedClientID = Convert.ToInt32(dataGridViewClients.SelectedRows[0].Cells["ClientID"].Value);
@@ -114,7 +104,6 @@ namespace MiSPIS
                         connection.Close();
                     }
                 }
-
                 LoadClients();
             }
         }

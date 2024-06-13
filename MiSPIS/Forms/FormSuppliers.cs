@@ -9,19 +9,16 @@ namespace MiSPIS
     {
         private MySqlConnection connection;
         private string connectionString = "server=localhost;port=3306;username=root;password=root;database=MiSPIS;";
-
         public FormSuppliers()
         {
             InitializeComponent();
             InitializeDatabaseConnection();
             LoadSuppliers();
         }
-
         private void InitializeDatabaseConnection()
         {
             connection = new MySqlConnection(connectionString);
         }
-
         private void LoadSuppliers()
         {
             string query = "SELECT SupplierID, SupplierName FROM Suppliers";
@@ -33,7 +30,6 @@ namespace MiSPIS
 
                 // Set column headers in Russian
                 dataGridViewSuppliers.Columns.Clear();
-
                 dataGridViewSuppliers.Columns.Add(new DataGridViewTextBoxColumn
                 {
                     DataPropertyName = "SupplierID",
@@ -58,7 +54,6 @@ namespace MiSPIS
                 MessageBox.Show("Пожалуйста, введите имя склада");
                 return;
             }
-
             string query = "INSERT INTO Suppliers (SupplierName) VALUES (@SupplierName)";
             using (MySqlCommand command = new MySqlCommand(query, connection))
             {
@@ -82,7 +77,6 @@ namespace MiSPIS
             LoadSuppliers();
             textBoxSupplierName.Clear();
         }
-
         private void buttonDeleteSupplier_Click(object sender, EventArgs e)
         {
             if (dataGridViewSuppliers.SelectedRows.Count == 0)
@@ -90,7 +84,6 @@ namespace MiSPIS
                 MessageBox.Show("Пожалуйста, выберите склад для удаления");
                 return;
             }
-
             if (MessageBox.Show("Вы уверены, что хотите удалить этот склад?", "Подтверждение", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 int selectedSupplierID = Convert.ToInt32(dataGridViewSuppliers.SelectedRows[0].Cells["SupplierID"].Value);

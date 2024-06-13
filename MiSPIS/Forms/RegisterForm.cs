@@ -1,16 +1,8 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using MiSPIS.Connection;
 
 namespace MiSPIS
@@ -31,7 +23,6 @@ namespace MiSPIS
             passwordField.ForeColor = Color.Gray;
             passwordField.UseSystemPasswordChar = true;
         }
-
         private void userNameField_Enter(object sender, EventArgs e)
         {
             if (userNameField.Text == "Введите имя")
@@ -40,7 +31,6 @@ namespace MiSPIS
                 userNameField.ForeColor = Color.Black;
             }
         }
-
         private void userNameField_Leave(object sender, EventArgs e)
         {
             if (userNameField.Text == "")
@@ -50,7 +40,6 @@ namespace MiSPIS
             }
 
         }
-
         private void userSurnameField_Enter(object sender, EventArgs e)
         {
             if (userSurnameField.Text == "Введите фамилию")
@@ -59,7 +48,6 @@ namespace MiSPIS
                 userSurnameField.ForeColor = Color.Black;
             }
         }
-
         private void userSurnameField_Leave(object sender, EventArgs e)
         {
             if (userSurnameField.Text == "")
@@ -68,7 +56,6 @@ namespace MiSPIS
                 userSurnameField.ForeColor = Color.Gray;
             }
         }
-
         private void loginField_Enter(object sender, EventArgs e)
         {
             if (loginField.Text == "Введите имя пользователя")
@@ -86,8 +73,6 @@ namespace MiSPIS
                 loginField.ForeColor = Color.Gray;
             }
         }
-
-
         private void passwordField_Enter(object sender, EventArgs e)
         {
             if (passwordField.Text == "Введите пароль")
@@ -96,7 +81,6 @@ namespace MiSPIS
                 passwordField.ForeColor = Color.Black;
             }
         }
-
         private void passwordField_Leave(object sender, EventArgs e)
         {
             if (passwordField.Text == "")
@@ -105,7 +89,6 @@ namespace MiSPIS
                 passwordField.ForeColor = Color.Gray;
             }
         }
-
         Point lastPoint;
         private void RegisterForm_MouseMove(object sender, MouseEventArgs e)
         {
@@ -116,19 +99,14 @@ namespace MiSPIS
 
             }
         }
-
         private void RegisterForm_MouseDown(object sender, MouseEventArgs e)
         {
             lastPoint = new Point(e.X, e.Y);
         }
-
         private void buttonClose_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
-
-
         private void buttonRegister_Click(object sender, EventArgs e)
         {
             if (userNameField.Text == "Введите имя" || userNameField.Text == "" || userNameField.Text == " ")
@@ -136,19 +114,16 @@ namespace MiSPIS
                 MessageBox.Show("Введите имя");
                 return;
             }
-
             if (userSurnameField.Text == "Введите фамилию" || userSurnameField.Text == "" || userSurnameField.Text == " ")
             {
                 MessageBox.Show("Введите фамилию");
                 return;
             }
-
             if (loginField.Text == "Введите имя пользователя" || loginField.Text == "" || loginField.Text == " ")
             {
                 MessageBox.Show("Введите имя пользователя");
                 return;
             }
-
             if (passwordField.Text == "" || passwordField.Text == " ")
             {
                 MessageBox.Show("Введите пароль");
@@ -160,14 +135,11 @@ namespace MiSPIS
 
             DB db = new DB();
             MySqlCommand command = new MySqlCommand("INSERT INTO `users` (`login`, `pass`, `name`, `surname`) VALUES (@login, @pass, @name, @surname)", db.getConnection());
-
             command.Parameters.Add("@login", MySqlDbType.VarChar).Value = loginField.Text;
             command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = md5.hashPassword(passwordField.Text);
             command.Parameters.Add("@name", MySqlDbType.VarChar).Value = userNameField.Text;
             command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = userSurnameField.Text;
-
             db.OpenConnection();
-
             if (command.ExecuteNonQuery() == 1)
                 MessageBox.Show("Успешная регистрация");
             else
@@ -175,21 +147,15 @@ namespace MiSPIS
 
             db.closeConnection();
         }
-
         public Boolean isUserExists()
         {
             DB db = new DB();
-
             DataTable table = new DataTable();
-
             MySqlDataAdapter adapter = new MySqlDataAdapter();
-
             MySqlCommand command = new MySqlCommand("SELECT * FROM `users` WHERE `login` = @uL", db.getConnection());
             command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = loginField.Text; // проверкавведеного логина на наличие в БД
-
             adapter.SelectCommand = command;
             adapter.Fill(table);
-
             if (table.Rows.Count > 0)
             {
                 MessageBox.Show("Такой пользователь уже зарегистрирован");
@@ -199,14 +165,12 @@ namespace MiSPIS
             else
                 return false;
         }
-
         private void AuthorizationLabel_Click(object sender, EventArgs e)
         {
             this.Hide();
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
         }
-
         private void ShowPassword_CheckedChanged(object sender, EventArgs e)
         {
             if (ShowPassword.Checked)
@@ -219,5 +183,4 @@ namespace MiSPIS
             }
         }
     }
-
 }
