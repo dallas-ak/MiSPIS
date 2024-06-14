@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-06-14T11:15:50.002Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" etag="_4OqTCiexpI14BDuzDNp" version="24.5.4" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-14T11:20:19.319Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" etag="xHs67gSc9xdBC-oJpLk4" version="24.5.4" type="github">
   <diagram name="Страница — 1" id="gPVuAKhzFMYL5_pK9rEg">
-    <mxGraphModel dx="636" dy="316" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+    <mxGraphModel dx="618" dy="307" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -733,7 +733,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="UiJpd1ssoH22hnzhnxBL-137" value="Данные для заполнения накладной" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="UiJpd1ssoH22hnzhnxBL-137" value="Данные покупки" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="430" y="610" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="UiJpd1ssoH22hnzhnxBL-138" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="UiJpd1ssoH22hnzhnxBL-137">
@@ -799,6 +799,37 @@
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="1080" y="690" as="sourcePoint" />
             <mxPoint x="1130" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UiJpd1ssoH22hnzhnxBL-151" value="Данные для продажи" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="740" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="UiJpd1ssoH22hnzhnxBL-152" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="UiJpd1ssoH22hnzhnxBL-151">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="320" y="900" as="sourcePoint" />
+            <mxPoint x="420" y="720" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="400" y="900" />
+              <mxPoint x="400" y="800" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UiJpd1ssoH22hnzhnxBL-153" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" target="UiJpd1ssoH22hnzhnxBL-151">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="344" y="785" as="sourcePoint" />
+            <mxPoint x="423.9999999999999" y="785" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UiJpd1ssoH22hnzhnxBL-154" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="UiJpd1ssoH22hnzhnxBL-151">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="170" y="590" as="sourcePoint" />
+            <mxPoint x="415" y="757" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="190" y="590" />
+              <mxPoint x="190" y="720" />
+              <mxPoint x="410" y="720" />
+              <mxPoint x="410" y="770" />
+            </Array>
           </mxGeometry>
         </mxCell>
       </root>
