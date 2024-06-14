@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-06-14T09:05:22.243Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" etag="Ikawgy6SVkoxwRDdDAdn" version="24.5.4" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-14T09:07:16.252Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" etag="EHCfiKL_s0ZnWEBsVO9c" version="24.5.4" type="github">
   <diagram name="Страница — 1" id="Pa7o1rqoNR2MJulHMw20">
     <mxGraphModel dx="724" dy="360" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -727,6 +727,36 @@
         </mxCell>
         <mxCell id="nbALkBVCZ8IrskfFhHtM-210" value="Готовое&amp;nbsp;&lt;div style=&quot;font-size: 8px;&quot;&gt;рабочее&amp;nbsp;&lt;/div&gt;&lt;div style=&quot;font-size: 8px;&quot;&gt;ПО&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=8;" vertex="1" parent="1">
           <mxGeometry x="1134" y="1184" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nbALkBVCZ8IrskfFhHtM-211" value="Форма&lt;div style=&quot;font-size: 9px;&quot;&gt;создана&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="780.25" y="378" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nbALkBVCZ8IrskfFhHtM-212" value="Форма&lt;div style=&quot;font-size: 9px;&quot;&gt;создана&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="930.75" y="377" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nbALkBVCZ8IrskfFhHtM-213" value="Форма&lt;div style=&quot;font-size: 9px;&quot;&gt;создана&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="1085.75" y="368.49" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nbALkBVCZ8IrskfFhHtM-214" value="Форма&lt;div style=&quot;font-size: 9px;&quot;&gt;создана&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="1228.75" y="371.49" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nbALkBVCZ8IrskfFhHtM-215" value="Форма&lt;div style=&quot;font-size: 9px;&quot;&gt;создана&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="1378.75" y="368.49" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nbALkBVCZ8IrskfFhHtM-216" value="Форма&lt;div style=&quot;font-size: 9px;&quot;&gt;создана&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="929.75" y="723" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nbALkBVCZ8IrskfFhHtM-217" value="Форма&lt;div style=&quot;font-size: 9px;&quot;&gt;создана&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="717" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nbALkBVCZ8IrskfFhHtM-218" value="Форма&lt;div style=&quot;font-size: 9px;&quot;&gt;создана&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="1228.75" y="717" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nbALkBVCZ8IrskfFhHtM-219" value="Форма&lt;div style=&quot;font-size: 9px;&quot;&gt;создана&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="1002" y="1030" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nbALkBVCZ8IrskfFhHtM-220" value="Форма&lt;div style=&quot;font-size: 9px;&quot;&gt;создана&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="1218" y="1030" width="60" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
