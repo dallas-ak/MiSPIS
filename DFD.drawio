@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-06-14T10:27:40.841Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" etag="DGksDwNidxq6rVj-v0DD" version="24.5.4" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-14T10:29:43.852Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" etag="Cq_AsiXeqHPNKePA9_j4" version="24.5.4" type="github">
   <diagram name="Страница — 1" id="gPVuAKhzFMYL5_pK9rEg">
-    <mxGraphModel dx="1050" dy="522" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+    <mxGraphModel dx="1500" dy="746" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -314,7 +314,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="UiJpd1ssoH22hnzhnxBL-10" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: initial; text-wrap: nowrap;&quot;&gt;&lt;font size=&quot;1&quot;&gt;Данные о товарах&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="790" y="423" width="80" height="20" as="geometry" />
+          <mxGeometry x="780" y="423" width="80" height="20" as="geometry" />
         </mxCell>
         <mxCell id="UiJpd1ssoH22hnzhnxBL-11" value="Ответ об успешном создании или ошибке" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="650" y="540" width="260" height="30" as="geometry" />
@@ -550,6 +550,24 @@
               <mxPoint x="1390" y="960" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="UiJpd1ssoH22hnzhnxBL-66" value="Ответ об успешном создании или ошибке" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="810" y="670" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UiJpd1ssoH22hnzhnxBL-67" value="Ответ об успешном создании или ошибке" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="970" y="790" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UiJpd1ssoH22hnzhnxBL-68" value="Ответ об успешном создании или ошибке" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="930" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UiJpd1ssoH22hnzhnxBL-69" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: initial; text-wrap: nowrap;&quot;&gt;&lt;font size=&quot;1&quot;&gt;Данные о поставщиках&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="920" y="550" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="UiJpd1ssoH22hnzhnxBL-70" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: initial; text-wrap: nowrap;&quot;&gt;&lt;font size=&quot;1&quot;&gt;Данные о МОЛ&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="680" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="UiJpd1ssoH22hnzhnxBL-71" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: initial; text-wrap: nowrap;&quot;&gt;&lt;font size=&quot;1&quot;&gt;Данные о клиентах&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="807" width="80" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
