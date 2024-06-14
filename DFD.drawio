@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-06-14T22:31:06.292Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="yW8v-8OoMc6zdbFbPGc2" version="24.5.4" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-14T22:41:22.366Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="5eFfqRBuZBAQ2TLqIiF-" version="24.5.4" type="github">
   <diagram name="Страница — 1" id="gPVuAKhzFMYL5_pK9rEg">
     <mxGraphModel dx="989" dy="2096" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2336" pageHeight="1654" math="0" shadow="0">
       <root>
@@ -1519,6 +1519,27 @@
         </mxCell>
         <mxCell id="r9dMIBAeSBHFJQIura6h-19" value="Ввод данных о продаже" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;" vertex="1" parent="1">
           <mxGeometry x="758" y="660" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="r9dMIBAeSBHFJQIura6h-20" value="Выборка данных" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="170" y="610" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="r9dMIBAeSBHFJQIura6h-21" value="Выборка данных о товарах для отчета" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="930" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="r9dMIBAeSBHFJQIura6h-24" value="Выборка данных о клиентах для отчета" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="1115" y="949" width="190" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="r9dMIBAeSBHFJQIura6h-25" value="Выбор отчета" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="1549" y="946" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="r9dMIBAeSBHFJQIura6h-26" value="Выбор отчета" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="1664" y="944" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="r9dMIBAeSBHFJQIura6h-27" value="Выборка&lt;div&gt;&amp;nbsp;данных&amp;nbsp;&lt;/div&gt;&lt;div&gt;о продажах&amp;nbsp;&lt;/div&gt;&lt;div&gt;для отчета&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="1707" y="880" width="70" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="r9dMIBAeSBHFJQIura6h-29" value="Выборка&lt;div&gt;&amp;nbsp;данных&amp;nbsp;&lt;/div&gt;&lt;div&gt;о позициях&lt;/div&gt;&lt;div&gt;продажах&amp;nbsp;&lt;/div&gt;&lt;div&gt;для отчетов&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="1756" y="877" width="70" height="70" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
