@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-06-14T21:24:42.661Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="KFX09zCxBYgTKsdji5Wl" version="24.5.4" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-14T21:40:46.402Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="2Lmy6BOqL06X49Az6X-5" version="24.5.4" type="github">
   <diagram name="Страница — 1" id="gPVuAKhzFMYL5_pK9rEg">
-    <mxGraphModel dx="683" dy="1959" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2336" pageHeight="1654" math="0" shadow="0">
+    <mxGraphModel dx="819" dy="2020" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2336" pageHeight="1654" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1465,6 +1465,12 @@
         </mxCell>
         <mxCell id="a8FFlU--SdQViIj3_Now-43" value="Переход&amp;nbsp;&lt;div&gt;к отчетам&amp;nbsp;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;" vertex="1" parent="1">
           <mxGeometry x="1735" y="720" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="a8FFlU--SdQViIj3_Now-45" value="Взаимодействие&amp;nbsp;&lt;div style=&quot;font-size: 9px;&quot;&gt;с пользователем&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="1820" y="410" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="a8FFlU--SdQViIj3_Now-46" value="Получение данных&lt;div style=&quot;font-size: 9px;&quot;&gt;&amp;nbsp;об остатках на складах&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="1720" y="458" width="120" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
