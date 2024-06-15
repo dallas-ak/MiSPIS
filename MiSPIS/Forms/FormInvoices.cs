@@ -6,13 +6,12 @@ using MySql.Data.MySqlClient;
 namespace MiSPIS
 {
     public partial class FormInvoices : Form
-    {
-        public string LastErrorMessage { get; private set; }         
+    {     
         private MySqlConnection connection;
         private string connectionString = "server=localhost;port=3306;username=root;password=root;database=MiSPIS;";
         MySqlDataAdapter adapter;
         DataTable productsTable, suppliersTable, invoicesTable, invoiceItemsTable, warehousesTable, responsiblePersonsTable;
-        public FormInvoices()
+        internal FormInvoices()
         {
             InitializeComponent();
             InitializeDatabaseConnection();
@@ -23,12 +22,12 @@ namespace MiSPIS
             LoadProducts();
             LoadInvoices();
         }
-        private void InitializeDatabaseConnection()
+        public void InitializeDatabaseConnection()
         {
           //   string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MiSPIS"].ConnectionString;
              connection = new MySqlConnection(connectionString);
         }
-        private void InitializeDataGridViewColumns()
+        public void InitializeDataGridViewColumns()
         {
             // Initialize columns for dataGridViewInvoices
             dataGridViewInvoiceItems.AutoGenerateColumns = false;
@@ -123,7 +122,7 @@ namespace MiSPIS
                 totalColumn
             });
         }
-        private void LoadSuppliers() 
+        public void LoadSuppliers() 
         {
             string query = "SELECT SupplierID, SupplierName FROM Suppliers";
             adapter = new MySqlDataAdapter(query, connection);
@@ -134,7 +133,7 @@ namespace MiSPIS
             comboBoxSuppliers.ValueMember = "SupplierID"; 
             comboBoxSuppliers.SelectedIndex = -1;
         }
-        private void LoadWarehouses() 
+        public void LoadWarehouses() 
         { 
             string query = "SELECT WarehouseID, WarehouseName FROM Warehouses"; 
             adapter = new MySqlDataAdapter(query, connection); 
@@ -145,7 +144,7 @@ namespace MiSPIS
             comboBoxWarehouses.ValueMember = "WarehouseID"; 
             comboBoxWarehouses.SelectedIndex = -1; 
         }
-        private void LoadResponsiblePersons() 
+        public void LoadResponsiblePersons() 
         { 
             string query = "SELECT PersonID, PersonName FROM ResponsiblePersons"; 
             adapter = new MySqlDataAdapter(query, connection); 
@@ -156,7 +155,7 @@ namespace MiSPIS
             comboBoxResponsiblePersons.ValueMember = "PersonID"; 
             comboBoxResponsiblePersons.SelectedIndex = -1; 
         }
-        private void LoadProducts()
+        public void LoadProducts()
         {
             string query = "SELECT ProductID, ProductName FROM Products";
             adapter = new MySqlDataAdapter(query, connection);
@@ -167,7 +166,7 @@ namespace MiSPIS
             comboBoxProducts.ValueMember = "ProductID";
             comboBoxProducts.SelectedIndex = -1;
         }
-        private void buttonAddToInvoice_Click(object sender, EventArgs e)
+        public void buttonAddToInvoice_Click(object sender, EventArgs e)
         {
             // Проверяем, что все поля заполнены
             if (string.IsNullOrWhiteSpace(comboBoxProducts.Text) ||
@@ -234,15 +233,10 @@ namespace MiSPIS
             }
             return true;
         }
-        private void buttonCreateInvoice_Click(object sender, EventArgs e)
+        public void buttonCreateInvoice_Click(object sender, EventArgs e)
         {
             // Проверяем, что есть хотя бы одна строка в dataGridViewInvoiceItems
-            if (dataGridViewInvoiceItems.Rows.Count == 0)
-            {
-                LastErrorMessage = "Проверка теста на добавление";
-                MessageBox.Show(LastErrorMessage);
-                return;
-            }
+
             if (!AreInvoiceItemsValid())
             {
                 MessageBox.Show("Заполните все позиции накладной перед созданием");
@@ -273,12 +267,12 @@ namespace MiSPIS
             LoadInvoices();
             AddToStock(); // Добавляем товары на склад после создания накладной
         }
-        private void buttonShowStock_Click(object sender, EventArgs e)
+        public void buttonShowStock_Click(object sender, EventArgs e)
         {
             FormStock formStock = new FormStock();
             formStock.Show();
         }
-        private void AddToStock()
+        public void AddToStock()
         {
             int warehouseID = Convert.ToInt32(comboBoxWarehouses.SelectedValue);
             connection.Open();
@@ -319,7 +313,7 @@ namespace MiSPIS
             connection.Close();
             MessageBox.Show("Товары успешно добавлены на склад или обновлены!");
         }
-        private void LoadInvoices()
+        public void LoadInvoices()
         {
             string query = "SELECT InvoiceID, InvoiceDate, " +
                            "(SELECT SupplierName FROM Suppliers WHERE SupplierID = Invoices.SupplierID) AS Supplier, " +
@@ -331,7 +325,7 @@ namespace MiSPIS
             adapter.Fill(invoicesTable);
             dataGridViewInvoices.DataSource = invoicesTable;
         }
-        private void dataGridViewInvoices_SelectionChanged(object sender, EventArgs e)
+        public void dataGridViewInvoices_SelectionChanged(object sender, EventArgs e)
         {
             if (dataGridViewInvoices.SelectedRows.Count > 0)
             {
@@ -339,7 +333,7 @@ namespace MiSPIS
                 LoadInvoiceItems(invoiceId);
             }
         }
-        private void LoadInvoiceItems(int invoiceId)
+        public void LoadInvoiceItems(int invoiceId)
         {
             string query = "SELECT ProductID, " +
                            "(SELECT ProductName FROM Products WHERE ProductID = InvoiceItems.ProductID) AS ProductName, " +
@@ -356,7 +350,7 @@ namespace MiSPIS
                 dataGridViewInvoiceItems.Rows.Add(row["ProductID"], row["ProductName"], row["Quantity"], row["Price"], row["Total"]);
             }
         }
-        private void buttonDeleteInvoiceItem_Click(object sender, EventArgs e)
+        public void buttonDeleteInvoiceItem_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dataGridViewInvoiceItems.SelectedRows)
             {

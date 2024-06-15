@@ -28,7 +28,7 @@ namespace MiSPIS
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        public void InitializeComponent()
         {
             this.dataGridViewInvoiceItems = new System.Windows.Forms.DataGridView();
             this.comboBoxProducts = new System.Windows.Forms.ComboBox();
@@ -69,8 +69,8 @@ namespace MiSPIS
             // 
             // comboBoxProducts
             // 
-            this.comboBoxProducts.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBoxProducts.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+          //  this.comboBoxProducts.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+//this.comboBoxProducts.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxProducts.Location = new System.Drawing.Point(140, 90);
             this.comboBoxProducts.Name = "comboBoxProducts";
             this.comboBoxProducts.Size = new System.Drawing.Size(170, 21);
@@ -111,8 +111,8 @@ namespace MiSPIS
             // 
             // comboBoxSuppliers
             // 
-            this.comboBoxSuppliers.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBoxSuppliers.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+   //         this.comboBoxSuppliers.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+  //          this.comboBoxSuppliers.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxSuppliers.Location = new System.Drawing.Point(140, 35);
             this.comboBoxSuppliers.Name = "comboBoxSuppliers";
             this.comboBoxSuppliers.Size = new System.Drawing.Size(170, 21);
@@ -120,8 +120,8 @@ namespace MiSPIS
             // 
             // comboBoxWarehouses
             // 
-            this.comboBoxWarehouses.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBoxWarehouses.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+   //         this.comboBoxWarehouses.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+    //        this.comboBoxWarehouses.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxWarehouses.Location = new System.Drawing.Point(140, 63);
             this.comboBoxWarehouses.Name = "comboBoxWarehouses";
             this.comboBoxWarehouses.Size = new System.Drawing.Size(170, 21);
@@ -129,8 +129,8 @@ namespace MiSPIS
             // 
             // comboBoxResponsiblePersons
             // 
-            this.comboBoxResponsiblePersons.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBoxResponsiblePersons.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+      //      this.comboBoxResponsiblePersons.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+      //      this.comboBoxResponsiblePersons.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxResponsiblePersons.Location = new System.Drawing.Point(139, 299);
             this.comboBoxResponsiblePersons.Name = "comboBoxResponsiblePersons";
             this.comboBoxResponsiblePersons.Size = new System.Drawing.Size(166, 21);
@@ -271,24 +271,24 @@ namespace MiSPIS
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridViewInvoiceItems;
-        private System.Windows.Forms.ComboBox comboBoxProducts;
-        private System.Windows.Forms.TextBox textBoxQuantity;
-        private System.Windows.Forms.TextBox textBoxPrice;
-        private System.Windows.Forms.Button buttonAddToInvoice;
-        private System.Windows.Forms.Button buttonCreateInvoice;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridViewInvoices;
-        private System.Windows.Forms.Button buttonDeleteInvoiceItem;
-        private System.Windows.Forms.ComboBox comboBoxSuppliers;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePickerInvoiceDate;
-        private System.Windows.Forms.ComboBox comboBoxWarehouses;
-        private System.Windows.Forms.ComboBox comboBoxResponsiblePersons;
-        private Label label5;
-        private Label label6;
-        private Button buttonShowStock;
+        public System.Windows.Forms.DataGridView dataGridViewInvoiceItems;
+        public System.Windows.Forms.ComboBox comboBoxProducts;
+        public System.Windows.Forms.TextBox textBoxQuantity;
+        public System.Windows.Forms.TextBox textBoxPrice;
+        public System.Windows.Forms.Button buttonAddToInvoice;
+        public System.Windows.Forms.Button buttonCreateInvoice;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.DataGridView dataGridViewInvoices;
+        public System.Windows.Forms.Button buttonDeleteInvoiceItem;
+        public System.Windows.Forms.ComboBox comboBoxSuppliers;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.DateTimePicker dateTimePickerInvoiceDate;
+        public System.Windows.Forms.ComboBox comboBoxWarehouses;
+        public System.Windows.Forms.ComboBox comboBoxResponsiblePersons;
+        public Label label5;
+        public Label label6;
+        public Button buttonShowStock;
     }
 }
