@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using MiSPIS;
 using MySql.Data.MySqlClient;
 using Xunit;
-using MiSPIS;
 
 namespace MiSPIS.Tests
 {
@@ -60,16 +59,17 @@ namespace MiSPIS.Tests
             bool invoiceAdded = false;
             foreach (DataGridViewRow row in form.dataGridViewInvoices.Rows)
             {
-                if (row.Cells["Supplier"].Value.ToString() == "ООО Рога и Копыта" /* заменить на ожидаемое значение */ &&
-                    row.Cells["Warehouse"].Value.ToString() == "Основной склад" /* заменить на ожидаемое значение */ &&
-                    row.Cells["ResponsiblePerson"].Value.ToString() == "Иванов Иван Иванович" /* заменить на ожидаемое значение */)
+                if (row.Cells["Supplier"].Value.ToString() == "ООО Ромашка" /* заменить на ожидаемое значение */ &&
+                    row.Cells["Warehouse"].Value.ToString() == "Удаленный склад" /* заменить на ожидаемое значение */ &&
+                    row.Cells["ResponsiblePerson"].Value.ToString() == "Петров Пётр Петрович" /* заменить на ожидаемое значение */&&
+                    row.Cells["InvoiceID"].Value.ToString() == "104") /* заменить на ожидаемое значение */
                 {
                     invoiceAdded = true;
                     break;
                 }
             }
             // Проверяем результат
-            Assert.True(invoiceAdded, "Ошибка добавления");
+            Assert.True(invoiceAdded, "Накладная не найдена");
         }
     }
 }
